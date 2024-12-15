@@ -1,0 +1,208 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #FFFFFF;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #276561;
+    padding: 15px 50px;
+}
+
+.logo img {
+    height: 50px;
+    width: auto;
+}
+
+/* Menu Navigasi */
+.nav ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 16px;
+    position: relative; /* Dibutuhkan untuk garis bawah */
+    padding-bottom: 5px; /* Memberi ruang untuk garis */
+}
+
+.nav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px; /* Ketebalan garis */
+    background-color: #FFFFFF; /* Warna garis */
+    border-radius: 2px; /* Membuat garis lebih halus */
+}
+
+
+.login-btn {
+    background: none;
+    border: 1px solid #FFFFFF;
+    border-radius: 25px;
+    color: #FFFFFF;
+    padding: 8px 20px;
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 100px 50px;
+    gap: 50px; /* Memberikan jarak antara teks dan gambar */
+}
+
+.hero-content {
+    max-width: 50%;
+}
+
+/* REUSE REDUCE RECYCLE */
+.reuse-text {
+    display: flex;
+    align-items: flex-start;
+    line-height: 1;
+}
+
+.re-bold {
+    font-size: 175px; /* Ukuran lebih besar sesuai kebutuhan */
+    font-weight: bold;
+    color: #BCC8A2;
+    line-height: 1;
+    margin-right: 10px; /* Sedikit jarak dengan USE DUCE CYCLE */
+}
+
+.reuse-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1.1;
+    margin-top: 10px;
+}
+
+.reuse-muted {
+    font-size: 40px;
+    font-weight: 400;
+    color: #BCC8A2;
+}
+
+/* Deskripsi */
+.description {
+    margin: 30px 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #B2C49C;
+}
+
+.cta-btn {
+    background-color: #3D3D3D;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 24px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cta-btn:hover {
+    background-color: #555555;
+}
+
+/* Gambar Hero */
+.hero-image img {
+    width: 500px;
+    height: auto;
+}
+
+/* Segitiga Kiri Bawah */
+.triangle-left {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 200px solid #276561;
+    border-top: 200px solid transparent;
+}
+
+/* Segitiga Kanan Atas */
+.triangle-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-right: 200px solid #276561;
+    border-bottom: 200px solid transparent;
+}
+
+/* Responsif Layout */
+@media (max-width: 1024px) {
+    .hero {
+        flex-direction: column;
+        padding: 50px 20px;
+        gap: 30px;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .hero-image img {
+        width: 350px;
+    }
+
+    .re-bold {
+        font-size: 140px;
+    }
+
+    .reuse-muted {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav ul {
+        gap: 15px;
+    }
+
+    .hero {
+        padding: 30px 10px;
+    }
+
+    .hero-image img {
+        width: 250px;
+    }
+
+    .re-bold {
+        font-size: 100px;
+    }
+
+    .reuse-muted {
+        font-size: 24px;
+    }
+}
