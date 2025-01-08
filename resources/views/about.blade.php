@@ -112,7 +112,7 @@
                                 <li>Bank sampah sahabat gajah sudah berjalan mulai dari tahun 2017 sebagai salah satu Bank Sampah yang berada di Kecamatan Tanjung Bintang, Kabupaten Lampung Selatan yang kini pindah operasi di Kecamatan Airan Raya Lampung Selatan agar mempermudah kegiatan operasi dan pengembangan Bank Sampah Unit (BSU) yang akan didirikan di 22 Kelurahan, Kota Metro.</li>
                             </ul>
                         </div>
-                        <img src="asset/G11.jpg" alt="Pendirian" class="history-image">
+                        <img src="asset/G14.png" alt="Pendirian" class="history-image">
                     </div>
                 </div>
             </div>
@@ -144,7 +144,54 @@
                 </div>
             </div>
         </section>
-    
+
+        {{-- Struktur Bank Sampah --}}
+        <section class="struktur-section">
+            <h2 class="struktur-title">STRUKTUR KEPENGURUSAN BANK SAMPAH <br> “SAHABAT GAJAH”</h2>
+            <div class="struktur-image">
+                <img src="asset/G12.png" alt="Struktur Kepengurusan Bank Sampah Sahabat Gajah">
+            </div>
+        </section>
+        
+        {{-- Unit Usaha --}}
+        <section class="unit-section">
+            <h2 class="unit-title">UNIT USAHA BANK SAMPAH <br> “SAHABAT GAJAH”</h2>
+            <div class="unit-container">
+                <!-- Unit 1 -->
+                <div class="unit-box">
+                    <img src="asset/G13.jpg" alt="Consult">
+                    <div class="unit-text">Consult</div>
+                </div>
+                <!-- Unit 2 -->
+                <div class="unit-box">
+                    <img src="asset/G11.jpg" alt="Campaign">
+                    <div class="unit-text">Campaign</div>
+                </div>
+                <!-- Unit 3 -->
+                <div class="unit-box">
+                    <img src="asset/G15.png" alt="Collect">
+                    <div class="unit-text">Collect</div>
+                </div>
+                <!-- Unit 4 -->
+                <div class="unit-box">
+                    <img src="asset/G16.jpg" alt="Class">
+                    <div class="unit-text">Class</div>
+                </div>
+            </div>
+        </section>
+
+        {{-- Highlight Section --}}
+        <section class="highlight-section">
+            <div class="highlight-container">
+                <img src="asset/G17.jpeg" alt="Bank Sampah Sahabat Gajah" class="highlight-background">
+                <div class="highlight-text">
+                    <p>
+                        Mulai Langkah Nyata, Bersama <strong>Bank Sampah Sahabat Gajah</strong> <br>
+                        Kelola Sampah untuk Masa Depan Berkelanjutan
+                    </p>
+                </div>
+            </div>
+        </section>
         
         <!-- Footer -->
         <footer class="footer">
