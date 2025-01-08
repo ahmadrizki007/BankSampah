@@ -20,7 +20,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* background-color: #276561; Warna latar */
+    background-color: #276561; /* Warna latar */
     padding: 15px 50px;
     height: 100px; /* Tinggi tetap */
     z-index: 1000; /* Menjadikan header di atas elemen lain */
@@ -859,4 +859,238 @@ body {
     height: auto;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin: 0 auto;
+}
+
+/* Section Featured Video */
+.featured-video-section {
+    padding: 50px 20px;
+    background-color: #F8F8F8;
+    text-align: center;
+}
+
+.featured-title {
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    color: #BCC8A2;
+    margin-bottom: 40px;
+}
+
+/* Kontainer Video */
+.video-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Agar responsif */
+}
+
+/* Kotak Video */
+.video-box {
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Efek drop shadow */
+    overflow: hidden; /* Membuat sudut video ikut melengkung */
+    width: 400px; /* Lebar kotak video */
+    max-width: 100%;
+}
+
+.video-frame {
+    width: 100%;
+    height: 225px; /* Sesuai rasio 16:9 */
+    border: none;
+}
+
+.video-description {
+    padding: 15px;
+    text-align: left;
+}
+
+.video-description h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.video-description p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .video-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .video-box {
+        width: 90%;
+    }
+}
+
+/* Section Sejarah */
+.history-section {
+    padding: 50px 20px;
+    background-color: #F8F8F8;
+    text-align: center;
+}
+
+.history-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #BCC8A2;
+    margin-bottom: 20px;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 15px;
+}
+
+.tab-button {
+    background-color: #FFFFFF;
+    border: 1px solid #BCC8A2;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tab-button.active {
+    background-color: #276561;
+    color: #FFFFFF;
+    border-color: #276561;
+}
+
+.tab-button:hover {
+    background-color: #BCC8A2;
+    color: #FFFFFF;
+}
+
+/* Kontainer Tab */
+.history-container {
+    position: relative;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.history-content {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.history-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.text-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(39, 101, 97, 0.6); /* Hijau transparan */
+    color: #FFFFFF;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    text-align: left;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.text-overlay h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.text-overlay ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+.text-overlay ul li {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+/* Section Visi dan Misi */
+.vision-mission-section {
+    padding: 50px 20px;
+    padding: 50px 20px;
+    background-color: #276561; /* Warna latar belakang hijau */
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    color: #FFFFFF;
+    margin-bottom: 30px;
+}
+
+.vision-mission-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 50px; /* Jarak antar visi dan misi */
+    flex-wrap: wrap; /* Responsif untuk layar kecil */
+}
+
+.vision, .mission {
+    flex: 1;
+    max-width: 500px; /* Batas lebar maksimal */
+    text-align: left;
+}
+
+.vision h3, .mission h3 {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 15px;
+    text-align: center;
+    border-bottom: 2px solid #FFFFFF; /* Garis bawah */
+    padding-bottom: 10px;
+}
+
+.vision ul, .mission ul {
+    list-style: disc;
+    margin: 0;
+    padding-left: 20px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.vision ul li, .mission ul li {
+    margin-bottom: 10px;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .vision-mission-container {
+        flex-direction: column;
+        gap: 30px;
+    }
 }

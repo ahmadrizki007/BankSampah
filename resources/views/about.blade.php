@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>About</title>
+        <title>Tentang Kami</title>
         <link rel="stylesheet" href={{ asset("css/style.css")}}>
 
         <!-- Fonts -->
@@ -24,8 +24,8 @@
             </div>
             <nav class="nav">
                 <ul>
-                    <li><a href="beranda.html">Beranda</a></li>
-                    <li><a href="about.html" class="active">Tentang Kami</a></li>
+                    <li><a href="/beranda">Beranda</a></li>
+                    <li><a href="#" class="active">Tentang Kami</a></li>
                     <li><a href="#">Produk</a></li>
                     <li><a href="#">Kunjungan</a></li>
                 </ul>
@@ -177,7 +177,8 @@
         </footer>
     
          <!-- JavaScript -->
-         <script src="script.js"></script>
+         @yield('content')
+         <script src="{{ asset('js/script.js') }}"></script>
     
     </body>
 </html>
