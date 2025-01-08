@@ -451,7 +451,7 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Efek drop shadow */
     padding: 20px;
     text-align: left; /* Teks rata kiri */
-    max-width: 300px; /* Batas lebar maksimum */
+    /* max-width: 300px; Batas lebar maksimum */
     margin: 0 auto; /* Rata tengah secara horizontal */
 }
 

@@ -1,64 +1,35 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bank Sampah Sahabat Gajah</title>
-    <link rel="stylesheet" href={{ asset("css/style.css")}}>
+@extends('templates.layout')
 
-    <!-- Font Link -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
+@section('title')
+<title>Bank Sampah Sahabat Gajah</title>
+@endsection
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+@section('main')
 
-        <!-- Styles / Scripts -->
-        @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
-            @vite(['resources/css/app.css', 'resources/js/app.js'])
-        @endif
-</head>
-<body>
-    <!-- Header -->
-    <header class="header bg-[#276561]">
-        <div class="logo">
-            <img src={{ asset("asset/logo.png") }} alt="Logo Bank Sampah"> 
+<!-- Hero Section -->
+<main class="hero">
+    <!-- Segitiga Kiri Bawah -->
+    <div class="triangle-left"></div>
+
+    <div class="hero-content">
+        <div class="reuse-image">
+            <img src={{ asset("asset/RE.png") }} alt="REUSE REDUCE RECYCLE">
         </div>
-        <nav class="nav">
-            <ul>
-                <li><a href="#" class="active">Beranda</a></li>
-                <li><a href="/about">Tentang Kami</a></li>
-                <li><a href="#">Produk</a></li>
-                <li><a href="#">Kunjungan</a></li>
-            </ul>
-        </nav>
-        <button class="login-btn">Login</button>
-    </header>
+        <p class="description">
+            Selamat Datang di Bank Sampah Sahabat Gajah,<br>
+            Melindungi Gajah dan Melindungi Alam
+        </p>
+        <button class="cta-btn">Selengkapnya</button>
+    </div>
+    <div class="hero-image">
+        <img src={{asset("asset/icon_1.png")}} alt="Ilustrasi Recycle">
+    </div>
 
-    <!-- Hero Section -->
-    <main class="hero">
-        <!-- Segitiga Kiri Bawah -->
-        <div class="triangle-left"></div>
-
-        <div class="hero-content">
-            <div class="reuse-image">
-                <img src={{ asset("asset/RE.png") }} alt="REUSE REDUCE RECYCLE">
-            </div>
-            <p class="description">
-                Selamat Datang di Bank Sampah Sahabat Gajah,<br>
-                Melindungi Gajah dan Melindungi Alam
-            </p>
-            <button class="cta-btn">Selengkapnya</button>
-        </div>
-        <div class="hero-image">
-            <img src= {{asset("asset/icon_1.png")}} alt="Ilustrasi Recycle">
-        </div>
-
-<!-- Ayo Bergabung -->
-        <!-- Segitiga Kanan Atas -->
-        <div class="triangle-right"></div>
-    </main>
-    <!-- Section Bergabung -->
+    <!-- Ayo Bergabung -->
+    <!-- Segitiga Kanan Atas -->
+    <div class="triangle-right"></div>
+</main>
+<!-- Section Bergabung -->
 <section class="join-section">
     <!-- Kotak Langkah-Langkah -->
     <div class="steps">
@@ -82,7 +53,7 @@
     <div class="join-text">
         <h2>Ayo Bergabung <br><span>untuk Pengelolaan Sampah yang Lebih Baik!</span></h2>
         <p>
-            Ambil bagian dalam upaya melestarikan lingkungan dengan bertanggung jawab atas sampah yang Anda hasilkan 
+            Ambil bagian dalam upaya melestarikan lingkungan dengan bertanggung jawab atas sampah yang Anda hasilkan
             melalui Bank Sampah Sahabat Gajah. Ikuti langkah mudah ini untuk mulai berkontribusi.
         </p>
         <button class="join-btn">Bergabung Sekarang</button>
@@ -117,7 +88,8 @@
         <div class="benefit-box">
             <div class="content">
                 <h3>Sampah Terkelola</h3>
-                <p>Sampah akan dikelola secara bertanggung jawab dan mengurangi jumlah sampah yang berakhir di TPA.</p>
+                <p>Sampah akan dikelola secara bertanggung jawab dan mengurangi jumlah sampah yang berakhir di TPA.
+                </p>
             </div>
             <div class="icon">
                 <i class="MdRecycling"></i>
@@ -167,10 +139,22 @@
     <div class="prepare-container">
         <!-- Kolom Kiri -->
         <div class="prepare-left">
-            <div class="prepare-box">
-                <h3>1. Bersihkan Sampah</h3>
-                <p>Pastikan sampah yang akan dikirim dalam keadaan bersih guna menghindari penyebaran kuman.</p>
+
+
+            <div>
+                <div class="prepare-box !m-0 w-full text-center">
+                    <h3 class="!m-0">1. Bersihkan Sampah</h3>
+                </div>
+
+                <div>
+                    <p class="text-justify">
+                        Pastikan sampah yang akan dikirim dalam keadaan bersih guna menghindari
+                        penyebaran kuman.
+                    </p>
+                </div>
             </div>
+
+
             <div class="prepare-box">
                 <h3>2. Pastikan Sampah Kering</h3>
                 <p>Sampah yang akan dikirimkan harus dalam keadaan kering, tidak basah, atau pun lembab.</p>
@@ -179,7 +163,7 @@
 
         <!-- Gambar Tengah -->
         <div class="prepare-image">
-            <img src= {{ asset("asset/G0.png") }} alt="Protecting the Environment">
+            <img src={{ asset("asset/G0.png") }} alt="Protecting the Environment">
         </div>
 
         <!-- Kolom Kanan -->
@@ -226,7 +210,7 @@
             <div class="text-content">
                 <h2>Bantu Gajah dari Rumah</h2>
                 <p>
-                    Lakukan aksi nyata dalam upaya menjaga gajah untuk hidup lebih baik bersama 
+                    Lakukan aksi nyata dalam upaya menjaga gajah untuk hidup lebih baik bersama
                     Bank Sampah Sahabat Gajah
                 </p>
                 <button class="donation-button">Donasi Sekarang</button>
@@ -254,43 +238,4 @@
     <div class="triangle-right"></div>
 </section>
 
-<!-- Footer -->
-<footer class="footer">
-    <div class="footer-container">
-        <!-- Kolom Alamat -->
-        <div class="footer-column">
-            <img src={{ asset("asset/logo.png") }} alt="Logo Bank Sampah" class="footer-logo">
-            <p class="footer-address">
-                Jl. Airan Raya No.8, Way Huwi, lampung selatan, Kabupaten Lampung Selatan, Lampung 35141
-            </p>
-        </div>
-        <!-- Kolom Link -->
-        <div class="footer-column">
-            <h3>BANK SAMPAH SAHABAT GAJAH</h3>
-            <ul>
-                <li><a href="#">Tentang Kami</a></li>
-                <li><a href="#">Produk</a></li>
-                <li><a href="#">Reloop Market</a></li>
-            </ul>
-        </div>
-        <!-- Kolom Kontak -->
-        <div class="footer-column">
-            <h3>IKUTI KAMI</h3>
-            <ul>
-                <li><a href="mailto:banksampahsahabatgajah@gmail.com">banksampahsahabatgajah@gmail.com</a></li>
-                <li><a href="tel:+6281234567890">+62 812 3456 7890</a></li>
-                <li>
-                    <a href="#"><img src={{ asset("asset/instagram-icon.png") }} alt="Instagram"></a>
-                    <a href="#"><img src={{ asset("asset/tiktok-icon.png") }} alt="TikTok"></a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <!-- Copyright -->
-    <div class="footer-bottom">
-        <p>© 2025 Sahabat Gajah. All Rights Reserved</p>
-    </div>
-</footer>
-
-</body>
-</html>
+@endsection

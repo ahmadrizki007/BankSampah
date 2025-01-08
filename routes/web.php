@@ -13,3 +13,7 @@ Route::get('/beranda', function () {
 Route::get('/about', function () {
     return view('about');
 });
+
+Route::get('/produk', function(){
+    return view('product');
+});
