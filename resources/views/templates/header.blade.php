@@ -11,7 +11,8 @@
             <li><a href="#">Kunjungan</a></li>
         </ul>
     </nav>
-    <button class="login-btn">Login</button>
+    <a href="{{ url('/login') }}" class="login-btn">Login</a>
+
 </header>
 
 <script>

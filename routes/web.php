@@ -17,3 +17,11 @@ Route::get('/about', function () {
 Route::get('/produk', function(){
     return view('product');
 });
+
+Route::get('/login', function () {
+    return view('login'); 
+})->name('login');
+
+Route::get('/register', function () {
+    return view('register'); 
+})->name('register');
