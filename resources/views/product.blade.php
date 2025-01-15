@@ -2,7 +2,7 @@
 
 @section('title')
 
-<title> RIZKIK kontol </title>
+<title> Produk </title>
 
 @endsection
 

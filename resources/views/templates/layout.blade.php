@@ -7,6 +7,9 @@
 
     @yield('title')
 
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/7191805df1.js" crossorigin="anonymous"></script>
+
     <!-- JQUERY -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
 

@@ -24,8 +24,8 @@
                 <li><a href="mailto:banksampahsahabatgajah@gmail.com">banksampahsahabatgajah@gmail.com</a></li>
                 <li><a href="tel:+6281234567890">+62 812 3456 7890</a></li>
                 <li>
-                    <a href="#"><img src={{ asset("asset/instagram-icon.png") }} alt="Instagram"></a>
-                    <a href="#"><img src={{ asset("asset/tiktok-icon.png") }} alt="TikTok"></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
                 </li>
             </ul>
         </div>
@@ -35,3 +35,9 @@
         <p>© 2025 Sahabat Gajah. All Rights Reserved</p>
     </div>
 </footer>
+
+<script>
+    $('nav ul li a').on('click', function () {
+
+    });
+</script>
