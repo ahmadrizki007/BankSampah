@@ -9,6 +9,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 
@@ -19,7 +20,7 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        return view('auth.register');
+        return view('register');
     }
 
     /**
@@ -29,22 +30,42 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        $validator = Validator::make($request->all(), [
+            'fullname' => ['required', 'max:255'],
+            'email' => ['required', 'email', 'max:255', 'unique:' . User::class],
+            'age' => ['required'],
+            'gender' => ['required'],
+            'phone' => ['required'],
+            'password' => ['required', 'min:8'],
+            // 'password' => ['required', Rules\Password::defaults()],
+        ], [
+            'fullname.required' => 'Nama lengkap harus diisi',
+            'fullname.max' => 'Nama lengkap maksimal 255 karakter',
+            'email.required' => 'Email harus diisi',
+            'email.email' => 'Email harus valid',
+            'email.unique' => 'Email sudah terdaftar',
+            'age.required' => 'Umur harus diisi',
+            'gender.required' => 'Jenis Kelamin harus diisi',
+            'phone.required' => 'Nomor telepon harus diisi',
+            'password.required' => 'Password harus diisi',
+            'password.min' => 'Password minimal 8 karakter',
         ]);
 
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
         $user = User::create([
-            'name' => $request->name,
+            'name' => $request->fullname,
+            'age' => $request->age,
+            'gender' => $request->gender,
+            'phone' => $request->phone,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
 
-        event(new Registered($user));
+        // event(new Registered($user));
 
-        Auth::login($user);
-
-        return redirect(route('dashboard', absolute: false));
+        return redirect(route('login', absolute: false))->with('success', 'Registrasi berhasil');
     }
 }

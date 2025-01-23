@@ -10,7 +10,7 @@
 <section class="about-section">
     <h2 class="about-title">PROFILE BANK SAMPAH <br> “SAHABAT GAJAH”</h2>
     <div class="about-image">
-        <img src="asset/G9.jpg" alt="Profile Bank Sampah Sahabat Gajah">
+        <img src={{ asset('asset/G9.jpg') }} alt="Profile Bank Sampah Sahabat Gajah">
     </div>
 </section>
 
@@ -74,7 +74,7 @@
                             luas.</li>
                     </ul>
                 </div>
-                <img src="asset/G10.jpg" alt="Kisah Berdirinya" class="history-image">
+                <img src={{  asset('/asset/G10.jpg') }} alt="Kisah Berdirinya" class="history-image">
             </div>
         </div>
         <!-- Tab 2 -->
@@ -92,7 +92,7 @@
                         </li>
                     </ul>
                 </div>
-                <img src="asset/G14.png" alt="Pendirian" class="history-image">
+                <img src={{  asset("/asset/G14.png") }} alt="Pendirian" class="history-image">
             </div>
         </div>
     </div>
@@ -132,7 +132,7 @@
 <section class="struktur-section">
     <h2 class="struktur-title">STRUKTUR KEPENGURUSAN BANK SAMPAH <br> “SAHABAT GAJAH”</h2>
     <div class="struktur-image">
-        <img src="asset/G12.png" alt="Struktur Kepengurusan Bank Sampah Sahabat Gajah">
+        <img src={{  asset("/asset/G12.png") }} alt="Struktur Kepengurusan Bank Sampah Sahabat Gajah">
     </div>
 </section>
 
@@ -142,22 +142,22 @@
     <div class="unit-container">
         <!-- Unit 1 -->
         <div class="unit-box">
-            <img src="asset/G13.jpg" alt="Consult">
+            <img src={{  asset("/asset/G13.jpg")}} alt=" Consult">
             <div class="unit-text">Consult</div>
         </div>
         <!-- Unit 2 -->
         <div class="unit-box">
-            <img src="asset/G11.jpg" alt="Campaign">
+            <img src={{  asset("/asset/G11.jpg")}} alt=" Campaign">
             <div class="unit-text">Campaign</div>
         </div>
         <!-- Unit 3 -->
         <div class="unit-box">
-            <img src="asset/G15.png" alt="Collect">
+            <img src={{  asset("/asset/G15.png")}} alt=" Collect">
             <div class="unit-text">Collect</div>
         </div>
         <!-- Unit 4 -->
         <div class="unit-box">
-            <img src="asset/G16.jpg" alt="Class">
+            <img src={{  asset("asset/G16.jpg") }} alt=" Class">
             <div class="unit-text">Class</div>
         </div>
     </div>
@@ -166,7 +166,7 @@
 {{-- Highlight Section --}}
 <section class="highlight-section">
     <div class="highlight-container">
-        <img src="asset/G17.jpeg" alt="Bank Sampah Sahabat Gajah" class="highlight-background">
+        <img src={{  asset("asset/G17.jpeg") }} alt=" Bank Sampah Sahabat Gajah" class="highlight-background">
         <div class="highlight-text">
             <p>
                 Mulai Langkah Nyata, Bersama <strong>Bank Sampah Sahabat Gajah</strong> <br>

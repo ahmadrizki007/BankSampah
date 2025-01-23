@@ -5,13 +5,13 @@
     </div>
     <nav class="nav">
         <ul>
-            <li><a href="/beranda">Beranda</a></li>
-            <li><a href="/about">Tentang Kami</a></li>
+            <li><a href="/">Beranda</a></li>
+            <li><a href="/tentang-kami">Tentang Kami</a></li>
             <li><a href="/produk">Produk</a></li>
             <li><a href="#">Kunjungan</a></li>
         </ul>
     </nav>
-    <a href="{{ url('/login') }}" class="login-btn">Login</a>
+    <a href="{{ route('login') }}" class="login-btn">Login</a>
 
 </header>
 
