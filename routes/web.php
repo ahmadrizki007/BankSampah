@@ -28,7 +28,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile/update', [ProfilePrevController::class, 'update'])->name('profile.update');
     Route::delete('/profile/destroy', [ProfilePrevController::class, 'destroy'])->name('profile.destroy');
 
-    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+    Route::get('/profil', [ProfileController::class, 'index'])->name('profile');
 
     Route::get('/dashboard', function () {
         return view('dashboard');
