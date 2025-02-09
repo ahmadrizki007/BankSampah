@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProfilePrevController;
 use Illuminate\Support\Facades\Route;
 
 // INI CUMAN BUAT DEV AJA
@@ -18,9 +19,9 @@ Route::get('/', function () {
 
 
 Route::middleware('auth')->group(function () {
-    // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    // Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/profile/prev', [ProfilePrevController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile/update', [ProfilePrevController::class, 'update'])->name('profile.update');
+    Route::delete('/profile/destroy', [ProfilePrevController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 
