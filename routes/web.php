@@ -4,6 +4,11 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 // INI CUMAN BUAT DEV AJA
+
+Route::get('/kunjungan', function () {
+    return view('kunjungan');
+});
+
 Route::get('/tentang-kami', function () {
     return view('about');
 });
