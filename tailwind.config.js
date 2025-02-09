@@ -15,8 +15,21 @@ export default {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
                 caveat: ['Caveat', 'cursive'],
             },
+
+            colors:{
+                primary:{
+                    '500': '#276461',
+                },
+                main:{
+                    '500': '#F2F2F2',
+                }
+            },
+            screens:{
+                'xs' : '320px',
+            }
         },
     },
+    darkMode: 'class', // or 'media' or 'class'
 
     // plugins: [forms],
 };

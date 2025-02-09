@@ -20,7 +20,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #276561; /* Warna latar */
     padding: 15px 50px;
     height: 100px; /* Tinggi tetap */
     z-index: 1000; /* Menjadikan header di atas elemen lain */

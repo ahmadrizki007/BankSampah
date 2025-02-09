@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class="footer">
+<footer class="footer grow-0">
     <div class="footer-container">
         <!-- Kolom Alamat -->
         <div class="footer-column">

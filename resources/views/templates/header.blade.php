@@ -1,5 +1,5 @@
 <!-- Header -->
-<header class="header bg-[#276561]">
+<header class="header bg-primary-500">
     <div class="logo">
         <img src={{ asset("asset/logo.png") }} alt="Logo Bank Sampah">
     </div>
@@ -21,9 +21,8 @@
             <li><a href="/kunjungan" class="nav-link">Kunjungan</a></li>
         </ul>
     </nav>
-     <!-- Login Button -->
     <a href="{{ route('login') }}" class="login-btn">Login</a>
-    
+
 </header>
 
 <!-- Mobile Navigation Menu -->
@@ -38,6 +37,7 @@
 </div>
 
 <script>
+
     $(document).ready(function () {
         // Menentukan tanda active di awal load halaman
         let path = window.location.pathname;
