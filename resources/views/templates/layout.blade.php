@@ -21,7 +21,7 @@
 
     <!-- Font Link -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700&family=Poppins:wght@700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700&family=Poppins:wght@700&family=Caveat:wght@400&display=swap"
         rel="stylesheet">
 
     <!-- Fonts -->

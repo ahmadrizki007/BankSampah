@@ -1,5 +1,5 @@
 import defaultTheme from 'tailwindcss/defaultTheme';
-import forms from '@tailwindcss/forms';
+// import forms from '@tailwindcss/forms';
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -13,6 +13,7 @@ export default {
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                caveat: ['Caveat', 'cursive'],
             },
 
             colors:{
@@ -30,5 +31,5 @@ export default {
     },
     darkMode: 'class', // or 'media' or 'class'
 
-    plugins: [forms],
+    // plugins: [forms],
 };

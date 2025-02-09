@@ -30,6 +30,7 @@
             </ul>
         </div>
     </div>
+    
     <!-- Copyright -->
     <div class="footer-bottom">
         <p>© 2025 Sahabat Gajah. All Rights Reserved</p>
