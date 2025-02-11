@@ -51,10 +51,9 @@
         $('#hamburger').on('click', function () {
             // Menampilkan/menyembunyikan menu mobile
             $('#mobile-menu').toggleClass('hidden');
-            
+
             // Menambahkan animasi pada hamburger icon
             $(this).toggleClass('tham-active');
         });
     });
 </script>
-

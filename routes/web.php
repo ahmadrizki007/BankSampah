@@ -22,6 +22,9 @@ Route::get('/', function () {
     return view('beranda');
 })->name('/');
 
+Route::get('/formulir', function () {
+    return view('formulir'); // 
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile/prev', [ProfilePrevController::class, 'edit'])->name('profile.edit');

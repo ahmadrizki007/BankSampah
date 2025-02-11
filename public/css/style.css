@@ -447,10 +447,10 @@ body {
     background-color: #276561;
     color: #FFFFFF;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Efek drop shadow */
-    padding: 20px;
+    padding: 15px;
     text-align: left; /* Teks rata kiri */
-    /* max-width: 300px; Batas lebar maksimum */
     margin: 0 auto; /* Rata tengah secara horizontal */
+    width: 80%; /* Mengecilkan lebar box menjadi 80% dari container */
 }
 
 .prepare-box h3 {
@@ -512,16 +512,17 @@ body {
 /* Kotak Partner */
 .partner-box {
     background-color: #FFFFFF;
-    border-radius: 25px; /* Sudut membulat */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Efek drop shadow */
-    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 225px; 
-    height: 125px; /* Tinggi diperpendek */
-    max-width: 225px; /* Lebar maksimum dikurangi */
-    margin: 0 auto; /* Kotak rata tengah */
+    width: 200px;
+    height: 100px;
+    max-width: 200px;
+    margin: 10px 0 10px auto;
+    gap: 10px;
 }
 
 .partner-box img {

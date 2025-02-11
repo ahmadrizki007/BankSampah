@@ -14,13 +14,15 @@
 
         <div class="hero-content">
             <div class="reuse-image">
-                <img src={{ asset("asset/RE.png") }} alt="REUSE REDUCE RECYCLE">
+                <img src={{ asset("asset/RE.png") }} alt="REUSE REDUCE RECYCLE" class="mx-auto d-block"
+                    style="display: block; margin: 0 auto;">
             </div>
             <p class="description">
                 Selamat Datang di Bank Sampah Sahabat Gajah,<br>
                 Melindungi Gajah dan Melindungi Alam
             </p>
-            <button class="cta-btn">Selengkapnya</button>
+            <button class="cta-btn" style="font-size: 0.9em; padding: 8px 16px;"
+                onclick="document.querySelector('.join-section').scrollIntoView({ behavior: 'smooth' })">Selengkapnya</button>
         </div>
         <div class="hero-image">
             <img src={{asset("asset/icon_1.png")}} alt="Ilustrasi Recycle">
@@ -57,7 +59,7 @@
                 Ambil bagian dalam upaya melestarikan lingkungan dengan bertanggung jawab atas sampah yang Anda hasilkan
                 melalui Bank Sampah Sahabat Gajah. Ikuti langkah mudah ini untuk mulai berkontribusi.
             </p>
-            <button class="join-btn">Bergabung Sekarang</button>
+            <a href="{{ route('login') }}" class="join-btn">Bergabung Sekarang</a>
         </div>
     </section>
 
@@ -93,7 +95,7 @@
                     </p>
                 </div>
                 <div class="icon">
-                    <i class="MdRecycling"></i>
+                    <i class="fa-solid fa-recycle fa-2xs" style="color: #ffffff;"></i>
                 </div>
             </div>
 
@@ -104,7 +106,7 @@
                     <p>Masyarakat diajak terlibat langsung dan sambil menggali potensi yang dimiliki.</p>
                 </div>
                 <div class="icon">
-                    <i class="AiOutlineHome"></i>
+                    <i class="fa-solid fa-people-group fa-2xs" style="color: #ffffff;"></i>
                 </div>
             </div>
 
@@ -115,7 +117,7 @@
                     <p>Cukup pilah dan bersihkan sampah Anda di rumah dan setorkan kepada kami.</p>
                 </div>
                 <div class="icon">
-                    <i class="AiOutlineFieldTime"></i>
+                    <i class="fa-solid fa-user-clock fa-2xs" style="color: #ffffff;"></i>
                 </div>
             </div>
 
@@ -126,7 +128,7 @@
                     <p>Masyarakat yang menyetorkan sampah akan mendapatkan reward dalam bentuk tabungan.</p>
                 </div>
                 <div class="icon">
-                    <i class="AiOutlineGift"></i>
+                    <i class="fa-solid fa-gift fa-2xs" style="color: #ffffff;"></i>
                 </div>
             </div>
         </div>
@@ -138,22 +140,36 @@
     <section class="prepare-section">
         <h2 class="prepare-title">CARA MENYIAPKAN SAMPAH</h2>
         <div class="prepare-container">
+
             <!-- Kolom Kiri -->
             <div class="prepare-left">
 
-
-                <div>
-                    <div class="prepare-box !m-0 w-full text-center">
+                <div class="pl-10">
+                    <div class="prepare-box !m-0 w-2/4 text-center shadow-lg">
                         <h3 class="!m-0">1. Bersihkan Sampah</h3>
                     </div>
 
-                    <div>
-                        <p class="text-justify">
-                            Pastikan sampah yang akan dikirim dalam keadaan bersih guna menghindari
-                            penyebaran kuman.
+                    <div class="mt-4">
+                        <p class="text-justify leading-relaxed tracking-normal max-w-lg mx-auto">
+                            Pastikan sampah yang akan dikirim<br>
+                            dalam keadaan bersih guna<br>
+                            menghindari penyebaran kuman.
                         </p>
                     </div>
                 </div>
+
+                {{-- <div class="pl-10">
+                    <div class="prepare-box !m-0 w-2/4 text-center shadow-lg">
+                        <h3 class="!m-0">2. Pastikan Sampah Kering</h3>
+                    </div>
+
+                    <div class="mt-4">
+                        <p class="text-justify leading-relaxed tracking-normal max-w-lg mx-auto">
+                            Sampah yang akan dikirimkan harus dalam keadaan kering, tidak basah,<br>
+                            atau pun lembab.
+                        </p>
+                    </div>
+                </div> --}}
 
 
                 <div class="prepare-box">
@@ -169,16 +185,34 @@
 
             <!-- Kolom Kanan -->
             <div class="prepare-right">
-                <div class="prepare-box">
-                    <h3>3. Remas dan Lipat</h3>
-                    <p>Remas dan lipat sampah untuk memaksimalkan ruang dan volume pengiriman.</p>
+
+                <div class="pl-20">
+                    <div class="prepare-box !m-0 w-2/4 text-center shadow-lg">
+                        <h3 class="!m-0">3. Remas dan Lipat</h3>
+                    </div>
+
+                    <div class="mt-4">
+                        <p class="text-justify leading-relaxed tracking-normal max-w-lg mx-auto">
+                            Remas dan lipat sampah untuk <br>
+                            memaksimalkan ruang dan volume <br>
+                            pengiriman.
+                        </p>
+                    </div>
                 </div>
-                <div class="prepare-box">
-                    <h3>4. Kemas Rapi</h3>
-                    <p>Kemas sampah menggunakan kardus atau kemasan lain.</p>
+
+                <div class="pl-20">
+                    <div class="prepare-box !m-0 w-2/4 text-center shadow-lg">
+                        <h3 class="!m-0">4. Kemas Rapi</h3>
+                    </div>
+
+                    <div class="mt-4">
+                        <p class="text-justify leading-relaxed tracking-normal max-w-lg mx-auto">
+                            Kemas sampah menggunakan <br>
+                            kardus atau kemasan lain.
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
     </section>
 
     <!-- Partner -->
@@ -188,12 +222,12 @@
             <div class="partner-box">
                 <img src={{ asset("asset/G1.jpg") }} alt="Partner 1">
             </div>
-            <div class="partner-box">
+            {{-- <div class="partner-box">
                 <img src={{ asset("asset/G2.jpg") }} alt="Partner 2">
             </div>
             <div class="partner-box">
                 <img src={{ asset("asset/G3.png") }} alt="Partner 3">
-            </div>
+            </div> --}}
             <div class="partner-box">
                 <img src={{ asset("asset/G4.jpg") }} alt="Partner 4">
             </div>
@@ -214,7 +248,7 @@
                         Lakukan aksi nyata dalam upaya menjaga gajah untuk hidup lebih baik bersama
                         Bank Sampah Sahabat Gajah
                     </p>
-                    <button class="donation-button">Donasi Sekarang</button>
+                    <a href="{{ route('login') }}" class="donation-button">Donasi Sekarang</a>
                 </div>
             </div>
             <!-- Bagian Gambar -->
