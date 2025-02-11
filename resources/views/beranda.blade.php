@@ -150,9 +150,9 @@
                     </div>
 
                     <div class="mt-4">
-                        <p class="text-justify leading-relaxed tracking-normal max-w-lg mx-auto">
-                            Pastikan sampah yang akan dikirim<br>
-                            dalam keadaan bersih guna<br>
+                        <p class="text-justify leading-relaxed tracking-normal w-72 max-w-lg mx-auto">
+                            Pastikan sampah yang akan dikirim
+                            dalam keadaan bersih guna
                             menghindari penyebaran kuman.
                         </p>
                     </div>
