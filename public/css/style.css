@@ -446,7 +446,6 @@ body {
 .prepare-box {
     background-color: #276561;
     color: #FFFFFF;
-    border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Efek drop shadow */
     padding: 20px;
     text-align: left; /* Teks rata kiri */
