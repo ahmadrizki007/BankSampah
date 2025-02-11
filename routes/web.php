@@ -24,11 +24,15 @@ Route::get('/', function () {
 
 
 Route::middleware('auth')->group(function () {
+
+    Route::get('/profil', [ProfileController::class, 'index'])->name('profile');
+
+
     Route::get('/profile/prev', [ProfilePrevController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile/update', [ProfilePrevController::class, 'update'])->name('profile.update');
     Route::delete('/profile/destroy', [ProfilePrevController::class, 'destroy'])->name('profile.destroy');
 
-    Route::get('/profil', [ProfileController::class, 'index'])->name('profile');
+
 
     Route::get('/dashboard', function () {
         return view('dashboard');
