@@ -10,4 +10,11 @@ class ProfileController extends Controller
     {
         return view('profile.profile');
     }
+
+    public function edit(Request $request)
+    {
+        return view('profile.edit', [
+            'user' => $request->user()
+        ]);
+    }
 }

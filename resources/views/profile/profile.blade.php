@@ -1,7 +1,7 @@
 @extends('templates.layout')
 
 @section('title')
-<title>Profile</title>
+<title>profile</title>
 @endsection
 
 @section('main')
@@ -24,9 +24,9 @@
                     USER 1
                 </div>
             </div>
-            <button class="text-xs text-primary-500">
+            <a href="{{ route('profile.edit') }}" class="text-xs text-primary-500">
                 edit
-            </button>
+            </a>
         </div>
 
         <div class="flex flex-wrap gap-y-4 px-6 ">

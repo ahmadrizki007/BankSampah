@@ -9,7 +9,7 @@
             <li><a href="/">Beranda</a></li>
             <li><a href="/tentang-kami">Tentang Kami</a></li>
             <li><a href="/produk">Produk</a></li>
-            <li><a href="#">Kunjungan</a></li>
+            <li><a href="/kunjungan">Kunjungan</a></li>
         </ul>
     </nav>
 
