@@ -342,14 +342,14 @@ body {
 /* Kotak Keuntungan */
 .benefit-box {
     display: flex;
-    justify-content: space-between; /* Teks dan ikon di sisi berlawanan */
+    justify-content: space-around; /* Memberikan jarak yang seimbang */
     align-items: center; /* Konten sejajar secara vertikal */
     background-color: #276561;
     color: #FFFFFF;
     border-radius: 5px;
     padding: 20px;
     width: 100%;
-    max-width: 600px; /* Lebar maksimum */
+    max-width: 550px; /* Lebar maksimum */
     height: 120px; /* Tinggi kotak tetap */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Efek bayangan */
     transition: transform 0.3s ease;
@@ -369,11 +369,19 @@ body {
     font-size: 16px;
     font-weight: bold;
     margin-bottom: 5px;
+    text-align: left;  /* Changed from right to left */
+    padding-right: 10px; /* Add padding to create space from icon */
+    text-align: right;
+
 }
 
 .benefit-box p {
     font-size: 14px;
     line-height: 1.4;
+    text-align: left;  /* Changed from right to left */
+    padding-right: 10px; /* Add padding to create space from icon */
+    text-align: right;
+
 }
 
 /* Untuk ikon */
