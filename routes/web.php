@@ -33,7 +33,6 @@ Route::get('/kunjungan', function () {
 Route::middleware('auth')->group(function () {
 
     Route::get('/profile', action: [profileController::class, 'index'])->name('profile');
-    Route::get('/edit', [profileController::class, 'edit'])->name('profile.edit');
 
 
 
