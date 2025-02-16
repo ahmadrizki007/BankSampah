@@ -36,9 +36,9 @@ Route::middleware('auth')->group(function () {
 
 
 
-    Route::get('/profile/prev', [profilePrevController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile/update', [profilePrevController::class, 'update'])->name('profile.update');
-    Route::delete('/profile/destroy', [profilePrevController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/profile/edit', [profileController::class, 'edit'])->name('profile.edit');
+    Route::post('/profile/edit', [profileController::class, 'handleEdit'])->name('profile.handleEdit');
+    // Route::delete('/profile/destroy', [profilePrevController::class, 'destroy'])->name('profile.destroy');
 
 
 

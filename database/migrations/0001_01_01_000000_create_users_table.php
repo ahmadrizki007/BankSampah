@@ -17,6 +17,7 @@ return new class extends Migration {
             $table->string('age')->nullable();
             $table->enum('gender', ['male', 'female'])->nullable();
             $table->string('phone')->nullable();
+            $table->string('address')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
