@@ -36,25 +36,4 @@ class ProfileController extends Controller
 
         return Redirect::route('profile');
     }
-
-
-    // public function handleEdit(Request $request)
-    // {
-    //     try {
-    //         User::where('id', $request->user()->id)->update([
-    //             'name' => $request->name,
-    //             'age' => $request->age,
-    //             'gender' => $request->gender,
-    //             'address' => $request->address,
-    //         ]);
-
-    //     } catch (\Exception $e) {
-    //         return Redirect::route('profile.edit')->with('error', $e->getMessage());
-    //     }
-
-    //     return Redirect::route('profile');
-    // }
-
-
-
 }
