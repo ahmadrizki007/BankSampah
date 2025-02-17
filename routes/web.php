@@ -54,6 +54,10 @@ Route::middleware('auth')->group(function () {
         return view('transaksi');
     })->name('transaksi');
 
+    Route::get('/penarikan', function () {
+        return view('penarikan');
+    })->name('penarikan');
+
 
 });
 

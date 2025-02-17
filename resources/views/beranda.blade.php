@@ -158,7 +158,7 @@
                         </div>
                     </div>
 
-                    {{-- <div class="pl-10">
+                    <div class="pl-10">
                         <div class="prepare-box !m-0 w-2/4 text-center shadow-lg">
                             <h3 class="!m-0">2. Pastikan Sampah Kering</h3>
                         </div>
@@ -169,13 +169,8 @@
                                 atau pun lembab.
                             </p>
                         </div>
-                    </div> --}}
-
-
-                    <div class="prepare-box">
-                        <h3>2. Pastikan Sampah Kering</h3>
-                        <p>Sampah yang akan dikirimkan harus dalam keadaan kering, tidak basah, atau pun lembab.</p>
                     </div>
+
                 </div>
 
                 <!-- Gambar Tengah -->

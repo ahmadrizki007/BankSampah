@@ -437,10 +437,10 @@ body {
 /* Kontainer untuk kotak teks dan gambar */
 .prepare-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Tiga kolom */
+    grid-template-columns: repeat(3, 1fr); 
     gap: 20px;
-    align-items: start; /* Konten rata atas di setiap kolom */
-    justify-content: center; /* Grid rata tengah */
+    align-items: start; 
+    justify-content: center; 
 }
 
 /* Kolom Teks Kiri dan Kanan */
@@ -512,8 +512,8 @@ body {
 /* Kontainer untuk Partner */
 .partner-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Empat kolom */
-    gap: 0; /* Menghilangkan jarak antar kotak */
+    grid-template-columns: repeat(2, auto); /* Dua kolom dengan lebar otomatis */
+    gap: 20px; /* Menambahkan jarak 20px antar elemen */
     justify-content: center; /* Rata tengah */
 }
 
