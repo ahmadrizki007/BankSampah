@@ -94,16 +94,24 @@
                 </table>
             </div>
 
-            <!-- Pagination -->
-            <div class="flex justify-between items-center mt-6">
-                <div>
-                    <span class="text-sm text-[#7F8694]">Show 10 entries</span>
+            <div class="flex items-center space-x-2 mt-4 justify-end">
+                <!-- Previous Button -->
+                <button
+                    class="px-4 py-2 text-sm text-[#7F8694] border border-[#BBBFC1] hover:bg-gray-100 focus:ring-2 focus:ring-[#3182CE]">
+                    Previous
+                </button>
+
+                <!-- Page Number -->
+                <div class="flex items-center space-x-2">
+                    <span class="px-4 py-2 text-sm text-[#7F8694] border border-black ">1</span>
+
                 </div>
-                <div class="flex space-x-4">
-                    <button
-                        class="px-6 py-3 text-sm text-white bg-[#3182CE] rounded-md hover:bg-[#276561]">Previous</button>
-                    <button class="px-6 py-3 text-sm text-white bg-[#3182CE] rounded-md hover:bg-[#276561]">Next</button>
-                </div>
+
+                <!-- Next Button -->
+                <button
+                    class="px-4 py-2 text-sm text-[#7F8694] border border-[#BBBFC1]  hover:bg-gray-100 focus:ring-2 focus:ring-[#3182CE]">
+                    Next
+                </button>
             </div>
         </div>
     </div>

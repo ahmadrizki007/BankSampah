@@ -5,7 +5,7 @@
 @endsection
 
 @section('main')
-    <div class="w-full p-6 flex items-start gap-x-8 bg-white">
+    <div class="w-full p-6 flex items-start gap-x-8 bg-[#ececec]">
 
         @if (session('error'))
             <div class="border border-red-400">
@@ -20,7 +20,7 @@
         <x-sidebar />
 
         <!-- Main Page -->
-        <div class="w-full flex flex-col py-6 bg-main-500 rounded-xl shadow-lg">
+        <div class="w-full flex flex-col py-6 bg-white rounded-xl shadow-lg">
             <div class="font-bold border-b-2 px-6 pb-4 pt-0">
                 Edit Informasi Pribadi
             </div>
