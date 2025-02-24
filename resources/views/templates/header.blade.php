@@ -38,7 +38,7 @@
                 </div>
                 <ul class="py-2 text-sm">
                     <li>
-                        <a href="#Menu"
+                        <a href="{{ route('dashboard') }}"
                             class="flex items-center px-3 py-2 text-black text-sm font-medium rounded-md hover:text-[#BCC8A2] transition duration-150">Menu</a>
                     </li>
                     <li>
