@@ -8,58 +8,54 @@
 
     <div>
         <!-- Hero Section -->
-        <main class="hero">
-            <!-- Segitiga Kiri Bawah -->
-            <div class="triangle-left"></div>
-
-            <div class="hero-content">
-                <div class="reuse-image">
-                    <img src={{ asset("asset/RE.png") }} alt="REUSE REDUCE RECYCLE" class="mx-auto d-block"
-                        style="display: block; margin: 0 auto;">
+        <section class="bg-primary-500">
+            <main class="relative flex items-center justify-center py-20 px-5 text-center clip-path-custom bg-white">
+                <!-- Segitiga Kiri Bawah -->
+                <div class="max-w-[50%]">
+                    <div class="w-500px">
+                        <img src={{ asset("asset/RE.png") }} alt="REUSE REDUCE RECYCLE" class="mx-auto d-block w-300px mb-3"
+                            style="display: block; margin: 0 auto;">
+                    </div>
+                    <p class="m-3 text-lg font-bold text-primary-hover text-center">
+                        Selamat Datang di Bank Sampah Sahabat Gajah,<br>
+                        Melindungi Gajah dan Melindungi Alam
+                    </p>
+                    <button class="primary-btn"
+                        onclick="document.querySelector('.join-section').scrollIntoView({ behavior: 'smooth' })">Selengkapnya</button>
                 </div>
-                <p class="description">
-                    Selamat Datang di Bank Sampah Sahabat Gajah,<br>
-                    Melindungi Gajah dan Melindungi Alam
-                </p>
-                <button class="cta-btn" style="font-size: 0.9em; padding: 8px 16px;"
-                    onclick="document.querySelector('.join-section').scrollIntoView({ behavior: 'smooth' })">Selengkapnya</button>
-            </div>
-            <div class="hero-image">
-                <img src={{asset("asset/icon_1.png")}} alt="Ilustrasi Recycle">
-            </div>
-
-            <!-- Ayo Bergabung -->
-            <!-- Segitiga Kanan Atas -->
-            <div class="triangle-right"></div>
-        </main>
+                <div class="w-500px">
+                    <img src={{asset("asset/icon_1.png")}} alt="Ilustrasi Recycle">
+                </div>
+            </main>
+        </section>
         <!-- Section Bergabung -->
-        <section class="join-section">
+        <section class="flex items-center justify-center gap-8 bg-primary-500 h-400px">
             <!-- Kotak Langkah-Langkah -->
-            <div class="steps">
-                <div class="step-box step-green">
-                    <span class="step-text bold">Pilah</span> <span class="step-text">Jenisnya</span>
+            <div class="flex flex-col gap-3">
+                <div class="step-box bg-primary-hover shadow-md">
+                    <span class="mr-1 font-bold">Pilah</span> <span>Jenisnya</span>
                 </div>
-                <div class="step-box step-white">
-                    <span class="step-text bold">Kemas</span> <span class="step-text">Rapih</span>
+                <div class="step-box bg-white text-black shadow-md">
+                    <span class="mr-1 font-bold">Kemas</span> <span>Rapih</span>
                 </div>
-                <div class="step-box step-green">
-                    <span class="step-text bold">Setor</span> <span class="step-text">Sampahnya</span>
+                <div class="step-box bg-primary-hover shadow-md">
+                    <span class="mr-1 font-bold">Setor</span> <span>Sampahnya</span>
                 </div>
             </div>
 
             <!-- Gambar Tengah -->
-            <div class="elephant-image">
+            <div class="w-64 bg-white rounded-6xl p-5">
                 <img src={{ asset("asset/gajah.png") }} alt="Gajah Menggemaskan">
             </div>
 
             <!-- Teks Ajak Bergabung -->
-            <div class="join-text">
-                <h2>Ayo Bergabung <br><span>untuk Pengelolaan Sampah yang Lebih Baik!</span></h2>
-                <p>
+            <div class="max-w-lg">
+                <h2 class="text-2xl font-bold mb-7">Ayo Bergabung <br><span>untuk Pengelolaan Sampah yang Lebih Baik!</span></h2>
+                <p class="mb-7">
                     Ambil bagian dalam upaya melestarikan lingkungan dengan bertanggung jawab atas sampah yang Anda hasilkan
                     melalui Bank Sampah Sahabat Gajah. Ikuti langkah mudah ini untuk mulai berkontribusi.
                 </p>
-                <a href="{{ route('login') }}" class="join-btn">Bergabung Sekarang</a>
+                <a href="{{ route('login') }}" class="primary-btn">Bergabung Sekarang</a>
             </div>
         </section>
 

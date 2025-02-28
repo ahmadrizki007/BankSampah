@@ -6,243 +6,18 @@
 }
 
 body {
-    padding-top: 100px; /* Menambahkan ruang di atas konten agar tidak tertutup header */
     font-family: 'Plus Jakarta Sans', sans-serif;
     background-color: #FFFFFF;
 }
 
-/* Header */
-.header {
-    position: fixed; /* Tetapkan header di atas layar */
-    top: 0; /* Menempel di bagian atas */
-    left: 0;
-    width: 100%; /* Lebar penuh */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 50px;
-    height: 100px; /* Tinggi tetap */
-    z-index: 1000; /* Menjadikan header di atas elemen lain */
-}
-
-.logo img {
-    max-height: 200%; /* Sesuaikan tinggi logo dengan header */
-    height: auto; /* Mempertahankan proporsi logo */
-    width: auto; /* Pastikan logo tidak terdistorsi */
-    max-width: 120px; /* Membatasi lebar maksimum logo */
-}
-
-/* Menu Navigasi */
-.nav ul {
-    display: flex;
-    gap: 30px;
-    list-style: none;
-}
-
-.nav a {
-    color: #FFFFFF;
-    text-decoration: none;
-    font-size: 16px;
-    position: relative; /* Dibutuhkan untuk garis bawah */
-    padding-bottom: 5px; /* Memberi ruang untuk garis */
-    transition: color 0.3s ease; /* Animasi perubahan warna */
-}
-
-.nav a:hover {
-    color: #BCC8A2; /* Warna teks saat hover */
-}
-
-.nav a.active::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 3px; /* Ketebalan garis */
-    background-color: #FFFFFF; /* Warna garis */
-    border-radius: 2px; /* Membuat garis lebih halus */
-}
-
-.login-btn {
-    background: none;
-    border: 1px solid #FFFFFF;
-    border-radius: 25px;
-    color: #FFFFFF;
-    padding: 8px 20px;
-    cursor: pointer;
-    transition: all 0.3s ease; /* Animasi transisi */
-}
-
-.login-btn:hover {
-    background-color: #FFFFFF; /* Warna latar saat hover */
-    color: #276561; /* Warna teks saat hover */
-}
-
 /* Hero Section */
-.hero {
-    position: relative;
-    display: flex;
-    align-items: center; /* Semua elemen berada di tengah horizontal */
-    justify-content: center;
-    padding: 80px 20px; /* Mengurangi padding atas-bawah */
-    gap: 500px; /* Mengurangi jarak antar elemen */
-    text-align: center; /* Teks berada di tengah */
-}
-
-.reuse-image img {
-    width: 300px; /* Lebar gambar lebih kecil jika diperlukan */
-    height: auto;
-    margin-bottom: 10px; /* Jarak antara gambar dan teks */
-}
-
-.hero-content {
-    max-width: 50%;
-}
-
-/* Deskripsi */
-.description {
-    margin: 10px 0; /* Kurangi jarak atas dan bawah */
-    font-family: 'Poppins', sans-serif;
-    font-size: 18px;
-    font-weight: bold;
-    color: #B2C49C;
-    text-align: center; /* Pastikan teks rata tengah */
-}
-
-.cta-btn {
-    background-color: #3D3D3D;
-    color: #FFFFFF;
-    border: none;
-    border-radius: 5px;
-    padding: 12px 24px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.cta-btn:hover {
-    background-color: #555555;
+.clip-path-custom{
+    clip-path: polygon(82.63% 0, 100% 41.4%, 100% 100%, 17.37% 100%, 0 58.6%, 0 0);
 }
 
 /* ==========================
    CSS Untuk Halaman Beranda
    ========================== */
-
-/* Gambar Hero */
-.hero-image img {
-    width: 500px;
-    height: auto;
-}
-
-/* Segitiga Kiri Bawah */
-.triangle-left {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 0;
-    border-left: 250px solid #276561;
-    border-top: 250px solid transparent;
-}
-
-/* Segitiga Kanan Atas */
-.triangle-right {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 0;
-    height: 0;
-    border-right: 250px solid #276561;
-    border-bottom: 250px solid transparent;
-}
-
-/* Section Join */
-.join-section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
-    background-color: #276561; /* Warna hijau gelap */
-    padding: 50px 20px;
-}
-
-/* Langkah-Langkah */
-.steps {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.step-box {
-    display: flex;
-    align-items: center;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-}
-
-.step-box.step-white {
-    background-color: #FFFFFF;
-    color: #000000; /* Warna font untuk Kemas */
-}
-
-.step-box.step-green {
-    background-color: #BCC8A2; /* Hijau muda */
-    color: #FFFFFF; /* Warna font untuk Pilah dan Setor */
-}
-
-.step-text.bold {
-    font-weight: 700; /* Teks bold untuk Pilah, Kemas, Setor */
-    margin-right: 5px; /* Jarak antara teks bold dan reguler */
-}
-
-/* Gambar Tengah */
-.elephant-image img {
-    width: 200px; /* Ukuran gambar gajah */
-    height: auto;
-    background-color: #FFFFFF;
-    border-radius: 50px;
-    padding: 20px; /* Increased padding to make background larger */
-}
-
-/* Teks Ajakan */
-.join-text {
-    max-width: 400px;
-    color: #FFFFFF;
-}
-
-.join-text h2 {
-    font-size: 24px;
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-
-.join-text h2 span {
-    color: #FFFFFF;
-    font-weight: bold;
-}
-
-.join-text p {
-    font-size: 14px;
-    margin-bottom: 20px;
-    line-height: 1.5;
-}
-
-.join-btn {
-    background-color: #3D3D3D;
-    color: #FFFFFF;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.3s ease;
-}
-
-.join-btn:hover {
-    background-color: #555555;
-}
 
 /* Section Pencapaian */
 .achievement-section {
@@ -437,10 +212,10 @@ body {
 /* Kontainer untuk kotak teks dan gambar */
 .prepare-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); 
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    align-items: start; 
-    justify-content: center; 
+    align-items: start;
+    justify-content: center;
 }
 
 /* Kolom Teks Kiri dan Kanan */

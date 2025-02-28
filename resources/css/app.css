@@ -6,6 +6,18 @@
     --color-primary-500: #276461
 }
 
-/* @theme{
+.nav a {
+    @apply relative pb-2 transition-colors duration-300 ease-linear hover:text-primary-hover;
+}
 
-} */
+.nav a.active::after {
+    @apply content-[''] absolute bottom-0 left-0 w-full h-px bg-white rounded-sm;
+}
+
+.primary-btn {
+    @apply bg-primary-btn text-white border-none rounded-md py-2 px-4 transition-colors duration-300 ease-linear hover:bg-primary-btn-hover text-sm;
+}
+
+.step-box {
+    @apply flex items-center py-3 px-5 rounded-md ;
+}
