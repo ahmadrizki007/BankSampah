@@ -1,4 +1,4 @@
-import defaultTheme from 'tailwindcss/defaultTheme';
+import defaultTheme from "tailwindcss/defaultTheme";
 // import forms from '@tailwindcss/forms';
 
 /** @type {import('tailwindcss').Config} */
@@ -21,10 +21,8 @@ export default {
                     500: "#276461",
                     btn: "#3D3D3D",
                     hover: "#BCC8A2",
+                    "hover-2": "#A8B78D",
                     "btn-hover": "#555555",
-                },
-                main: {
-                    500: "#F2F2F2",
                 },
             },
             screens: {
@@ -46,6 +44,7 @@ export default {
 
             maxWidth: {
                 "28,5": "7.5rem", //120px
+                "350px": "21.875rem",
                 "400px": "25rem",
                 "500px": "31.25rem",
                 "8xl": "90rem",
@@ -55,10 +54,6 @@ export default {
                 "5xl": "3rem",
                 "6xl": "4rem",
             },
-
-            // clipPath: {
-            //     custom: "polygon(65% 0, 100% 32%, 100% 100%, 30% 100%, 0 68%, 0 0)",
-            // },
         },
     },
     darkMode: "class", // or 'media' or 'class'
