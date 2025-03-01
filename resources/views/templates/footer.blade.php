@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class="bg-primary-500">
+<footer class="bg-primary-500 overflow-hidden">
     <div class="grid sm:grid-flow-col sm:gap-10 pt-8 pb-16 sm:px-0 px-5 max-w-6xl mx-auto">
         <!-- Kolom Alamat -->
         <div class="flex sm:flex-col gap-5">
