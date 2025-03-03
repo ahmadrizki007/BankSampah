@@ -7,7 +7,7 @@
 @section('main')
     <main class="bg-primary-500  overflow-hidden">
         <!-- Hero Section -->
-        <section class="relative flex flex-col-reverse sm:flex-row items-center justify-center py-24 px-5 text-center clip-path-desktop bg-primary-bg">
+        <section class="relative flex flex-col-reverse sm:flex-row items-center justify-center py-24 px-5 text-center clip-path-desktop bg-white">
             <!-- Segitiga Kiri Bawah -->
             <div class="sm:max-w-[50%]">
                 <div class="sm:w-500px hidden sm:block">
