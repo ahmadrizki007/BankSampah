@@ -24,6 +24,7 @@ export default {
                     "hover-2": "#A8B78D",
                     "btn-hover": "#555555",
                     bg: "#F8F8F8",
+                    gray: "#9D9D9D",
                 },
             },
             screens: {
