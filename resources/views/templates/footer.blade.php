@@ -11,7 +11,7 @@
         <!-- Kolom Link -->
         <div class="flex flex-col gap-3 pt-11 sm:items-start items-center">
             <h3 class="font-bold">BANK SAMPAH SAHABAT GAJAH</h3>
-            <ul class="mt-2 space-y-2 text-center">
+            <ul class="mt-2 space-y-2 text-center sm:text-left">
                 <li><a href="#">Tentang Kami</a></li>
                 <li><a href="#">Produk</a></li>
                 <li><a href="#">Reloop Market</a></li>
@@ -21,9 +21,9 @@
         <div class="flex flex-col gap-3 pt-11 sm:items-start items-center">
             <h3 class="font-bold">IKUTI KAMI</h3>
 
-                <ul class="mt-2 space-y-2 text-center">
+                <ul class="mt-2 space-y-2 text-center sm:text-left">
                     <li class="space-x-2"><i class="fa-solid fa-envelope text-lg"></i><a
-                            href="mailto:banksampahsahabatgajah@gmail.com">banksampahsahabatgajah@gmail.com</a></li>
+                            href="mailto:banksampahsahabatgajah@gmail.com">bank sampah sahabat gajah @gmail.com</a></li>
                     <li class="space-x-2"><i class="fa-solid fa-phone text-lg"></i><a href="tel:+6281234567890">+62 812 3456 7890</a>
                     </li>
                 </ul>

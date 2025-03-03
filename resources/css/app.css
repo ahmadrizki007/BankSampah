@@ -52,12 +52,51 @@
 }
 
 .partner-box {
-    @apply bg-white rounded-2xl shadow-md p-2 sm:w-200px w-36 my-3 sm:h-28 h-24;
+    @apply bg-white rounded-2xl shadow-shadow-1 p-2 sm:w-200px w-36 my-3 sm:h-28 h-24;
 }
 
 .partner-box img {
     @apply max-w-full max-h-full object-contain mx-auto;
 }
+
+
+ .video-box {
+    @apply bg-white rounded-lg shadow-lg overflow-hidden w-400px;
+}
+
+.tab-button {
+    @apply p-4 border-2 rounded-full border-gray-300 hover:bg-primary-hover shadow-md;
+}
+
+.tab-button.active {
+    @apply border-primary-500
+}
+
+.tab-content {
+    @apply hidden;
+}
+
+.tab-content.active {
+    @apply block
+}
+
+
+.text-overlay {
+    @apply absolute inset-y-0 left-0 sm:max-w-[50%] bg-primary-500 text-white p-5 text-left bg-primary-500/50 ;
+}
+
+.unit-box {
+    @apply relative sm:w-250px h-300px overflow-hidden rounded-lg shadow-md transition-all duration-300 ease-in-out hover:shadow-lg;
+}
+
+.unit-box img {
+    @apply w-full h-full object-cover transition-transform duration-300 ease-in-out hover:scale-110;
+}
+
+.unit-text {
+    @apply absolute bottom-3 right-3 bg-black/50 text-white text-lg font-bold py-1 px-3 rounded-md text-right uppercase;
+}
+
 
 
 

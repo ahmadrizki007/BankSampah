@@ -7,7 +7,7 @@
 @section('main')
     <main class="bg-primary-500  overflow-hidden">
         <!-- Hero Section -->
-        <section class="relative flex flex-col-reverse sm:flex-row items-center justify-center py-24 px-5 text-center clip-path-desktop bg-white">
+        <section class="relative flex flex-col-reverse sm:flex-row items-center justify-center py-24 px-5 text-center clip-path-desktop bg-primary-bg">
             <!-- Segitiga Kiri Bawah -->
             <div class="sm:max-w-[50%]">
                 <div class="sm:w-500px hidden sm:block">
@@ -61,7 +61,7 @@
 
         <section class="clip-path-desktop">
         <!-- Pencapaian Kami -->
-            <div class="sm:py-14 py-10 px-5 bg-white">
+            <div class="sm:py-14 py-10 px-5 bg-primary-bg">
                 <h2 class="text-2xl font-bold text-primary-hover mb-8 text-center">PENCAPAIAN KAMI</h2>
                 <div class="grid sm:grid-flow-col justify-center gap-5">
                     <div class="achievement-box">
@@ -79,7 +79,7 @@
                 </div>
             </div>
             <!-- Keuntungan -->
-            <div class="sm:py-14 py-10 px-5 bg-white text-center">
+            <div class="sm:py-14 py-10 px-5 bg-primary-bg text-center">
                 <h2 class="text-2xl font-bold text-primary-hover mb-8">KEUNTUNGAN</h2>
                 <div class="grid gap-5 sm:grid-cols-2 mx-auto sm:max-w-6xl">
                     <!-- Kotak 1 -->
@@ -132,7 +132,7 @@
 
         <section class="clip-path-desktop ">
             <!-- Cara Menyiapkan Sampah -->
-            <div class="sm:py-14 py-10 px-5 bg-white">
+            <div class="sm:py-14 py-10 px-5 bg-primary-bg">
                 <h2 class="text-2xl font-bold text-primary-hover mb-8 text-center">CARA MENYIAPKAN SAMPAH</h2>
                 <div class="grid sm:grid-flow-col gap-5 sm:gap-0">
                     <!-- Kolom Kiri -->
@@ -203,7 +203,7 @@
             </div>
 
             <!-- Partner -->
-            <div class="sm:py-14 py-10 bg-white text-center">
+            <div class="sm:py-14 py-1 bg-primary-bg text-center">
                 <h2 class="text-2xl font-bold text-primary-hover mb-8">Partner</h2>
                 <div class="grid grid-flow-col gap-5 justify-center">
                     <div class="partner-box">
@@ -238,7 +238,7 @@
         </section>
 
         <!-- Reloop Market -->
-        <section class="bg-white sm:py-14 py-10 text-center clip-path-desktop">
+        <section class="bg-primary-bg sm:py-14 py-10 text-center clip-path-desktop">
             <div class="sm:max-w-4xl max-w-80 mx-auto">
                 <!-- Judul -->
                 <h2 class="text-2xl font-bold text-primary-hover mb-8">Reloop Market</h2>
