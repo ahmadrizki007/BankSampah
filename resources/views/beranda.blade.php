@@ -5,7 +5,7 @@
 @endsection
 
 @section('main')
-    <main class="bg-primary-500  overflow-hidden">
+    <main class="bg-primary-500 overflow-hidden">
         <!-- Hero Section -->
         <section class="relative flex flex-col-reverse sm:flex-row items-center justify-center py-24 px-5 text-center clip-path-desktop bg-white">
             <!-- Segitiga Kiri Bawah -->
