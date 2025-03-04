@@ -1,6 +1,6 @@
 <!-- Footer -->
 <footer class="bg-primary-500 overflow-hidden">
-    <div class="grid sm:grid-flow-col sm:gap-10 pt-8 pb-16 sm:px-0 px-5 max-w-6xl mx-auto">
+    <div class="flex lg:justify-between md:justify-around flex-wrap justify-center sm:gap-10 pt-8 pb-16 px-5 max-w-6xl mx-auto">
         <!-- Kolom Alamat -->
         <div class="flex sm:flex-col gap-5">
             <img src={{ asset("asset/logo.png") }} alt="Logo Bank Sampah" class="sm:max-w-44 max-w-36">
@@ -23,7 +23,7 @@
 
                 <ul class="mt-2 space-y-2 text-center sm:text-left">
                     <li class="space-x-2"><i class="fa-solid fa-envelope text-lg"></i><a
-                            href="mailto:banksampahsahabatgajah@gmail.com">bank sampah sahabat gajah @gmail.com</a></li>
+                            href="mailto:banksampahsahabatgajah@gmail.com">banksampahsahabatgajah@gmail.com</a></li>
                     <li class="space-x-2"><i class="fa-solid fa-phone text-lg"></i><a href="tel:+6281234567890">+62 812 3456 7890</a>
                     </li>
                 </ul>

@@ -8,8 +8,8 @@
 
 @section('main')
 
-    <main class="flex items-center justify-center sm:h-screen bg-primary-bg overflow-hidden">
-        <div class="flex sm:flex-row flex-col w-full max-w-5xl bg-white rounded-lg shadow-2xl">
+    <main class="flex items-center justify-center sm:h-screen bg-primary-bg md:px-5">
+        <div class="flex sm:flex-row flex-col w-full max-w-5xl bg-white rounded-lg shadow-2xl md:overflow-hidden">
             <!-- Bagian Kiri -->
             <div class="sm:w-1/2 bg-primary-500 text-white p-10 flex flex-col justify-center shadow-lg text-center sm:text-left">
                 <h2 class="sm:text-4xl text-2xl font-bold">Selamat Datang</h2>
@@ -17,7 +17,6 @@
             </div>
             <!-- Bagian Kanan -->
             <div class="sm:w-1/2 p-12">
-
                 <div class="text-center mb-8">
                     <img src="asset/logo.png" alt="Logo" class="w-24 mx-auto">
                 </div>

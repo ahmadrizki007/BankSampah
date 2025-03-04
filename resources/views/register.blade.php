@@ -8,8 +8,8 @@
 
 @section('main')
 
-    <main class="sm:flex items-center justify-center sm:h-screen bg-primary-bg">
-        <div class="flex sm:flex-row flex-col w-full max-w-4xl bg-white rounded-lg sm:shadow-xl">
+    <main class="sm:flex items-center justify-center sm:h-screen bg-primary-bg md:px-5">
+        <div class="flex sm:flex-row flex-col w-full max-w-4xl bg-white rounded-lg shadow-2xl md:overflow-hidden">
             <!-- Bagian Kiri -->
             <div class="sm:w-1/2 bg-primary-500 text-white p-10 flex flex-col justify-center shadow-lg text-center sm:text-left">
                 <h2 class="sm:text-4xl text-2xl font-bold">Selamat Datang</h2>

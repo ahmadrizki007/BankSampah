@@ -5,7 +5,7 @@
 @endsection
 
 @section('main')
-    <div class="w-full sm:p-6 p-4 sm:flex items-start gap-x-8 bg-primary-bg shadow-md text-black">
+    <div class="w-full sm:p-6 p-4 sm:flex items-start lg:gap-8 gap-4 bg-primary-bg shadow-md text-black">
 
         @if (session('error'))
             <div class="border border-red-400">

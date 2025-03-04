@@ -23,7 +23,7 @@
 @endsection
 
 @section('main')
-    <div class="w-full sm:p-6 p-4 sm:flex items-start gap-x-8 bg-primary-bg shadow-md text-black">
+    <div class="w-full sm:p-6 p-4 sm:flex items-start lg:gap-8 gap-4 bg-primary-bg shadow-md text-black">
 
         <!-- Side Bar -->
         <x-sidebar />
@@ -35,7 +35,7 @@
             </div>
 
             <!-- Cards Container: Two cards side by side -->
-            <div class="flex gap-6 sm:flex-row flex-col">
+            <div class="flex gap-6 lg:flex-row flex-col">
                 <!-- Card: Dompet Kamu (Balance) -->
                 <div class="sm:p-6 p-3 bg-white rounded-lg shadow-lg flex flex-col">
                     <div class="sm:text-2xl text-lg text-gray-600 mb-4">Dompet Kamu</div>

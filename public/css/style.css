@@ -15,7 +15,7 @@ body {
     content: "";
 }
 
-@media (min-width: 768px) {
+@media (min-width: 80rem) {
   .clip-path-desktop {
     clip-path: polygon(87% 0, 100% 25%, 100% 100%, 13% 100%, 0 75%, 0 0);
     /* Or different values if you prefer */

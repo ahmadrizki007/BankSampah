@@ -9,9 +9,9 @@
         <!-- Hero Section -->
         <section class="relative flex flex-col-reverse sm:flex-row items-center justify-center py-24 px-5 text-center clip-path-desktop bg-white">
             <!-- Segitiga Kiri Bawah -->
-            <div class="sm:max-w-[50%]">
-                <div class="sm:w-500px hidden sm:block">
-                    <img src={{ asset("asset/RE.png") }} alt="REUSE REDUCE RECYCLE" class="mx-auto d-block w-300px mb-3"
+            <div class="lg:max-w-[50%]">
+                <div class="lg:w-500px hidden sm:block">
+                    <img src={{ asset("asset/RE.png") }} alt="REUSE REDUCE RECYCLE" class="mx-auto d-block lg:w-300px md:w-200px mb-3"
                         style="display: block; margin: 0 auto;">
                 </div>
                 <p class="m-3 text-lg font-bold text-primary-hover text-center ">
@@ -27,9 +27,9 @@
         </section>
 
         <!-- Section Bergabung -->
-        <section class="sm:flex items-center justify-center gap-8 sm:h-400px py-14 sm:py-0">
+        <section class="sm:flex items-center justify-center lg:gap-8 gap-5 md:h-400px py-14 sm:py-0 lg:px-0 md:px-5">
             <!-- Kotak Langkah-Langkah -->
-            <div class="flex items-center sm:gap-8 gap-5 justify-center">
+            <div class="flex items-center lg:gap-8 gap-5 justify-center">
                 <div class="flex flex-col gap-3">
                     <div class="step-box  ">
                         <span class="mr-1 font-bold">Pilah</span> <span>Jenisnya</span>
@@ -43,7 +43,7 @@
                 </div>
 
                 <!-- Gambar Tengah -->
-                <div class="sm:w-64 w-36 bg-white sm:rounded-6xl rounded-5xl p-5">
+                <div class="lg:w-64 md:w-48 w-36 bg-white sm:rounded-6xl rounded-5xl p-5">
                     <img src={{ asset("asset/gajah.png") }} alt="Gajah Menggemaskan">
                 </div>
             </div>
@@ -81,10 +81,10 @@
             <!-- Keuntungan -->
             <div class="sm:py-14 py-10 px-5 bg-primary-bg text-center">
                 <h2 class="text-2xl font-bold text-primary-hover mb-8">KEUNTUNGAN</h2>
-                <div class="grid gap-5 sm:grid-cols-2 mx-auto sm:max-w-6xl">
+                <div class="grid gap-5 sm:grid-cols-2 mx-auto sm:max-w-5xl">
                     <!-- Kotak 1 -->
                     <div class="benefit-box">
-                        <div class="sm:text-right text-center sm:max-w-sm">
+                        <div class="sm:text-right text-center lg:max-w-sm md:max-w-60">
                             <h3 class="font-bold">Sampah Terkelola</h3>
                             <p class="text-sm">Sampah akan dikelola secara bertanggung jawab dan mengurangi jumlah sampah yang berakhir di TPA.
                             </p>
@@ -96,7 +96,7 @@
 
                     <!-- Kotak 2 -->
                     <div class="benefit-box">
-                        <div class="sm:text-right text-center sm:max-w-sm">
+                        <div class="sm:text-right text-center lg:max-w-sm md:max-w-60">
                             <h3 class="font-bold">Pemberdayaan Masyarakat</h3>
                             <p class="text-sm">Masyarakat diajak terlibat langsung dan sambil menggali potensi yang dimiliki.</p>
                         </div>
@@ -107,7 +107,7 @@
 
                     <!-- Kotak 3 -->
                     <div class="benefit-box">
-                        <div class="sm:text-right text-center sm:max-w-sm">
+                        <div class="sm:text-right text-center lg:max-w-sm md:max-w-60">
                             <h3 class="font-bold">Praktis dan Mudah</h3>
                             <p class="text-sm">Cukup pilah dan bersihkan sampah Anda di rumah dan setorkan kepada kami.</p>
                         </div>
@@ -118,7 +118,7 @@
 
                     <!-- Kotak 4 -->
                     <div class="benefit-box">
-                        <div class="sm:text-right text-center sm:max-w-sm">
+                        <div class="sm:text-right text-center lg:max-w-sm md:max-w-60">
                             <h3 class="font-bold">Apresiasi Reward</h3>
                             <p class="text-sm">Masyarakat yang menyetorkan sampah akan mendapatkan reward dalam bentuk tabungan.</p>
                         </div>
@@ -134,10 +134,10 @@
             <!-- Cara Menyiapkan Sampah -->
             <div class="sm:py-14 py-10 px-5 bg-primary-bg">
                 <h2 class="text-2xl font-bold text-primary-hover mb-8 text-center">CARA MENYIAPKAN SAMPAH</h2>
-                <div class="grid sm:grid-flow-col gap-5 sm:gap-0">
+                <div class="grid sm:grid-flow-col gap-5 lg:gap-14 md:gap-8 justify-center">
                     <!-- Kolom Kiri -->
                     <div class="flex flex-col sm:gap-10 gap-5">
-                        <div class="sm:pl-16 sm:max-w-350px">
+                        <div class="lg:max-w-350px md:max-w-56">
                             <div class="prepare-box">
                                 <h3 class="sm:p-4 p-2 text-center sm:text-left">1. Bersihkan Sampah</h3>
                             </div>
@@ -151,7 +151,7 @@
                             </div>
                         </div>
 
-                        <div class="sm:pl-16 sm:max-w-350px">
+                        <div class="lg:max-w-350px md:max-w-56">
                             <div class="prepare-box">
                                 <h3 class="sm:p-4 p-2 text-center sm:text-left">2. Pastikan Sampah Kering</h3>
                             </div>
@@ -166,13 +166,13 @@
                     </div>
 
                     <!-- Gambar Tengah -->
-                    <div class="max-w-350px mx-auto sm:block hidden">
+                    <div class="max-w-350px mx-auto sm:block hidden md:my-auto">
                         <img src={{ asset("asset/G0.png") }} alt="Protecting the Environment">
                     </div>
 
                     <!-- Kolom Kanan -->
                     <div class="flex flex-col sm:gap-10 gap-5">
-                        <div class="sm:pl-16 sm:max-w-350px">
+                        <div class=" lg:max-w-350px md:max-w-56">
                             <div class="prepare-box">
                                 <h3 class="sm:p-4 p-2 text-center sm:text-left">3. Remas dan Lipat</h3>
                             </div>
@@ -186,7 +186,7 @@
                             </div>
                         </div>
 
-                        <div class="sm:pl-16 sm:max-w-350px">
+                        <div class=" lg:max-w-350px md:max-w-56">
                             <div class="prepare-box">
                                 <h3 class="sm:p-4 p-2 text-center sm:text-left">4. Kemas Rapi</h3>
                             </div>
@@ -217,7 +217,7 @@
         </section>
 
         <!-- Donasi -->
-        <section class="sm:h-400px max-w-6xl mx-auto sm:px-12 pt-10 sm:pt-0">
+        <section class="lg:h-400px max-w-6xl mx-auto lg:px-12 md:px-8 pt-10 sm:pt-0">
             <div class="flex sm:flex-row flex-col items-center justify-between w-full">
                 <!-- Bagian Teks -->
 
@@ -231,7 +231,7 @@
                 </div>
 
                 <!-- Bagian Gambar -->
-                <div class="sm:max-w-400px max-w-72">
+                <div class="lg:max-w-400px md:max-w-350px max-w-72">
                     <img src={{ asset("asset/G6.png") }} alt="Bantu Gajah">
                 </div>
             </div>

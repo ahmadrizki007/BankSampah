@@ -1,5 +1,5 @@
 <!-- Header -->
-<header class="flex sm:flex-row flex-row-reverse items-center justify-between sticky top-0 bg-primary-500 px-5 sm:px-14 py-5 z-20">
+<header class="flex sm:flex-row flex-row-reverse items-center justify-between sticky top-0 bg-primary-500 px-5 lg:px-14 md:px-8 py-5 z-20">
     <div class="sm:max-w-28,5 max-w-20">
         <img src={{ asset("asset/logo.png") }} alt="Logo Bank Sampah">
     </div>

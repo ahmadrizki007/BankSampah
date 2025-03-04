@@ -63,9 +63,8 @@
     @apply max-w-full max-h-full object-contain mx-auto;
 }
 
-
  .video-box {
-    @apply bg-white rounded-lg shadow-lg overflow-hidden w-400px;
+    @apply bg-white rounded-lg shadow-lg overflow-hidden w-full lg:max-w-400px max-w-350px;
 }
 
 .tab-button {
@@ -90,7 +89,7 @@
 }
 
 .unit-box {
-    @apply relative sm:w-250px h-300px overflow-hidden rounded-lg shadow-md transition-all duration-300 ease-in-out hover:shadow-lg;
+    @apply relative lg:w-250px md:w-300px h-300px overflow-hidden rounded-lg shadow-md transition-all duration-300 ease-in-out hover:shadow-lg;
 }
 
 .unit-box img {

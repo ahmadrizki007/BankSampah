@@ -1,6 +1,6 @@
 @props(['active' => ''])
 
-<ul class="sm:w-44 sm:p-4 py-4 sm:items-start items-center sm:justify-start justify-center flex sm:flex-col sm:gap-5 bg-white sm:rounded-xl rounded-sm shadow-md sticky top-24 sm:top-32 z-10">
+<ul class="sm:w-48 sm:p-4 py-4 sm:items-start items-center sm:justify-start justify-center flex sm:flex-col sm:gap-5 bg-white sm:rounded-xl rounded-sm shadow-md sticky top-24 sm:top-32 z-10">
 <p class="text-nowrap mb-2 text-sm text-neutral-500 font-bold  hidden">
     Information Type
 </p>

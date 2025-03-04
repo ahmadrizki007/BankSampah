@@ -104,11 +104,11 @@
         <!-- Visi Misi Section -->
         <section class="sm:py-14 py-10 px-5 text-center bg-primary-500">
             <h2 class="text-2xl font-bold mb-8 text-primary-hover">VISI dan MISI <br> BANK SAMPAH “SAHABAT GAJAH”</h2>
-            <div class="flex flex-col sm:flex-row justify-center items-start gap-12">
+            <div class="flex flex-col sm:flex-row justify-center items-start lg:gap-12 gap-6">
                 <!-- Visi -->
-                <div class="flex-1 max-w-500px text-left border-l-4 border-white pl-8">
+                <div class="flex-1 lg:max-w-500px text-left border-l-4 border-white lg:pl-8 pl-4">
                     <h3 class="sm:text-xl font-bold mb-4 ">Visi</h3>
-                    <ul class="list-disc pl-2 sm:pl-5 text-sm text-justify space-y-2 sm:h-44">
+                    <ul class="list-disc pl-2 sm:pl-5 text-sm text-justify space-y-2 lg:h-44 md:h-60">
                         <li>Memberikan manfaat dalam aksi bersama penyelamatan Gajah Sumatera</li>
                         <li>Menunjang pengolahan sampah sebagai wadah untuk mewujudkan masyarakat yang peduli akan
                             lingkungan</li>
@@ -117,9 +117,9 @@
                     </ul>
                 </div>
                 <!-- Misi -->
-                <div class="flex-1 max-w-500px text-left border-l-4 border-white pl-8">
+                <div class="flex-1 lg:max-w-500px text-left border-l-4 border-white lg:pl-8 pl-4">
                     <h3 class="sm:text-xl font-bold mb-4 ">Misi</h3>
-                    <ul class="list-disc pl-2 sm:pl-5 text-sm text-justify space-y-2 sm:h-44">
+                    <ul class="list-disc pl-2 sm:pl-5 text-sm text-justify space-y-2 lg:h-44 md:h-60">
                         <li>Mengurangi jumlah timbulan sampah di tempat pembuangan akhir</li>
                         <li>Memberdayakan masyarakat untuk dapat melakukan pilah sampah dari rumah sebagai bentuk peduli
                             lingkungan dari sumbernya</li>
