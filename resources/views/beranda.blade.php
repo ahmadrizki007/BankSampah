@@ -7,7 +7,7 @@
 @section('main')
     <main class="bg-primary-500 overflow-hidden">
         <!-- Hero Section -->
-        <section class="relative flex flex-col-reverse sm:flex-row items-center justify-center py-24 px-5 text-center clip-path-desktop bg-white">
+        <section class="relative h-full flex flex-col-reverse sm:flex-row items-center justify-center py-24 px-5 text-center clip-path-desktop bg-white border-none">
             <!-- Segitiga Kiri Bawah -->
             <div class="lg:max-w-[50%]">
                 <div class="lg:w-500px hidden sm:block">
@@ -27,7 +27,7 @@
         </section>
 
         <!-- Section Bergabung -->
-        <section class="sm:flex items-center justify-center lg:gap-8 gap-5 md:h-400px py-14 sm:py-0 lg:px-0 md:px-5">
+        <section class="sm:flex items-center justify-center lg:gap-8 gap-5 md:h-400px py-14 sm:py-0 lg:px-0 md:px-5 border-none">
             <!-- Kotak Langkah-Langkah -->
             <div class="flex items-center lg:gap-8 gap-5 justify-center">
                 <div class="flex flex-col gap-3">
@@ -59,9 +59,9 @@
             </div>
         </section>
 
-        <section class="clip-path-desktop">
+        <section class="clip-path-desktop bg-primary-bg -mb-[0.5px] border-none">
         <!-- Pencapaian Kami -->
-            <div class="sm:py-14 py-10 px-5 bg-primary-bg">
+            <div class="sm:py-14 py-10 px-5 border-none">
                 <h2 class="text-2xl font-bold text-primary-hover mb-8 text-center">PENCAPAIAN KAMI</h2>
                 <div class="grid sm:grid-flow-col justify-center gap-5">
                     <div class="achievement-box">
@@ -79,7 +79,7 @@
                 </div>
             </div>
             <!-- Keuntungan -->
-            <div class="sm:py-14 py-10 px-5 bg-primary-bg text-center">
+            <div class="sm:py-14 py-10 px-5 text-center border-none">
                 <h2 class="text-2xl font-bold text-primary-hover mb-8">KEUNTUNGAN</h2>
                 <div class="grid gap-5 sm:grid-cols-2 mx-auto sm:max-w-5xl">
                     <!-- Kotak 1 -->
@@ -130,9 +130,9 @@
             </div>
         </section>
 
-        <section class="clip-path-desktop ">
+        <section class="clip-path-desktop border-none bg-primary-bg">
             <!-- Cara Menyiapkan Sampah -->
-            <div class="sm:py-14 py-10 px-5 bg-primary-bg">
+            <div class="sm:py-14 py-10 px-5">
                 <h2 class="text-2xl font-bold text-primary-hover mb-8 text-center">CARA MENYIAPKAN SAMPAH</h2>
                 <div class="grid sm:grid-flow-col gap-5 lg:gap-14 md:gap-8 justify-center">
                     <!-- Kolom Kiri -->
@@ -203,7 +203,7 @@
             </div>
 
             <!-- Partner -->
-            <div class="sm:py-14 py-1 bg-primary-bg text-center">
+            <div class="sm:py-14 py-1  text-center">
                 <h2 class="text-2xl font-bold text-primary-hover mb-8">Partner</h2>
                 <div class="grid grid-flow-col gap-5 justify-center">
                     <div class="partner-box">
@@ -217,7 +217,7 @@
         </section>
 
         <!-- Donasi -->
-        <section class="lg:h-400px max-w-6xl mx-auto lg:px-12 md:px-8 pt-10 sm:pt-0">
+        <section class="lg:h-400px max-w-6xl mx-auto lg:px-12 md:px-8 pt-10 sm:pt-0 border-none">
             <div class="flex sm:flex-row flex-col items-center justify-between w-full">
                 <!-- Bagian Teks -->
 
@@ -238,7 +238,7 @@
         </section>
 
         <!-- Reloop Market -->
-        <section class="bg-primary-bg sm:py-14 py-10 text-center clip-path-desktop">
+        <section class="bg-primary-bg sm:py-14 py-10 text-center clip-path-desktop border-none">
             <div class="sm:max-w-4xl max-w-80 mx-auto">
                 <!-- Judul -->
                 <h2 class="text-2xl font-bold text-primary-hover mb-8">Reloop Market</h2>
