@@ -14,7 +14,7 @@
             <ul class="mt-2 space-y-2 text-center sm:text-left">
                 <li><a href="#">Tentang Kami</a></li>
                 <li><a href="#">Produk</a></li>
-                <li><a href="#">Reloop Market</a></li>
+                <li><a href="https://www.instagram.com/reloop.market/">Reloop Market</a></li>
             </ul>
         </div>
         <!-- Kolom Kontak -->
@@ -28,8 +28,8 @@
                     </li>
                 </ul>
                 <li class="list-none mt-5">
-                    <a href="#" class="bg-black/20 rounded-3xl py-2 px-3 text-xl"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" class="bg-black/20 rounded-3xl py-2 px-3 text-xl"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="https://www.instagram.com/banksampah_sahabatgajah/" class="bg-black/20 rounded-3xl py-2 px-3 text-xl"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@bank_sampah_sagah?_t=ZS-8uOyyUJQouF&_r=1" class="bg-black/20 rounded-3xl py-2 px-3 text-xl"><i class="fa-brands fa-tiktok"></i></a>
                 </li>
         </div>
     </div>

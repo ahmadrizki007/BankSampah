@@ -34,7 +34,7 @@
     @endif
 </head>
 
-<body class="max-w-8xl mx-auto relative text-white overflow-x-hidden">
+<body class="max-w-[100rem] mx-auto relative text-white overflow-x-hidden">
 
     @include('templates.header')
 
