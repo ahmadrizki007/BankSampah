@@ -34,11 +34,11 @@
     @endif
 </head>
 
-<body class="flex flex-col min-h-screen">
+<body class="max-w-[100rem] mx-auto relative text-white overflow-x-hidden">
 
     @include('templates.header')
 
-    <div class="flex grow bg-white">
+    <div class="bg-white">
         @yield('main')
     </div>
 

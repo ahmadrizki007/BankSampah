@@ -5,7 +5,7 @@
 @endsection
 
 @section('main')
-    <div class="w-full p-6 flex items-start gap-x-8 bg-[#ececec]">
+    <div class="w-full sm:p-6 p-4 sm:flex items-start lg:gap-8 gap-4 bg-primary-bg shadow-md text-black">
 
         @if (session('error'))
             <div class="border border-red-400">
@@ -20,33 +20,33 @@
         <x-sidebar />
 
         <!-- Main Page -->
-        <div class="w-full flex flex-col py-6 bg-white rounded-xl shadow-lg">
-            <div class="font-bold border-b-2 px-6 pb-4 pt-0">
+        <div class="w-full flex flex-col sm:py-6 py-3 bg-white rounded-xl shadow-md mt-6 sm:mt-0">
+            <div class="font-bold border-b-2 sm:px-6 px-3 sm:pb-4 pb-3 sm:text-2xl text-lg">
                 Edit Informasi Pribadi
             </div>
 
             <form action="{{ route('profile.handleEdit') }}" method="POST" class="px-6 py-4 space-y-6">
                 @csrf
 
-                <div class="space-y-6">
+                <div class="grid sm:grid-cols-2 sm:gap-6 gap-4">
                     <!-- nama -->
-                    <div class="flex flex-col">
-                        <label for="nama-lengkap" class="text-sm font-medium">Nama Lengkap</label>
+                    <div class="flex flex-col w-full sm:col-span-2">
+                        <label for="nama-lengkap" class="text-sm ">Nama Lengkap</label>
                         <input type="text" name="name" id="nama-lengkap" value="{{ old('name', $user->name) }}"
-                            class="w-full p-3 border-2 border-neutral-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 mt-2"
+                            class="w-full sm:p-3 p-2 border-2 border-neutral-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 mt-2"
                             required />
                         @error('name')
                             <span class="italic mt-1 text-red-500 text-sm">{{ $message }}</span>
                         @enderror
                     </div>
 
-                    <!-- umur dan jenis kelamin -->
-                    <div class="flex gap-x-14">
+
                         <!-- umur -->
-                        <div class="flex flex-col w-1/2">
-                            <label for="age" class="text-sm font-medium">Umur</label>
+                        <div class="flex flex-col w-full">
+                            <label for="age" class="text-sm ">Umur</label>
                             <input type="number" name="age" id="age" value="{{ old('age', $user->age) }}" min="0" max="1000"
-                                class="w-full p-3 border-2 border-neutral-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 mt-2 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                            placeholder="Umur"
+                                class="w-full sm:p-3 p-2 border-2 border-neutral-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 mt-2 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                                 required />
                             @error('age')
                                 <span class="italic mt-1 text-red-500 text-sm">{{ $message }}</span>
@@ -54,12 +54,12 @@
                         </div>
 
                         <!-- Jenis kelamin -->
-                        <div class="flex flex-col w-1/2">
-                            <label for="jenis-kelamin" class="text-sm font-medium">Jenis Kelamin</label>
+                        <div class="flex flex-col w-full">
+                            <label for="jenis-kelamin" class="text-sm ">Jenis Kelamin</label>
 
-                            <div class="relative">
+                            <div class="relative ">
                                 <select name="gender" id="jenis-kelamin"
-                                    class="appearance-none w-full p-3 border-2 border-neutral-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 mt-2">
+                                    class="appearance-none w-full sm:p-3 p-2 border-2 border-neutral-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 mt-2">
                                     <option value="male" {{ old('gender', $user->gender) == 'male' ? 'selected' : '' }}>
                                         Laki-Laki
                                     </option>
@@ -79,28 +79,27 @@
                                 <span class="italic mt-1 text-red-500 text-sm">{{ $message }}</span>
                             @enderror
                         </div>
-                    </div>
 
-                    <!-- Email dan telepon -->
-                    <div class="flex gap-x-14">
+
+
                         <!-- Email  -->
-                        <div class="flex flex-col w-1/2">
-                            <label for="email" class="text-sm font-medium">Email</label>
+                        <div class="flex flex-col w-full">
+                            <label for="email" class="text-sm ">Email</label>
                             <input type="email" id="email" value="{{ $user->email }}" disabled
-                                class="w-full p-3 mt-2 border-2 border-neutral-300 rounded-lg text-sm bg-gray-100 cursor-not-allowed" />
+                                class="w-full sm:p-3 p-2 mt-2 border-2 border-neutral-300 rounded-lg text-sm bg-gray-100 cursor-not-allowed" />
                         </div>
 
                         <!-- Telepon -->
-                        <div class="flex flex-col w-1/2">
-                            <label for="no-telepon" class="text-sm font-medium">No Telepon</label>
-                            <input type="text" id="no-handphone" value="{{ $user->phone }}" disabled
-                                class="w-full p-3 mt-2 border-2 border-neutral-300 rounded-lg text-sm bg-gray-100 cursor-not-allowed" />
+                        <div class="flex flex-col w-full">
+                            <label for="no-telepon" class="text-sm ">No Telepon</label>
+                            <input type="text" id="no-handphone" value="{{ $user->phone }}" disabled placeholder="No Telepon"
+                                class="w-full sm:p-3 p-2 mt-2 border-2 border-neutral-300 rounded-lg text-sm bg-gray-100 cursor-not-allowed" />
                         </div>
-                    </div>
+
 
                     <!-- Alamat -->
-                    <div class="flex flex-col">
-                        <label for="address" class="text-sm font-medium">Alamat</label>
+                    <div class="flex flex-col w-full sm:col-span-2">
+                        <label for="address" class="text-sm ">Alamat</label>
                         <textarea name="address" id="address"
                             class="w-full p-2 border-2 rounded-lg border-neutral-300 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 mt-2"
                             rows="4">{{ old('address', $user->address) }}</textarea>
@@ -111,7 +110,7 @@
                 </div>
 
                 <div class="flex justify-end space-x-4 mt-6 font-bold">
-                    <a href="{{ route(name: 'profile') }}" class="text-[#FF0004] text-sm py-2">Batalkan</a>
+                    <a href="{{ route(name: 'profile') }}" class="text-red-500 text-sm py-2">Batalkan</a>
                     <button type="submit" class="bg-primary-500 text-white py-2 px-6 rounded-md text-sm">Simpan</button>
                 </div>
             </form>
