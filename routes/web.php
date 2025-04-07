@@ -1,11 +1,9 @@
 <?php
 
 use App\Http\Controllers\profileController;
-use App\Http\Controllers\profilePrevController;
 use Illuminate\Support\Facades\Route;
 
 // INI CUMAN BUAT DEV AJA
-
 Route::get('/kunjungan', function () {
     return view('kunjungan');
 });
@@ -30,17 +28,21 @@ Route::get('/kunjungan', function () {
     return view('kunjungan'); // 
 });
 
+Route::get('/alerts', function () {
+    return view('errors/_general'); // 
+});
+
+
+
+// AUTH
+require_once __DIR__ . '/auth.php';
+
 Route::middleware('auth')->group(function () {
 
     Route::get('/profile', action: [profileController::class, 'index'])->name('profile');
 
-
-
     Route::get('/profile/edit', [profileController::class, 'edit'])->name('profile.edit');
     Route::post('/profile/edit', [profileController::class, 'handleEdit'])->name('profile.handleEdit');
-    // Route::delete('/profile/destroy', [profilePrevController::class, 'destroy'])->name('profile.destroy');
-
-
 
     Route::get('/dashboard', function () {
         return view('dashboard');
@@ -54,7 +56,9 @@ Route::middleware('auth')->group(function () {
         return view('transaksi');
     })->name('transaksi');
 
-
 });
 
-require __DIR__ . '/auth.php';
+
+// ADMIN
+require_once __DIR__ . '/admin.php';
+

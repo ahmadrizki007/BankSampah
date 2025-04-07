@@ -18,6 +18,7 @@ export default {
 
             colors:{
                 primary:{
+                    '300': '#A8D5BA',
                     '500': '#276461',
                 },
                 main:{
