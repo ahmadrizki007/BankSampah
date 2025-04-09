@@ -1,5 +1,5 @@
 @php
-    $title = 'Dashboard';
+    $title = 'Data Transaksi';
 @endphp
 
 @push('head')
@@ -19,23 +19,18 @@
 
             <!-- Left: Title -->
             <div class="mb-4 sm:mb-0">
-                <h1 class="text-2xl md:text-3xl text-gray-800 dark:text-gray-100 font-bold">Dashboard</h1>
+                <h1 class="text-2xl md:text-3xl text-gray-800 dark:text-gray-100 font-bold">Data Transaksi</h1>
             </div>
         </div>
 
 
         <!-- MAIN -->
-        <div class="pb-10 bg-white dark:bg-gray-800 shadow-md rounded-xl">
+        <div class="">
 
-            <header class="px-5 py-4 mb-3 border-b border-gray-100 dark:border-gray-700/60">
-                <h2 class="font-semibold text-gray-800 dark:text-gray-100">
-                    Form Data Nasabah
-                </h2>
-            </header>
             <!-- Table-->
-            <div class="px-4 overflow-x-auto">
-                <table id="myTable" class=" display min-w-full text-sm text-left">
-                    <thead class="rounded-sm bg-gray-100 dark:bg-white/20 dark:text-white">
+            <div class="overflow-x-auto">
+                <table id="myTable" class="display min-w-full divide-y divide-gray-200 text-sm text-left">
+                    <thead>
                         <tr>
                             <th class="px-6 py-3">NO</th>
                             <th class="px-6 py-3">Nama</th>
@@ -45,7 +40,7 @@
                             <th class="px-6 py-3">Saldo</th>
                         </tr>
                     </thead>
-                    <tbody class="bg-white text-gray-700 dark:bg-gray-800 dark:text-white">
+                    <tbody class="bg-white text-gray-700">
                         <tr class="border-b">
                             <td class="px-6 py-4">1</td>
                             <td class="px-6 py-4">pertama</td>
