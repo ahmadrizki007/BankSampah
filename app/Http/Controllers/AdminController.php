@@ -32,6 +32,16 @@ class AdminController extends Controller
         return view('admins.data-transaksi');
     }
 
+    public function dataSampah()
+    {
+        return view('admins.data-sampah');
+    }
+
+    public function validasiPenarikan()
+    {
+        return view('admins.validasi-penarikan');
+    }
+
     /**
      * Store a newly created resource in storage.
      */

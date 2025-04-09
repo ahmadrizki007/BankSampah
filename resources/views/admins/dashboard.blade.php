@@ -2,12 +2,24 @@
     $title = 'Dashboard';
 @endphp
 
-@push('head')
-    <!-- DataTables CSS -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
 
-    <!-- DataTables JS (pindahkan ke bawah jQuery jika perlu) -->
-    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+@push('scripts')
+
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable({
+                // Styling kolom tabel
+                columnDefs: [
+                    {
+                        target: '_all',
+                        className: '!text-center',
+                    }
+                ],
+                // scrollY: 300,
+                // scroller: true,
+            });
+        });
+    </script>
 
 @endpush
 
@@ -25,7 +37,7 @@
 
 
         <!-- MAIN -->
-        <div class="pb-10 bg-white dark:bg-gray-800 shadow-md rounded-xl">
+        <div class="pb-4 bg-white dark:bg-gray-800 shadow-md rounded-xl">
 
             <header class="px-5 py-4 mb-3 border-b border-gray-100 dark:border-gray-700/60">
                 <h2 class="font-semibold text-gray-800 dark:text-gray-100">
@@ -34,7 +46,7 @@
             </header>
             <!-- Table-->
             <div class="px-4 overflow-x-auto">
-                <table id="myTable" class=" display min-w-full text-sm text-left">
+                <table id="myTable" class="display min-w-full text-sm text-center">
                     <thead class="rounded-sm bg-gray-100 dark:bg-white/20 dark:text-white">
                         <tr>
                             <th class="px-6 py-3">NO</th>
@@ -50,7 +62,7 @@
                             <td class="px-6 py-4">1</td>
                             <td class="px-6 py-4">pertama</td>
                             <td class="px-6 py-4">08578829300</td>
-                            <td class="px-6 py-4">user1@gmail.com</td>
+                            <td class="px-6 py-4">pertama@gmail.com</td>
                             <td class="px-6 py-4">Jl Airan Raya</td>
                             <td class="px-6 py-4">Rp.100.000</td>
                         </tr>
@@ -59,7 +71,7 @@
                             <td class="px-6 py-4">2</td>
                             <td class="px-6 py-4">kedua</td>
                             <td class="px-6 py-4">08123456789</td>
-                            <td class="px-6 py-4">user1@gmail.com</td>
+                            <td class="px-6 py-4">kedua@gmail.com</td>
                             <td class="px-6 py-4">Jl Airan Raya</td>
                             <td class="px-6 py-4">Rp.100.000</td>
                         </tr>
@@ -80,15 +92,3 @@
 
     </div>
 </x-admin-layout>
-
-
-@push('scripts')
-
-    <script>
-        $(document).ready(function () {
-            $('#myTable').DataTable();
-        });
-    </script>
-
-
-@endpush

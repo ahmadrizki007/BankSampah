@@ -12,5 +12,7 @@ Route::middleware(['auth_admin'])->prefix('admin')->group(function () {
 
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
     Route::get('/data-transaksi', [AdminController::class, 'dataTransaksi'])->name('admin.dataTransaksi');
+    Route::get('/data-sampah', [AdminController::class, 'dataSampah'])->name('admin.dataSampah');
+    Route::get('/validasi-penarikan', [AdminController::class, 'validasiPenarikan'])->name('admin.validasiPenarikan');
 
 });

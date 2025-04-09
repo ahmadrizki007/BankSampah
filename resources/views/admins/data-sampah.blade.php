@@ -1,5 +1,5 @@
 @php
-    $title = 'Data Transaksi';
+    $title = 'Data Sampah';
 @endphp
 
 @push('scripts')
@@ -30,7 +30,7 @@
 
             <!-- Left: Title -->
             <div class="mb-4 sm:mb-0">
-                <h1 class="text-2xl md:text-3xl text-gray-800 dark:text-gray-100 font-bold">Transaksi</h1>
+                <h1 class="text-2xl md:text-3xl text-gray-800 dark:text-gray-100 font-bold">Sampah</h1>
             </div>
         </div>
 
@@ -41,7 +41,7 @@
             <header
                 class="flex items-center justify-between px-5 py-4 mb-3 border-b border-gray-100 dark:border-gray-700/60">
                 <h2 class="font-semibold text-gray-800 dark:text-gray-100">
-                    Data Transaksi
+                    Data Sampah
                 </h2>
 
                 <button type="submit"
@@ -52,7 +52,7 @@
                             d="M12 4a1 1 0 011 1v6h6a1 1 0 110 2h-6v6a1 1 0 11-2 0v-6H5a1 1 0 110-2h6V5a1 1 0 011-1z"
                             clip-rule="evenodd" />
                     </svg>
-                    <div>Tambah Data</div>
+                    <div>Tambah Jenis Sampah</div>
                 </button>
             </header>
             <!-- Table-->
@@ -61,31 +61,37 @@
                     <thead class="rounded-sm bg-gray-100 dark:bg-white/20 dark:text-white">
                         <tr>
                             <th class="px-6 py-3">NO</th>
-                            <th class="px-6 py-3">Nama Nasabah</th>
-                            <th class="px-6 py-3">Berat (KG)</th>
-                            <th class="px-6 py-3">Harga</th>
+                            <th class="px-6 py-3">Jenis Sampah</th>
+                            <th class="px-6 py-3">Harga/kg</th>
+                            <th class="px-6 py-3"></th>
 
                         </tr>
                     </thead>
                     <tbody class="bg-white text-gray-700 dark:bg-gray-800 dark:text-white">
                         <tr class="border-b">
                             <td class="px-6 py-4">1</td>
-                            <td class="px-6 py-4">pertama</td>
-                            <td class="px-6 py-4">5</td>
-                            <td class="px-6 py-4">Rp.500.000</td>
+                            <td class="px-6 py-4">Plastik</td>
+                            <td class="px-6 py-4">Rp.5.000</td>
+                            <td class="px-6 py-4"> <button
+                                    class="bg-red-500 px-3 py-2 text-white rounded hover:bg-red-400">Hapus</button>
+                            </td>
                         </tr>
 
                         <tr class="border-b">
                             <td class="px-6 py-4">2</td>
-                            <td class="px-6 py-4">kedua</td>
-                            <td class="px-6 py-4">5</td>
-                            <td class="px-6 py-4">Rp.500.000</td>
+                            <td class="px-6 py-4">Sterofoam</td>
+                            <td class="px-6 py-4">Rp.10.000</td>
+                            <td class="px-6 py-4"> <button
+                                    class="bg-red-500 px-3 py-2 text-white rounded hover:bg-red-400">Hapus</button>
+                            </td>
                         </tr>
                         <tr class="border-b">
                             <td class="px-6 py-4">3</td>
-                            <td class="px-6 py-4">Hariyanto</td>
-                            <td class="px-6 py-4">3</td>
-                            <td class="px-6 py-4">Rp.300.000</td>
+                            <td class="px-6 py-4">Besi</td>
+                            <td class="px-6 py-4">Rp.15.000</td>
+                            <td class="px-6 py-4"> <button
+                                    class="bg-red-500 px-3 py-2 text-white rounded hover:bg-red-400">Hapus</button>
+                            </td>
                         </tr>
 
                     </tbody>

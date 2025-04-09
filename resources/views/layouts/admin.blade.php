@@ -37,7 +37,14 @@
             }
         </script>
 
+        <!-- DataTables CSS -->
+        <link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.css">
+
+        <!-- DataTables JS (pindahkan ke bawah jQuery jika perlu) -->
+        <script src="https://cdn.datatables.net/2.2.2/js/dataTables.js"></script>
+
         @stack('head')
+
     </head>
     <body
         class="font-[Roboto] antialiased bg-gray-100 dark:bg-gray-900 text-gray-600 dark:text-gray-400"
@@ -45,6 +52,8 @@
         x-data="{ sidebarOpen: false, sidebarExpanded: localStorage.getItem('sidebar-expanded') == 'true' }"
         x-init="$watch('sidebarExpanded', value => localStorage.setItem('sidebar-expanded', value))"    
     >
+
+        @stack('scripts')
 
         <script>
             if (localStorage.getItem('sidebar-expanded') == 'true') {
@@ -71,9 +80,8 @@
             </div>
         </div>
 
-        @livewireScriptConfig
-        @livewireScripts
 
-        @stack('scripts')
+        @livewireScriptConfig
+
     </body>
 </html>

@@ -1,5 +1,5 @@
 @php
-    $title = 'Data Transaksi';
+    $title = 'Validasi Penarikan';
 @endphp
 
 @push('scripts')
@@ -30,7 +30,7 @@
 
             <!-- Left: Title -->
             <div class="mb-4 sm:mb-0">
-                <h1 class="text-2xl md:text-3xl text-gray-800 dark:text-gray-100 font-bold">Transaksi</h1>
+                <h1 class="text-2xl md:text-3xl text-gray-800 dark:text-gray-100 font-bold">Validasi Penarikan</h1>
             </div>
         </div>
 
@@ -41,19 +41,8 @@
             <header
                 class="flex items-center justify-between px-5 py-4 mb-3 border-b border-gray-100 dark:border-gray-700/60">
                 <h2 class="font-semibold text-gray-800 dark:text-gray-100">
-                    Data Transaksi
+                    Data Validasi Penarikan
                 </h2>
-
-                <button type="submit"
-                    class="inline-flex items-center justify-center space-x-2 py-2 px-4 border-2 text-sm font-medium shadow hover:shadow-lg hover:font-bold transition duration-200">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 text-black" viewBox="0 0 24 24"
-                        fill="currentColor" stroke-width="2" stroke="currentColor" aria-hidden="true">
-                        <path fill-rule="evenodd"
-                            d="M12 4a1 1 0 011 1v6h6a1 1 0 110 2h-6v6a1 1 0 11-2 0v-6H5a1 1 0 110-2h6V5a1 1 0 011-1z"
-                            clip-rule="evenodd" />
-                    </svg>
-                    <div>Tambah Data</div>
-                </button>
             </header>
             <!-- Table-->
             <div class="px-4 overflow-x-auto">
@@ -62,30 +51,46 @@
                         <tr>
                             <th class="px-6 py-3">NO</th>
                             <th class="px-6 py-3">Nama Nasabah</th>
-                            <th class="px-6 py-3">Berat (KG)</th>
-                            <th class="px-6 py-3">Harga</th>
+                            <th class="px-6 py-3">Tanggal</th>
+                            <th class="px-6 py-3">Jumlah Penarikan</th>
+                            <th class="px-6 py-3"></th>
 
                         </tr>
                     </thead>
                     <tbody class="bg-white text-gray-700 dark:bg-gray-800 dark:text-white">
                         <tr class="border-b">
                             <td class="px-6 py-4">1</td>
-                            <td class="px-6 py-4">pertama</td>
-                            <td class="px-6 py-4">5</td>
-                            <td class="px-6 py-4">Rp.500.000</td>
+                            <td class="px-6 py-4">Surtini</td>
+                            <td class="px-6 py-4">10-10-2025</td>
+                            <td class="px-6 py-4">Rp.50.000</td>
+                            <td class="px-6 py-4">
+                                <button class="bg-red-500 px-3 py-2 text-white rounded hover:bg-red-400">Tolak</button>
+                                <button
+                                    class="bg-green-500 px-3 py-2 text-white rounded hover:bg-green-400">Terima</button>
+                            </td>
                         </tr>
 
                         <tr class="border-b">
                             <td class="px-6 py-4">2</td>
-                            <td class="px-6 py-4">kedua</td>
-                            <td class="px-6 py-4">5</td>
-                            <td class="px-6 py-4">Rp.500.000</td>
+                            <td class="px-6 py-4">Marjono</td>
+                            <td class="px-6 py-4">15-07-2024</td>
+                            <td class="px-6 py-4">Rp.100.000</td>
+                            <td class="px-6 py-4">
+                                <button class="bg-red-500 px-3 py-2 text-white rounded hover:bg-red-400">Tolak</button>
+                                <button
+                                    class="bg-green-500 px-3 py-2 text-white rounded hover:bg-green-400">Terima</button>
+                            </td>
                         </tr>
                         <tr class="border-b">
                             <td class="px-6 py-4">3</td>
-                            <td class="px-6 py-4">Hariyanto</td>
-                            <td class="px-6 py-4">3</td>
-                            <td class="px-6 py-4">Rp.300.000</td>
+                            <td class="px-6 py-4">Prabowo</td>
+                            <td class="px-6 py-4">01-04-2025</td>
+                            <td class="px-6 py-4">Rp.125.000</td>
+                            <td class="px-6 py-4">
+                                <button class="bg-red-500 px-3 py-2 text-white rounded hover:bg-red-400">Tolak</button>
+                                <button
+                                    class="bg-green-500 px-3 py-2 text-white rounded hover:bg-green-400">Terima</button>
+                            </td>
                         </tr>
 
                     </tbody>

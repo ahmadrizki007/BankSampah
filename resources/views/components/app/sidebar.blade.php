@@ -36,9 +36,9 @@
                 <ul class="mt-3">
                     <!-- Dashboard -->
                     <li
-                        class="pl-4 pr-3 py-2 rounded-lg mb-0.5 last:mb-0 bg-linear-to-r @if(Request::segment(2) == 'dashboard'){{ 'bg-black/10' }}@endif">
-                        <a class="block text-gray-800 dark:text-gray-100 truncate transition @if(Request::segment(2) == 'dashboard'){{ 'hover:bg-black/10' }}@endif"
-                            href="{{ route('admin.dashboard') }}" @click="sidebarExpanded = true">
+                        class="pl-4 pr-3 py-2 rounded-lg mb-0.5 last:mb-0 bg-linear-to-r truncate transition hover:bg-black/10 @if(Request::segment(2) == 'dashboard'){{ 'bg-black/10' }}@endif">
+                        <a class="block text-gray-800 dark:text-gray-100" href="{{ route('admin.dashboard') }}"
+                            @click="sidebarExpanded = true">
                             <div class="flex items-center">
                                 <img class="shrink-0" src="{{ asset('icons/dashboard.svg') }}" alt="dashboard">
                                 <span
@@ -47,12 +47,11 @@
                         </a>
                     </li>
 
-
                     <!-- Data Transaki -->
                     <li
-                        class="pl-4 pr-3 py-2 rounded-lg mb-0.5 last:mb-0 bg-linear-to-r @if(Request::segment(2) == 'data-transaksi'){{ 'bg-black/10' }}@endif">
-                        <a class="block text-gray-800 dark:text-gray-100 truncate transition @if(Request::segment(2) == 'data-transaksi'){{ 'hover:bg-black/10' }}@endif"
-                            href="{{ route('admin.dataTransaksi') }}" @click="sidebarExpanded = true">
+                        class="pl-4 pr-3 py-2 rounded-lg mb-0.5 last:mb-0 bg-linear-to-r truncate transition hover:bg-black/10 @if(Request::segment(2) == 'data-transaksi'){{ 'bg-black/10' }}@endif">
+                        <a class="block text-gray-800 dark:text-gray-100" href="{{ route('admin.dataTransaksi') }}"
+                            @click="sidebarExpanded = true">
                             <div class="flex items-center">
                                 <img class="shrink-0" src="{{ asset('icons/data-transaksi.svg') }}"
                                     alt="data-transaksi">
@@ -63,6 +62,38 @@
                             </div>
                         </a>
                     </li>
+
+                    <!-- Data Sampah -->
+                    <li
+                        class="pl-4 pr-3 py-2 rounded-lg mb-0.5 last:mb-0 bg-linear-to-r truncate transition hover:bg-black/10 @if(Request::segment(2) == 'data-sampah'){{ 'bg-black/10 ' }}@endif">
+                        <a class="block text-gray-800 dark:text-gray-100 " href="{{ route('admin.dataSampah') }}"
+                            @click="sidebarExpanded = true">
+                            <div class="flex items-center">
+                                <img class="shrink-0" src="{{ asset('icons/data-sampah.svg') }}" alt="data-sampah">
+                                <span
+                                    class="text-sm font-medium ml-4 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
+                                    Data Sampah
+                                </span>
+                            </div>
+                        </a>
+                    </li>
+
+                    <!-- Validasi Penarikan -->
+                    <li
+                        class="pl-4 pr-3 py-2 rounded-lg mb-0.5 last:mb-0 bg-linear-to-r truncate transition hover:bg-black/10 @if(Request::segment(2) == 'validasi-penarikan'){{ 'bg-black/10 ' }}@endif">
+                        <a class="block text-gray-800 dark:text-gray-100 " href="{{ route('admin.validasiPenarikan') }}"
+                            @click="sidebarExpanded = true">
+                            <div class="flex items-center">
+                                <img class="shrink-0" src="{{ asset('icons/validasi-penarikan.svg') }}"
+                                    alt="validasi-penarikan">
+                                <span
+                                    class="text-sm font-medium ml-4 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
+                                    Validasi Penarikan
+                                </span>
+                            </div>
+                        </a>
+                    </li>
+
                 </ul>
             </div>
         </div>
