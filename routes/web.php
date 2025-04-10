@@ -56,9 +56,11 @@ Route::middleware('auth')->group(function () {
         return view('transaksi');
     })->name('transaksi');
 
+    Route::get('/penarikan', function () {
+        return view('penarikan');
+    })->name('penarikan');
+
+
 });
 
-
-// ADMIN
-require_once __DIR__ . '/admin.php';
-
+require __DIR__ . '/auth.php';

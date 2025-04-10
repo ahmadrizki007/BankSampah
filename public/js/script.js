@@ -9,11 +9,3 @@ function showTab(index) {
     tabs[index].classList.add('active');
     contents[index].classList.add('active');
 }
-
-$(document).ready(function () {
-    // Menangani klik pada hamburger icon
-    $('#hamburger').on('click', function () {
-        // Menampilkan/menyembunyikan menu mobile
-        $('#mobile-menu').toggleClass('hidden');
-    });
-});

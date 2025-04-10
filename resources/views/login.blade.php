@@ -22,27 +22,17 @@
         @include('errors/red', ['message' => $message])
     @enderror
 
-    <main class="flex items-center justify-center h-screen bg-[#fbfbfb]">
-
-        <div class="flex w-full max-w-5xl bg-white rounded-lg shadow-2xl">
+    <main class="flex items-center justify-center sm:h-screen bg-primary-bg md:px-5">
+        <div class="flex sm:flex-row flex-col w-full max-w-5xl bg-white rounded-lg shadow-2xl md:overflow-hidden">
             <!-- Bagian Kiri -->
-            <div class="w-1/2 bg-[#276561] text-white p-10 flex flex-col justify-center shadow-lg">
-                <h2 class="text-4xl font-bold">
-
-                    @if ($isAdmin)
-                        Halaman Admin
-                    @else
-                        Selamat Datang
-                    @endif
-
-                </h2>
-                <p class="mt-4 font-caveat text-2xl italic">Rumah Inspirasi Sahabat Gajah</p>
+            <div class="sm:w-1/2 bg-primary-500 text-white p-10 flex flex-col justify-center shadow-lg text-center sm:text-left">
+                <h2 class="sm:text-4xl text-2xl font-bold">Selamat Datang</h2>
+                <p class="mt-4 font-caveat sm:text-2xl text-xl italic">Rumah Inspirasi Sahabat Gajah</p>
             </div>
             <!-- Bagian Kanan -->
-            <div class="w-1/2 p-12">
-
+            <div class="sm:w-1/2 p-12">
                 <div class="text-center mb-8">
-                    <img src=" {{ asset('asset/logo.png') }}" alt="Logo" class="w-24 mx-auto">
+                    <img src="asset/logo.png" alt="Logo" class="w-24 mx-auto">
                 </div>
 
                 <!-- Message Alerts  -->
@@ -67,24 +57,24 @@
                 @endif
 
 
-                <form method="POST" action={{ $isAdmin ? route('admin.store') : route('login.store') }}>
+                <form method="POST" action={{ route('login.store') }}>
                     @csrf
                     <div class="mb-6">
                         <label for="email" class="block text-gray-700 text-lg font-semibold">Email</label>
                         <input type="email" id="email" name="email" value="{{ old('email') }}"
-                            class="email w-full px-4 py-3 mt-2 border-none rounded-lg shadow-md focus:ring-2 focus:ring-[#276561] text-lg">
+                            class="email w-full px-4 py-3 mt-2 border rounded-lg shadow-md focus:ring-2 focus:ring-primary-500 text-lg">
                         @error('email')
                             <p class="alert-email ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="mb-6">
                         <label for="password" class="block text-gray-700 text-lg font-semibold">Password</label>
-                        <div class="shadow-md rounded-lg" id="password-hide">
+                        <div class="shadow-md rounded-lg border" id="password-hide">
                             <div class="flex items-center">
                                 <input type="password" id="password" name="password" value="{{ old('password') }}"
-                                    class="password w-full px-4 py-3 border-none rounded-l-lg focus:ring-2 focus:ring-[#276561] text-lg">
+                                    class="password w-full px-4 py-3 border-none rounded-l-lg focus:ring-2 focus:ring-primary-500 text-lg">
 
-                                <a href="void:(0)" class="px-4 py-3 rounded-r-lg focus:ring-2 focus:ring-[#276561] text-lg">
+                                <a href="void:(0)" class="px-4 py-3 rounded-r-lg focus:ring-2 focus:ring-primary-500 text-lg">
                                     <i class="fa-regular fa-eye-slash"></i>
                                 </a>
 
@@ -96,11 +86,11 @@
                         @enderror
                     </div>
                     <button type="submit"
-                        class="w-full py-3 text-white bg-[#276561] rounded-lg shadow-r-lg hover:bg-green-700 text-lg font-bold">Login</button>
+                        class="w-full py-3 text-white bg-primary-500 rounded-lg shadow-r-lg hover:bg-green-700 text-lg font-bold">Login</button>
                 </form>
                 <div class="mt-6 text-center">
-                    <a href={{ route('register') }} class="text-md text-[#276561] underline">create account</a> or
-                    <a href={{ route('password.request') }} class="text-md text-[#276561] underline">forget password</a>
+                    <a href={{ route('register') }} class="text-md text-primary-500 underline">create account</a> or
+                    <a href={{ route('password.request') }} class="text-md text-primary-500 underline">forget password</a>
                 </div>
             </div>
         </div>
