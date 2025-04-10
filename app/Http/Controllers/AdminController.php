@@ -42,6 +42,16 @@ class AdminController extends Controller
         return view('admins.validasi-penarikan');
     }
 
+    public function donasiGajah()
+    {
+        return view('admins.donasi-gajah');
+    }
+
+    public function userManagement()
+    {
+        return view('admins.user-management');
+    }
+
     /**
      * Store a newly created resource in storage.
      */

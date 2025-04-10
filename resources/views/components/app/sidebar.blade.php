@@ -29,7 +29,7 @@
             <!-- Pages group -->
             <div>
                 <h3 class="italic text-black/50 dark:text-white font-thin pb-2">
-                    <span class="hidden lg:block lg:sidebar-expanded:hidden 2xl:hidden text-center w-6"
+                    <span class="pl-4 hidden lg:block lg:sidebar-expanded:hidden 2xl:hidden text-center w-6"
                         aria-hidden="true">•••</span>
                     <span class="lg:hidden lg:sidebar-expanded:block 2xl:block">Information Type</span>
                 </h3>
@@ -40,7 +40,7 @@
                         <a class="block text-gray-800 dark:text-gray-100" href="{{ route('admin.dashboard') }}"
                             @click="sidebarExpanded = true">
                             <div class="flex items-center">
-                                <img class="shrink-0" src="{{ asset('icons/dashboard.svg') }}" alt="dashboard">
+                                <img class="shrink-0 w-6" src="{{ asset('icons/dashboard.svg') }}" alt="dashboard">
                                 <span
                                     class="text-sm font-medium ml-4 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Dashboard</span>
                             </div>
@@ -53,7 +53,7 @@
                         <a class="block text-gray-800 dark:text-gray-100" href="{{ route('admin.dataTransaksi') }}"
                             @click="sidebarExpanded = true">
                             <div class="flex items-center">
-                                <img class="shrink-0" src="{{ asset('icons/data-transaksi.svg') }}"
+                                <img class="shrink-0 w-6" src="{{ asset('icons/data-transaksi.svg') }}"
                                     alt="data-transaksi">
                                 <span
                                     class="text-sm font-medium ml-4 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
@@ -69,7 +69,7 @@
                         <a class="block text-gray-800 dark:text-gray-100 " href="{{ route('admin.dataSampah') }}"
                             @click="sidebarExpanded = true">
                             <div class="flex items-center">
-                                <img class="shrink-0" src="{{ asset('icons/data-sampah.svg') }}" alt="data-sampah">
+                                <img class="shrink-0 w-6" src="{{ asset('icons/data-sampah.svg') }}" alt="data-sampah">
                                 <span
                                     class="text-sm font-medium ml-4 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
                                     Data Sampah
@@ -84,11 +84,43 @@
                         <a class="block text-gray-800 dark:text-gray-100 " href="{{ route('admin.validasiPenarikan') }}"
                             @click="sidebarExpanded = true">
                             <div class="flex items-center">
-                                <img class="shrink-0" src="{{ asset('icons/validasi-penarikan.svg') }}"
+                                <img class="shrink-0 w-6" src="{{ asset('icons/validasi-penarikan.svg') }}"
                                     alt="validasi-penarikan">
                                 <span
                                     class="text-sm font-medium ml-4 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
                                     Validasi Penarikan
+                                </span>
+                            </div>
+                        </a>
+                    </li>
+
+                    <!-- Donasi Gajah -->
+                    <li
+                        class="pl-4 pr-3 py-2 rounded-lg mb-0.5 last:mb-0 bg-linear-to-r truncate transition hover:bg-black/10 @if(Request::segment(2) == 'donasi-gajah'){{ 'bg-black/10 ' }}@endif">
+                        <a class="block text-gray-800 dark:text-gray-100 " href="{{ route('admin.donasiGajah') }}"
+                            @click="sidebarExpanded = true">
+                            <div class="flex items-center">
+                                <img class="shrink-0 w-6" src="{{ asset('icons/donasi-gajah.svg') }}"
+                                    alt="donasi-gajah">
+                                <span
+                                    class="text-sm font-medium ml-4 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
+                                    Donasi Gajah
+                                </span>
+                            </div>
+                        </a>
+                    </li>
+
+                    <!-- User Management -->
+                    <li
+                        class="pl-4 pr-3 py-2 rounded-lg mb-0.5 last:mb-0 bg-linear-to-r truncate transition hover:bg-black/10 @if(Request::segment(2) == 'user-management'){{ 'bg-black/10 ' }}@endif">
+                        <a class="block text-gray-800 dark:text-gray-100 " href="{{ route('admin.userManagement') }}"
+                            @click="sidebarExpanded = true">
+                            <div class="flex items-center">
+                                <img class="shrink-0 w-6" src="{{ asset('icons/user-management.svg') }}"
+                                    alt="user-management">
+                                <span
+                                    class="text-sm font-medium ml-4 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
+                                    User Management
                                 </span>
                             </div>
                         </a>
