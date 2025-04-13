@@ -58,32 +58,23 @@
                         </tr>
                     </thead>
                     <tbody class="bg-white text-gray-700 dark:bg-gray-800 dark:text-white">
-                        <tr class="border-b">
-                            <td class="px-6 py-4">1</td>
-                            <td class="px-6 py-4">pertama</td>
-                            <td class="px-6 py-4">08578829300</td>
-                            <td class="px-6 py-4">pertama@gmail.com</td>
-                            <td class="px-6 py-4">Jl Airan Raya</td>
-                            <td class="px-6 py-4">Rp.100.000</td>
-                        </tr>
 
-                        <tr class="border-b">
-                            <td class="px-6 py-4">2</td>
-                            <td class="px-6 py-4">kedua</td>
-                            <td class="px-6 py-4">08123456789</td>
-                            <td class="px-6 py-4">kedua@gmail.com</td>
-                            <td class="px-6 py-4">Jl Airan Raya</td>
-                            <td class="px-6 py-4">Rp.100.000</td>
-                        </tr>
-                        <tr class="border-b">
-                            <td class="px-6 py-4">3</td>
-                            <td class="px-6 py-4">User 1</td>
-                            <td class="px-6 py-4">08123456789</td>
-                            <td class="px-6 py-4">user1@gmail.com</td>
-                            <td class="px-6 py-4">Jl Airan Raya</td>
-                            <td class="px-6 py-4">Rp.100.000</td>
-                        </tr>
+                        <!-- Looping data -->
+                        @php
+                            $idx = 0;
+                         @endphp
+                        @foreach ($data as $row)
 
+                            <tr class="border-b">
+                                <td class="px-6 py-4"> {{ ++$idx }} </td>
+                                <td class="px-6 py-4">{{ $row->name }}</td>
+                                <td class="px-6 py-4">{{ $row->phone }} </td>
+                                <td class="px-6 py-4"> {{ $row->email }} </td>
+                                <td class="px-6 py-4"> {{ $row->address }} </td>
+                                <td class="px-6 py-4">Rp.{{ $row->balance }}</td>
+                            </tr>
+
+                        @endforeach
 
                     </tbody>
                 </table>

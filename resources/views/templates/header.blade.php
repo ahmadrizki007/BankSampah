@@ -4,12 +4,14 @@
         <img src={{ asset("asset/logo.png") }} alt="Logo Bank Sampah">
     </div>
 
-    <nav class="nav sm:block hidden">
+    <nav 
+    x-data="{ path: window.location.pathname }"
+    class="nav sm:block hidden">
         <ul class="flex gap-8 list-none">
-            <li><a href="/">Beranda</a></li>
-            <li><a href="/tentang-kami">Tentang Kami</a></li>
-            <li><a href="/produk">Produk</a></li>
-            <li><a href="/kunjungan">Kunjungan</a></li>
+            <li><a href="/" :class="{ 'active': path === '/' }">Beranda</a></li>
+            <li><a href="/tentang-kami" :class="{ 'active': path === '/tentang-kami' }" >Tentang Kami</a></li>
+            <li><a href="/produk" :class="{ 'active': path === '/produk' }" >Produk</a></li>
+            <li><a href="/kunjungan" :class="{ 'active': path === '/kunjungan' }" >Kunjungan</a></li>
         </ul>
     </nav>
 
@@ -146,15 +148,3 @@
     @endif
 </header>
 
-
-<script>
-
-    $(document).ready(function () {
-        let path = window.location.pathname;
-        $('nav ul li a').each(function () {
-            if ($(this).attr('href') == path) {
-                $(this).addClass('active');
-            }
-        });
-    });
-</script>

@@ -19,25 +19,26 @@ class auth_admin
     {
         $currentPath = $request->path();
 
-        if (!Auth::check() && $currentPath != 'admin/login') {
-            return redirect()->route('admin.login')->withErrors(
-                [
-                    'error' => [
-                        'message' => 'Anda harus login terlebih dahulu sebagai admin.',
-                    ]
-                ]
-            );
+
+        if (!Auth::check()) {
+            if ($currentPath !== 'admin/login') {
+                return redirect()->route('admin.login')->withErrors([
+                    'error' => ['message' => 'Anda harus login terlebih dahulu sebagai admin.']
+                ]);
+            }
+            return $next($request); // biarkan akses ke halaman login
         }
 
-        if (Auth::check() && Auth::user()->role != 'admin') {
-            return redirect()->route('admin.login')->withErrors(
-                [
-                    'error' => [
-                        'message' => 'Anda tidak memiliki akses sebagai admin.',
-                    ]
-                ]
-            );
+        if (Auth::check() && Auth::user()->role !== 'admin') {
+            if ($currentPath !== 'admin/login') {
+                return redirect()->route('admin.login')->withErrors([
+                    'error' => ['message' => 'Anda tidak memiliki akses sebagai admin.']
+                ]);
+            }
+            return $next($request); // biarkan akses ke halaman login
         }
+
+
         return $next($request);
     }
 }

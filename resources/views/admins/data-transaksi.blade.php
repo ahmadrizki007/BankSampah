@@ -23,7 +23,18 @@
 @endpush
 
 <x-admin-layout :title="$title">
-    <div class="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
+
+    <!-- Error notif -->
+    @error('error')
+        <x-errors.red :message="$message" />
+    @enderror
+
+    <!-- Success notif -->
+    @if(session('success'))
+        <x-errors.green :message="session('success')" />
+    @endif
+
+    <div class="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto" x-data="{ open: false}">
 
         <!-- Dashboard actions -->
         <div class="sm:flex sm:justify-between sm:items-center mb-8">
@@ -44,7 +55,7 @@
                     Data Transaksi
                 </h2>
 
-                <button type="submit"
+                <button x-on:click="open = true"
                     class="inline-flex items-center justify-center space-x-2 py-2 px-4 border-2 text-sm font-medium shadow hover:shadow-lg hover:font-bold transition duration-200">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 text-black" viewBox="0 0 24 24"
                         fill="currentColor" stroke-width="2" stroke="currentColor" aria-hidden="true">
@@ -68,30 +79,107 @@
                         </tr>
                     </thead>
                     <tbody class="bg-white text-gray-700 dark:bg-gray-800 dark:text-white">
-                        <tr class="border-b">
-                            <td class="px-6 py-4">1</td>
-                            <td class="px-6 py-4">pertama</td>
-                            <td class="px-6 py-4">5</td>
-                            <td class="px-6 py-4">Rp.500.000</td>
-                        </tr>
 
-                        <tr class="border-b">
-                            <td class="px-6 py-4">2</td>
-                            <td class="px-6 py-4">kedua</td>
-                            <td class="px-6 py-4">5</td>
-                            <td class="px-6 py-4">Rp.500.000</td>
-                        </tr>
-                        <tr class="border-b">
-                            <td class="px-6 py-4">3</td>
-                            <td class="px-6 py-4">Hariyanto</td>
-                            <td class="px-6 py-4">3</td>
-                            <td class="px-6 py-4">Rp.300.000</td>
-                        </tr>
+                        <!-- Looping data -->
+                        @php
+                            $idx = 0;
+                        @endphp
+                        @foreach($data as $row)
+                            <tr class="border-b">
+                                <td class="px-6 py-4">{{ ++$idx }}</td>
+                                <td class="px-6 py-4">{{ $row->nama_nasabah }}</td>
+                                <td class="px-6 py-4">{{ $row->berat }}</td>
+                                <td class="px-6 py-4">Rp.{{ $row->harga }}</td>
+                            </tr>
+
+                        @endforeach
 
                     </tbody>
                 </table>
             </div>
         </div>
 
+        <!-- Modal Tambah Data Transaksi -->
+        <div class="fixed inset-0 z-50 bg-black/50" x-show="open" x-cloak></div>
+        <div x-show="open" x-on:click.away="open = false" x-cloak
+            class="fixed z-50 top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1/3 pb-4 rounded-xl shadow-lg bg-white dark:bg-gray-800">
+            <header class="px-5 py-4 mb-4 border-b border-gray-100 dark:border-gray-700/60">
+                <h2 class="font-semibold text-gray-800 dark:text-gray-100">
+                    Form Tambah Data
+                </h2>
+            </header>
+
+            <form x-ref="form" action="{{ route('admin.dataTransaksi.store') }}" method="POST" class="px-5">
+                @csrf
+
+                <div class="mb-4">
+                    <label for="nama-nasabah" class="block mb-2 font-medium dark:text-white">Nama Nasabah</label>
+                    <input type="text" id="nama-nasabah" name="nama_nasabah"
+                        class="px-4 py-2 w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md outline-none focus:ring-2 focus:ring-primary-300 focus:border-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-primary-300 dark:focus:border-primary-300"
+                        placeholder="Nama" required>
+
+                    @error('nama_nasabah')
+                        <p x-init="open = true"
+                            class="alert-nama-nasabah ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
+                            {{ $message }}
+                        </p>
+                    @enderror
+
+                </div>
+
+                <div class="mb-4">
+                    <label for="berat" class="block mb-2 font-medium dark:text-white">Berat</label>
+                    <div class="flex">
+                        <input type="text" id="berat" name="berat"
+                            class="px-4 py-2 w-full block flex-1 rounded-none rounded-s-lg text-sm bg-gray-50 border border-gray-300 text-gray-900 outline-none focus:ring-2 focus:ring-primary-300 focus:border-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-primary-300 dark:focus:border-primary-300"
+                            placeholder="Berat (kilogram)" required>
+                        <span
+                            class="inline-flex items-center px-3 font-semibold text-sm text-gray-900 bg-gray-200 border rounded-s-0 border-gray-300 border-e-0 rounded-e-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
+                            Kg
+                        </span>
+                    </div>
+
+                    @error('berat')
+                        <p x-init="open = true" class="alert-berat ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
+                            {{ $message }}
+                        </p>
+                    @enderror
+
+                </div>
+
+                <div class="mb-4">
+                    <label for="harga" class="block mb-2 font-medium dark:text-white">Harga</label>
+                    <div class="flex">
+                        <span
+                            class="inline-flex items-center px-3 font-semibold text-sm text-gray-900 bg-gray-200 border rounded-e-0 border-gray-300 border-e-0 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
+                            Rp.
+                        </span>
+                        <input type="number" min="0" id="harga" name="harga"
+                            class="px-4 py-2 w-full block flex-1 rounded-none rounded-e-lg text-sm bg-gray-50 border border-gray-300 text-gray-900 outline-none focus:ring-2 focus:ring-primary-300 focus:border-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-primary-300 dark:focus:border-primary-300"
+                            placeholder="Harga (rupiah)" required>
+                    </div>
+
+                    @error('harga')
+                        <p x-init="open = true" class="alert-harga ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
+                            {{ $message }}
+                        </p>
+                    @enderror
+                </div>
+
+            </form>
+
+            <footer class="text-right space-x-2 px-5 py-4 border-t border-gray-100 dark:border-gray-700/60">
+                <button type="button" x-on:click="$refs.form.submit()"
+                    class="text-center py-2 px-4 rounded-md bg-primary-300 text-white font-semibold shadow hover:shadow-lg hover:font-bold transition duration-200">
+                    Simpan
+                </button>
+
+                <button x-on:click="open = false"
+                    class="text-center py-2 px-4 rounded-md bg-white text-black/70 font-thin border border-gray-200 shadow hover:shadow-lg">Tutup</button>
+            </footer>
+
+        </div>
+
     </div>
+
 </x-admin-layout>

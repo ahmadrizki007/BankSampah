@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
-use App\Models\Admin;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
@@ -24,17 +23,10 @@ class AdminController extends Controller
 
     public function dashboard()
     {
-        return view('admins.dashboard');
-    }
-
-    public function dataTransaksi()
-    {
-        return view('admins.data-transaksi');
-    }
-
-    public function dataSampah()
-    {
-        return view('admins.data-sampah');
+        $data = User::where('role', 'user')->get();
+        return view('admins.dashboard', [
+            'data' => $data,
+        ]);
     }
 
     public function validasiPenarikan()
@@ -47,15 +39,10 @@ class AdminController extends Controller
         return view('admins.donasi-gajah');
     }
 
-    public function userManagement()
-    {
-        return view('admins.user-management');
-    }
-
     /**
      * Store a newly created resource in storage.
      */
-    public function store(LoginRequest $request): RedirectResponse
+    public function attemptLogin(LoginRequest $request): RedirectResponse
     {
         $credentials = $request->only('email', 'password');
 

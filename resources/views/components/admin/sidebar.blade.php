@@ -40,7 +40,8 @@
                         <a class="block text-gray-800 dark:text-gray-100" href="{{ route('admin.dashboard') }}"
                             @click="sidebarExpanded = true">
                             <div class="flex items-center">
-                                <img class="shrink-0 w-6" src="{{ asset('icons/dashboard.svg') }}" alt="dashboard">
+                                <img class="shrink-0 w-7" src="{{ asset('icons/dashboard-admin.svg') }}"
+                                    alt="dashboard">
                                 <span
                                     class="text-sm font-medium ml-4 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Dashboard</span>
                             </div>
@@ -100,7 +101,7 @@
                         <a class="block text-gray-800 dark:text-gray-100 " href="{{ route('admin.donasiGajah') }}"
                             @click="sidebarExpanded = true">
                             <div class="flex items-center">
-                                <img class="shrink-0 w-6" src="{{ asset('icons/donasi-gajah.svg') }}"
+                                <img class="shrink-0 w-7" src="{{ asset('icons/donasi-gajah.svg') }}"
                                     alt="donasi-gajah">
                                 <span
                                     class="text-sm font-medium ml-4 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
@@ -110,21 +111,7 @@
                         </a>
                     </li>
 
-                    <!-- User Management -->
-                    <li
-                        class="pl-4 pr-3 py-2 rounded-lg mb-0.5 last:mb-0 bg-linear-to-r truncate transition hover:bg-black/10 @if(Request::segment(2) == 'user-management'){{ 'bg-black/10 ' }}@endif">
-                        <a class="block text-gray-800 dark:text-gray-100 " href="{{ route('admin.userManagement') }}"
-                            @click="sidebarExpanded = true">
-                            <div class="flex items-center">
-                                <img class="shrink-0 w-6" src="{{ asset('icons/user-management.svg') }}"
-                                    alt="user-management">
-                                <span
-                                    class="text-sm font-medium ml-4 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
-                                    User Management
-                                </span>
-                            </div>
-                        </a>
-                    </li>
+
 
                 </ul>
             </div>

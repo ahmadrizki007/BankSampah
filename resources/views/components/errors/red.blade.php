@@ -1,4 +1,6 @@
-<div id="red-alert" x-data="{ show: true}" x-init="setTimeout(() => show = false, 3000)" x-show="show" x-transition
+@props(['message' => ''])
+
+<div id="red-alert" x-data="{ show: true}" x-init="setTimeout(() => show = false, 5000)" x-show="show" x-transition
     class="flex w-96 shadow-lg rounded-lg fixed left-1/2 top-20 transform -translate-x-1/2 -translate-y-1/2 z-50 opacity-95 transition-transform duration-300">
     <div class="bg-red-600 py-4 px-6 rounded-l-lg flex items-center"> <svg xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16" class="fill-current text-white" width="20" height="20">

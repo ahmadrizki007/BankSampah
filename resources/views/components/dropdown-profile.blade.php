@@ -36,10 +36,13 @@
         </div>
         <ul>
             <li>
+                <a href="{{ route('/') }}" class="text-center py-1 px-3 font-medium text-sm text-violet-500 hover:text-violet-600 dark:hover:text-violet-400" > {{ __('Halaman User') }}</a>
+            </li>
+            <li>
                 <form method="POST" action="{{ route('admin.logout') }}" x-data>
                     @csrf
 
-                    <button class="font-medium text-sm text-violet-500 hover:text-violet-600 dark:hover:text-violet-400 flex items-center py-1 px-3"
+                    <button class="flex items-center py-1 px-3 font-medium text-sm text-violet-500 hover:text-violet-600 dark:hover:text-violet-400 "
                     type="submit"
                     >
                         {{ __('Log Out') }}

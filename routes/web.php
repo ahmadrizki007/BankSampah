@@ -4,6 +4,10 @@ use App\Http\Controllers\profileController;
 use Illuminate\Support\Facades\Route;
 
 // INI CUMAN BUAT DEV AJA
+Route::get('/', function () {
+    return view('beranda');
+})->name('/');
+
 Route::get('/kunjungan', function () {
     return view('kunjungan');
 });
@@ -16,10 +20,6 @@ Route::get('/produk', function () {
     return view('product');
 });
 
-Route::get('/', function () {
-    return view('beranda');
-})->name('/');
-
 Route::get('/formulir', function () {
     return view('formulir'); // 
 });
@@ -27,11 +27,6 @@ Route::get('/formulir', function () {
 Route::get('/kunjungan', function () {
     return view('kunjungan'); // 
 });
-
-Route::get('/alerts', function () {
-    return view('errors/_general'); // 
-});
-
 
 
 // AUTH
@@ -63,4 +58,5 @@ Route::middleware('auth')->group(function () {
 
 });
 
-require __DIR__ . '/auth.php';
+// ADMIN
+require __DIR__ . '/admin.php';
