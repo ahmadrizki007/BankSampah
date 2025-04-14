@@ -1,19 +1,15 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\DataSampahController;
 use App\Http\Controllers\TransaksiController;
 use Illuminate\Support\Facades\Route;
 
-
 // ADMIN
-Route::middleware(['auth_admin'])->prefix('admin')->group(function () {
+Route::middleware(['auth', 'multi_auth'])->prefix('admin')->group(function () {
 
     Route::get('/', [AdminController::class, 'dashboard'])->name('admin.dashboard');
-
-    Route::get('/login', [AdminController::class, 'login'])->name('admin.login');
-    Route::post('/login', [AdminController::class, 'attemptLogin'])->name('admin.attemptLogin');
-    Route::post('/logout', [AdminController::class, 'destroy'])->name('admin.logout');
 
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 

@@ -14,12 +14,6 @@ class AdminController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function login()
-    {
-        return view('login', [
-            'admin' => true,
-        ]);
-    }
 
     public function dashboard()
     {
@@ -52,7 +46,7 @@ class AdminController extends Controller
             return back()->withErrors(
                 [
                     'email' => [
-                        'message' => 'Email tidak terdaftar',
+                        'message' => 'Email tidak terdaftarrrr',
                     ],
                 ]
             )->withInput();
@@ -99,14 +93,4 @@ class AdminController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Request $request)
-    {
-        Auth::guard('web')->logout();
-
-        $request->session()->invalidate();
-
-        $request->session()->regenerateToken();
-
-        return redirect(route('admin.login'));
-    }
 }

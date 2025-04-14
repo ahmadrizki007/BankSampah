@@ -12,7 +12,7 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias([
-            'auth_admin' => \App\Http\Middleware\auth_admin::class,
+            'multi_auth' => \App\Http\Middleware\multi_auth::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

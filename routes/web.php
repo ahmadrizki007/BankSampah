@@ -32,7 +32,7 @@ Route::get('/kunjungan', function () {
 // AUTH
 require_once __DIR__ . '/auth.php';
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'multi_auth'])->group(function () {
 
     Route::get('/profile', action: [profileController::class, 'index'])->name('profile');
 

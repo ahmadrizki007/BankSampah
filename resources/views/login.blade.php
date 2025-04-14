@@ -1,13 +1,3 @@
-@php
-
-    $isAdmin = false;
-
-    if (isset($admin)) {
-        $isAdmin = $admin;
-    }
-@endphp
-
-
 @extends('templates.auth_layout')
 
 @section('title')
@@ -27,12 +17,7 @@
             <!-- Bagian Kiri -->
             <div
                 class="sm:w-1/2 bg-primary-500 text-white p-10 flex flex-col justify-center shadow-lg text-center sm:text-left">
-
-                @if ($isAdmin)
-                    <h2 class="sm:text-4xl text-2xl font-bold">Halaman Admin</h2>
-                @else
-                    <h2 class="sm:text-4xl text-2xl font-bold">Selamat Datang</h2>
-                @endif
+                <h2 class="sm:text-4xl text-2xl font-bold">Selamat Datang</h2>
 
                 <p class="mt-4 font-caveat sm:text-2xl text-xl italic">Rumah Inspirasi Sahabat Gajah</p>
             </div>
@@ -64,7 +49,7 @@
                 @endif
 
 
-                <form method="POST" action={{ $isAdmin ? route('admin.attemptLogin') : route('login.store') }}>
+                <form method="POST" action={{  route('login.attempt') }}>
                     @csrf
                     <div class="mb-6">
                         <label for="email" class="block text-gray-700 text-lg font-semibold">Email</label>
@@ -98,10 +83,7 @@
                 </form>
                 <div class="mt-6 text-center">
 
-                    @if(!$isAdmin)
-                        <a href={{ route('register') }} class="text-md text-primary-500 underline">create account</a> or
-                    @endif
-
+                    <a href={{ route('register') }} class="text-md text-primary-500 underline">create account</a> or
                     <a href={{ route('password.request') }} class="text-md text-primary-500 underline">forget password</a>
                 </div>
             </div>
