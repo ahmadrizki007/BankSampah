@@ -17,6 +17,8 @@ class AdminAccount extends Seeder
         User::create([
             'role' => 'admin',
             'name' => 'Admin',
+            'age' => (string) rand(20, 30),
+            'gender' => 'male',
             'email' => 'admin@admin.com',
             'password' => Hash::make('admin.123'),
         ]);
