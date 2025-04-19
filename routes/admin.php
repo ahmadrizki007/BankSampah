@@ -18,6 +18,7 @@ Route::middleware(['auth', 'multi_auth'])->prefix('admin')->group(function () {
 
     Route::get('/data-sampah', [DataSampahController::class, 'index'])->name('admin.dataSampah');
     Route::post('/data-sampah', [DataSampahController::class, 'store'])->name('admin.dataSampah.store');
+    Route::put('/data-sampah', [DataSampahController::class, 'update'])->name('admin.dataSampah.update');
     Route::delete('/data-sampah/{id}', [DataSampahController::class, 'destroy'])->name('admin.dataSampah.destroy')->where('id', '[0-9]+');
 
     Route::get('/validasi-penarikan', [AdminController::class, 'validasiPenarikan'])->name('admin.validasiPenarikan');

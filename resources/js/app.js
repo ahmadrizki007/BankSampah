@@ -5,7 +5,7 @@ Livewire.start()
 import './bootstrap';
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Light switcher
+  // light/dark mode switcher
   const lightSwitches = document.querySelectorAll('.light-switch');
   if (lightSwitches.length > 0) {
     lightSwitches.forEach((lightSwitch, i) => {

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\DataSampah;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rule;
 
 class DataSampahController extends Controller
 {
@@ -25,11 +27,12 @@ class DataSampahController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'jenis_sampah' => 'required|max:255',
+            'jenis_sampah' => 'required|max:255|unique:App\Models\DataSampah,jenis_sampah',
             'harga' => 'required|numeric',
         ], [
             'jenis_sampah.required' => 'Jenis Sampah harus diisi',
             'jenis_sampah.max' => 'Jenis Sampah maksimal 255 karakter',
+            'jenis_sampah.unique' => 'Jenis Sampah sudah ada',
             'harga.required' => 'Harga harus diisi',
             'harga.numeric' => 'Harga harus berupa angka',
         ]);
@@ -39,7 +42,7 @@ class DataSampahController extends Controller
             DB::beginTransaction();
 
             DataSampah::create([
-                'jenis_sampah' => $request->jenis_sampah,
+                'jenis_sampah' => ucfirst($request->jenis_sampah),
                 'harga' => (string) $request->harga,
             ]);
 
@@ -47,13 +50,11 @@ class DataSampahController extends Controller
 
         } catch (\Exception $e) {
             DB::rollBack();
-            return redirect()->back()->withErrors(
-                [
-                    'error' => [
-                        'message' => 'Terjadi kesalahan pada server',
-                    ]
+            return redirect()->back()->withErrors([
+                'error' => [
+                    'message' => 'Terjadi kesalahan server',
                 ]
-            );
+            ]);
         }
 
         return redirect()->back()->with('success', 'Data Sampah berhasil ditambahkan');
@@ -62,9 +63,45 @@ class DataSampahController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, DataSampah $dataSampah)
+    public function update(Request $request)
     {
-        //
+        $id = $request->input('id');
+
+        $jenisSampahField = 'jenis_sampah_' . (string) $id;
+        $hargaField = 'harga_' . (string) $id;
+
+        $request->validate([
+            $jenisSampahField => ['required', 'max:255', Rule::unique('data_sampah', 'jenis_sampah')->ignore($id)],
+            $hargaField => ['required', 'numeric'],
+        ], [
+            $jenisSampahField . '.required' => 'Jenis Sampah Harus diisi',
+            $jenisSampahField . '.max' => 'Jenis Sampah maksimal 255 karakter',
+            $jenisSampahField . '.unique' => 'Jenis Sampah sudah ada',
+            $hargaField . '.required' => 'Harga harus diisi',
+            $hargaField . '.numeric' => 'Harga harus berupa angka',
+        ]);
+
+        try {
+            DB::beginTransaction();
+
+            $data = DataSampah::find($id);
+            $data->jenis_sampah = $request['jenis_sampah_' . (string) $id];
+            $data->harga = $request['harga_' . (string) $id];
+            $data->save();
+
+            DB::commit();
+
+        } catch (Exception $e) {
+            DB::rollback();
+
+            return redirect()->back()->withErrors([
+                'error' => [
+                    'message' => 'Terjadi kesalahan server',
+                ]
+            ]);
+        }
+
+        return redirect()->back()->with('success', 'Data Sampah berhasil diperbarui');
     }
 
     /**

@@ -1,9 +1,12 @@
 <!-- Footer -->
 <footer class="bg-primary-500 overflow-hidden">
-    <div class="flex lg:justify-between md:justify-around flex-wrap justify-center sm:gap-10 pt-8 pb-16 px-5 max-w-6xl mx-auto">
+    <div
+        class="flex lg:justify-between md:justify-around flex-wrap justify-center sm:gap-10 pt-8 pb-16 px-5 max-w-6xl mx-auto">
         <!-- Kolom Alamat -->
         <div class="flex sm:flex-col gap-5">
-            <img src={{ asset("asset/logo.png") }} alt="Logo Bank Sampah" class="sm:max-w-44 max-w-36">
+            <a href="{{ route('/') }}">
+                <img src={{ asset("asset/logo.png") }} alt="Logo Bank Sampah" class="sm:max-w-44 max-w-36">
+            </a>
             <p class="sm:max-w-72">
                 Jl. Airan Raya No.8, Way Huwi, lampung selatan, Kabupaten Lampung Selatan, Lampung 35141
             </p>
@@ -21,16 +24,19 @@
         <div class="flex flex-col gap-3 pt-11 sm:items-start items-center">
             <h3 class="font-bold">IKUTI KAMI</h3>
 
-                <ul class="mt-2 space-y-2 text-center sm:text-left">
-                    <li class="space-x-2"><i class="fa-solid fa-envelope text-lg"></i><a
-                            href="mailto:banksampahsahabatgajah@gmail.com">banksampahsahabatgajah@gmail.com</a></li>
-                    <li class="space-x-2"><i class="fa-solid fa-phone text-lg"></i><a href="tel:+6281234567890">+62 812 3456 7890</a>
-                    </li>
-                </ul>
-                <li class="list-none mt-5">
-                    <a href="https://www.instagram.com/banksampah_sahabatgajah/" class="bg-black/20 rounded-3xl py-2 px-3 text-xl"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://www.tiktok.com/@bank_sampah_sagah?_t=ZS-8uOyyUJQouF&_r=1" class="bg-black/20 rounded-3xl py-2 px-3 text-xl"><i class="fa-brands fa-tiktok"></i></a>
+            <ul class="mt-2 space-y-2 text-center sm:text-left">
+                <li class="space-x-2"><i class="fa-solid fa-envelope text-lg"></i><a
+                        href="mailto:banksampahsahabatgajah@gmail.com">banksampahsahabatgajah@gmail.com</a></li>
+                <li class="space-x-2"><i class="fa-solid fa-phone text-lg"></i><a href="tel:+6281234567890">+62 812 3456
+                        7890</a>
                 </li>
+            </ul>
+            <li class="list-none mt-5">
+                <a href="https://www.instagram.com/banksampah_sahabatgajah/"
+                    class="bg-black/20 rounded-3xl py-2 px-3 text-xl"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@bank_sampah_sagah?_t=ZS-8uOyyUJQouF&_r=1"
+                    class="bg-black/20 rounded-3xl py-2 px-3 text-xl"><i class="fa-brands fa-tiktok"></i></a>
+            </li>
         </div>
     </div>
 

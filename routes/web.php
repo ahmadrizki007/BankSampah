@@ -1,9 +1,23 @@
 <?php
 
 use App\Http\Controllers\profileController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
-// INI CUMAN BUAT DEV AJA
+// API
+
+Route::get('/search-user', function (Request $request) {
+    $query = $request->input('query');
+
+    // return User::where('name', 'like', '%{$query}%')
+    //     ->limit(5)
+    //     ->get(['id', 'name']);
+
+    return User::where('name', 'like', '%' . $query . '%')->get();
+});
+
+// ga perlu login
 Route::get('/', function () {
     return view('beranda');
 })->name('/');
@@ -32,7 +46,7 @@ Route::get('/kunjungan', function () {
 // AUTH
 require_once __DIR__ . '/auth.php';
 
-Route::middleware(['auth', 'multi_auth'])->group(function () {
+Route::middleware(['auth', 'multi_auth', 'verified'])->group(function () {
 
     Route::get('/profile', action: [profileController::class, 'index'])->name('profile');
 

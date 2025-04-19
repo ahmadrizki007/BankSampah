@@ -115,7 +115,7 @@
                 <div class="mb-4">
                     <label for="nama-nasabah" class="block mb-2 font-medium dark:text-white">Nama Nasabah</label>
                     <input type="text" id="nama-nasabah" name="nama_nasabah"
-                        class="px-4 py-2 w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md outline-none focus:ring-2 focus:ring-primary-300 focus:border-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-primary-300 dark:focus:border-primary-300"
+                        class="px-4 py-2 w-full text-sm rounded-md outline-none bg-gray-50 border border-gray-300 text-gray-900 focus:ring-2 focus:ring-primary-300 focus:border-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-primary-300 dark:focus:border-primary-300"
                         placeholder="Nama" required>
 
                     @error('nama_nasabah')
@@ -131,7 +131,7 @@
                     <label for="berat" class="block mb-2 font-medium dark:text-white">Berat</label>
                     <div class="flex">
                         <input type="text" id="berat" name="berat"
-                            class="px-4 py-2 w-full block flex-1 rounded-none rounded-s-lg text-sm bg-gray-50 border border-gray-300 text-gray-900 outline-none focus:ring-2 focus:ring-primary-300 focus:border-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-primary-300 dark:focus:border-primary-300"
+                            class="px-4 py-2 w-full block flex-1 rounded-none rounded-s-lg text-sm outline-none bg-gray-50 border border-gray-300 text-gray-900 focus:ring-2 focus:ring-primary-300 focus:border-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-primary-300 dark:focus:border-primary-300"
                             placeholder="Berat (kilogram)" required>
                         <span
                             class="inline-flex items-center px-3 font-semibold text-sm text-gray-900 bg-gray-200 border rounded-s-0 border-gray-300 border-e-0 rounded-e-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
@@ -148,18 +148,20 @@
                 </div>
 
                 <div class="mb-4">
-                    <label for="harga" class="block mb-2 font-medium dark:text-white">Harga</label>
-                    <div class="flex">
-                        <span
-                            class="inline-flex items-center px-3 font-semibold text-sm text-gray-900 bg-gray-200 border rounded-e-0 border-gray-300 border-e-0 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
-                            Rp.
-                        </span>
-                        <input type="number" min="0" id="harga" name="harga"
-                            class="px-4 py-2 w-full block flex-1 rounded-none rounded-e-lg text-sm bg-gray-50 border border-gray-300 text-gray-900 outline-none focus:ring-2 focus:ring-primary-300 focus:border-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-primary-300 dark:focus:border-primary-300"
-                            placeholder="Harga (rupiah)" required>
-                    </div>
+                    <label for="jenis-sampah" class="block mb-2 font-medium dark:text-white">Jenis Sampah</label>
 
-                    @error('harga')
+                    <select id="jenis-sampah" name="jenis_sampah" required
+                        class="px-4 py-2 w-full text-sm rounded-md outline-none bg-gray-50 border border-gray-300 text-gray-900  focus:ring-2 focus:ring-primary-300 focus:border-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-primary-300 dark:focus:border-primary-300">
+                        <option value="" disabled selected>Pilih Jenis Sampah</option>
+
+                        @foreach ($dataJenisSampah as $row)
+                            <option value="{{ $row->id }}">{{ $row->jenis_sampah }}</option>
+                        @endforeach
+
+                    </select>
+
+
+                    @error('jenis_sampah')
                         <p x-init="open = true" class="alert-harga ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
                             {{ $message }}
                         </p>

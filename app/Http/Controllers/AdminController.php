@@ -4,10 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Auth\LoginRequest;
 use App\Models\User;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -34,47 +31,6 @@ class AdminController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     */
-    public function attemptLogin(LoginRequest $request): RedirectResponse
-    {
-        $credentials = $request->only('email', 'password');
-
-        $user = User::where('email', $credentials['email'])->first();
-
-        if (!$user) {
-            return back()->withErrors(
-                [
-                    'email' => [
-                        'message' => 'Email tidak terdaftarrrr',
-                    ],
-                ]
-            )->withInput();
-
-        } elseif ($user && $user->role != 'admin') {
-            return back()->withErrors([
-                'error' => [
-                    'message' => 'Anda tidak memiliki akses ke halaman ini',
-                ]
-            ])->withInput();
-        }
-
-        if (!Auth::attempt($credentials)) {
-            return back()->withErrors(
-                [
-                    'password' => [
-                        'message' => 'Password salah',
-                    ],
-                ]
-            )->withInput();
-        }
-
-        $request->session()->regenerate();
-
-        return redirect()->intended(route('admin.dashboard', absolute: false));
-    }
-
-    /**
      * Display the specified resource.
      */
     public function show(string $id)
@@ -89,8 +45,4 @@ class AdminController extends Controller
     {
         //
     }
-
-    /**
-     * Remove the specified resource from storage.
-     */
 }

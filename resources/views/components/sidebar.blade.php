@@ -5,27 +5,27 @@
     </p>
     <li class="sm:w-full">
         <a 
-        class="flex text-sm gap-2 rounded-md py-1 px-2" 
+        class="flex text-sm gap-2 rounded-md py-1 px-2 hover:bg-primary-btn-hover" 
         href="/dashboard"
-        :class="{'active2': path === '/dashboard' }"
+        :class="{'bg-primary-btn-hover': path === '/dashboard' }"
         >
             <img src="{{ asset('icons/dashboard.svg') }}" width="20" alt="home">
             <span class="">Dashboard</span></a>
     </li>
     <li class="sm:w-full">
         <a 
-        class="flex text-sm gap-2 rounded-md py-1 px-2" 
+        class="flex text-sm gap-2 rounded-md py-1 px-2 hover:bg-primary-btn-hover" 
         href="/transaksi"
-        :class="{'active2' : path === '/transaksi'}"
+        :class="{'bg-primary-btn-hover' : path === '/transaksi'}"
         >
             <img src="{{ asset('icons/data-transaksi.svg') }}" width="20" alt="transaksi"><span
                 class="">Transaksi</span></a>
     </li>
     <li class="sm:w-full">
         <a 
-        class="flex text-sm gap-2 rounded-md py-1 px-2" 
+        class="flex text-sm gap-2 rounded-md py-1 px-2 hover:bg-primary-btn-hover" 
         href="/penarikan"
-        :class="{'active2' : path === '/penarikan'}"
+        :class="{'bg-primary-btn-hover' : path === '/penarikan'}"
         >
             <img src="{{ asset('icons/status-penarikan.svg') }}" width="20" alt="penarikan"><span
                 class="">Penarikan</span></a>

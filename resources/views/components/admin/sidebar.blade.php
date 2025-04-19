@@ -36,7 +36,7 @@
                 <ul class="mt-3">
                     <!-- Dashboard -->
                     <li
-                        class="pl-4 pr-3 py-2 rounded-lg mb-0.5 last:mb-0 bg-linear-to-r truncate transition hover:bg-black/10 @if(Request::segment(2) == 'dashboard'){{ 'bg-black/10' }}@endif">
+                        class="pl-4 pr-3 py-2 rounded-lg mb-0.5 last:mb-0 bg-linear-to-r truncate transition hover:bg-primary-btn-hover @if(Request::segment(2) == 'dashboard'){{ 'bg-black/10' }}@endif">
                         <a class="block text-gray-800 dark:text-gray-100" href="{{ route('admin.dashboard') }}"
                             @click="sidebarExpanded = true">
                             <div class="flex items-center">
@@ -50,7 +50,7 @@
 
                     <!-- Data Transaki -->
                     <li
-                        class="pl-4 pr-3 py-2 rounded-lg mb-0.5 last:mb-0 bg-linear-to-r truncate transition hover:bg-black/10 @if(Request::segment(2) == 'data-transaksi'){{ 'bg-black/10' }}@endif">
+                        class="pl-4 pr-3 py-2 rounded-lg mb-0.5 last:mb-0 bg-linear-to-r truncate transition hover:bg-primary-btn-hover @if(Request::segment(2) == 'data-transaksi'){{ 'bg-black/10' }}@endif">
                         <a class="block text-gray-800 dark:text-gray-100" href="{{ route('admin.dataTransaksi') }}"
                             @click="sidebarExpanded = true">
                             <div class="flex items-center">
@@ -66,7 +66,7 @@
 
                     <!-- Data Sampah -->
                     <li
-                        class="pl-4 pr-3 py-2 rounded-lg mb-0.5 last:mb-0 bg-linear-to-r truncate transition hover:bg-black/10 @if(Request::segment(2) == 'data-sampah'){{ 'bg-black/10 ' }}@endif">
+                        class="pl-4 pr-3 py-2 rounded-lg mb-0.5 last:mb-0 bg-linear-to-r truncate transition hover:bg-primary-btn-hover @if(Request::segment(2) == 'data-sampah'){{ 'bg-black/10 ' }}@endif">
                         <a class="block text-gray-800 dark:text-gray-100 " href="{{ route('admin.dataSampah') }}"
                             @click="sidebarExpanded = true">
                             <div class="flex items-center">
@@ -81,7 +81,7 @@
 
                     <!-- Validasi Penarikan -->
                     <li
-                        class="pl-4 pr-3 py-2 rounded-lg mb-0.5 last:mb-0 bg-linear-to-r truncate transition hover:bg-black/10 @if(Request::segment(2) == 'validasi-penarikan'){{ 'bg-black/10 ' }}@endif">
+                        class="pl-4 pr-3 py-2 rounded-lg mb-0.5 last:mb-0 bg-linear-to-r truncate transition hover:bg-primary-btn-hover @if(Request::segment(2) == 'validasi-penarikan'){{ 'bg-black/10 ' }}@endif">
                         <a class="block text-gray-800 dark:text-gray-100 " href="{{ route('admin.validasiPenarikan') }}"
                             @click="sidebarExpanded = true">
                             <div class="flex items-center">
@@ -97,7 +97,7 @@
 
                     <!-- Donasi Gajah -->
                     <li
-                        class="pl-4 pr-3 py-2 rounded-lg mb-0.5 last:mb-0 bg-linear-to-r truncate transition hover:bg-black/10 @if(Request::segment(2) == 'donasi-gajah'){{ 'bg-black/10 ' }}@endif">
+                        class="pl-4 pr-3 py-2 rounded-lg mb-0.5 last:mb-0 bg-linear-to-r truncate transition hover:bg-primary-btn-hover @if(Request::segment(2) == 'donasi-gajah'){{ 'bg-black/10 ' }}@endif">
                         <a class="block text-gray-800 dark:text-gray-100 " href="{{ route('admin.donasiGajah') }}"
                             @click="sidebarExpanded = true">
                             <div class="flex items-center">
