@@ -17,6 +17,13 @@
                 // scrollY: 300,
                 // scroller: true
             });
+
+            // handle select element
+            $('#jenis-sampah').select2({
+                dropdownAutoWidth: true,
+                width: '100%',
+                dropdownParent: $('body'),
+            });
         });
     </script>
 
@@ -24,17 +31,7 @@
 
 <x-admin-layout :title="$title">
 
-    <!-- Error notif -->
-    @error('error')
-        <x-errors.red :message="$message" />
-    @enderror
-
-    <!-- Success notif -->
-    @if(session('success'))
-        <x-errors.green :message="session('success')" />
-    @endif
-
-    <div class="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto" x-data="{ open: false}">
+    <div x-data="{ open: false}" class="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
 
         <!-- Dashboard actions -->
         <div class="sm:flex sm:justify-between sm:items-center mb-8">
@@ -87,9 +84,11 @@
                         @foreach($data as $row)
                             <tr class="border-b">
                                 <td class="px-6 py-4">{{ ++$idx }}</td>
-                                <td class="px-6 py-4">{{ $row->nama_nasabah }}</td>
+                                <td class="px-6 py-4">{{ $row->user->name }}</td>
                                 <td class="px-6 py-4">{{ $row->berat }}</td>
-                                <td class="px-6 py-4">Rp.{{ $row->harga }}</td>
+                                <td class="py-2 sm:px-4 px-2">
+                                    Rp <span x-data="{ value: {{ $row->harga }} }" x-text="$rupiah(value)"></span>
+                                </td>
                             </tr>
 
                         @endforeach
@@ -112,11 +111,26 @@
             <form x-ref="form" action="{{ route('admin.dataTransaksi.store') }}" method="POST" class="px-5">
                 @csrf
 
-                <div class="mb-4">
+                <div x-data="userSearch()" class="mb-4 relative">
                     <label for="nama-nasabah" class="block mb-2 font-medium dark:text-white">Nama Nasabah</label>
-                    <input type="text" id="nama-nasabah" name="nama_nasabah"
+                    <input x-model="search" @input.debounce.300ms="fetchUser" type="text" id="nama-nasabah"
+                        name="nama_nasabah"
                         class="px-4 py-2 w-full text-sm rounded-md outline-none bg-gray-50 border border-gray-300 text-gray-900 focus:ring-2 focus:ring-primary-300 focus:border-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-primary-300 dark:focus:border-primary-300"
-                        placeholder="Nama" required>
+                        placeholder="Cari user.." required>
+
+                    <ul x-show="isResults()"
+                        class="absolute z-10 max-h-30 overflow-auto w-full px-2 pt-1 rounded-b-md bg-gray-50 border border-gray-300 text-gray-900">
+                        <template x-for="user in results" :key="user . id">
+                            <li x-on:click="selectUser(user)" class="hover:bg-gray-300 cursor-pointer">
+                                <span x-text="user.name">
+                                </span>
+                            </li>
+                        </template>
+                    </ul>
+
+                    <!-- token storage -->
+                    <div id="token" class="hidden">{{ $token }}</div>
+                    <input id="user_id" type="hidden" name="user_id" :value="selectedId">
 
                     @error('nama_nasabah')
                         <p x-init="open = true"
@@ -183,5 +197,50 @@
         </div>
 
     </div>
+
+
+    <!-- Khusus script search user -->
+    <script>
+        function userSearch() {
+            return {
+                search: '',
+                results: null,
+                selectedId: null,
+
+                fetchUser() {
+                    const token = document.getElementById('token').innerText;
+
+                    fetch(`/api/search-user?q=${this.search}`, {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}`,
+                        }
+                    })
+                        .then(res => res.json())
+                        .then(res => {
+                            this.results = res.data;
+                        })
+                        .catch(error => {
+                            console.error('Error api', error);
+                        });
+                },
+
+                selectUser(user) {
+                    this.search = user.name;
+                    this.selectedId = user.id;
+                    this.results = null;
+                },
+
+                isResults() {
+                    if (this.search == '') {
+                        this.results = null;
+                    }
+                    return this.results !== null;
+                }
+            }
+        }
+
+    </script>
 
 </x-admin-layout>

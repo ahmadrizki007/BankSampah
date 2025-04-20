@@ -11,7 +11,8 @@
     <main class="sm:flex items-center justify-center sm:h-screen bg-primary-bg md:px-5">
         <div class="flex sm:flex-row flex-col w-full max-w-4xl bg-white rounded-lg shadow-2xl md:overflow-hidden">
             <!-- Bagian Kiri -->
-            <div class="sm:w-1/2 bg-primary-500 text-white p-10 flex flex-col justify-center shadow-lg text-center sm:text-left">
+            <div
+                class="sm:w-1/2 bg-primary-500 text-white p-10 flex flex-col justify-center shadow-lg text-center sm:text-left">
                 <h2 class="sm:text-4xl text-2xl font-bold">Selamat Datang</h2>
                 <p class="mt-4 font-caveat sm:text-2xl text-xl italic">Rumah Inspirasi Sahabat Gajah</p>
             </div>
@@ -23,12 +24,12 @@
                 <form method="POST" action={{ route('register.store') }}>
                     @csrf
                     <div class="sm:mb-4 mb-2">
-                        <input type="text" name="fullname" placeholder="nama lengkap" value="{{ old('fullname') }}"
-                            class="fullname w-full px-4 py-2 mt-2 border rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
+                        <input type="text" name="username" placeholder="Username" value="{{ old('username') }}"
+                            class="username w-full px-4 py-2 mt-2 border rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
                             required>
                         <ul>
-                            @error('fullname')
-                                <li class="alert-fullname ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
+                            @error('username')
+                                <li class="alert-username ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
                                     {{ $message }}
                                 </li>
                             @enderror
@@ -96,7 +97,8 @@
                         <ul class="">
                             @error('password')
                                 <li class="alert-password ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
-                                    {{ $message }}</li>
+                                    {{ $message }}
+                                </li>
                             @enderror
                         </ul>
                     </div>

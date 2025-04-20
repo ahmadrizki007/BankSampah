@@ -4,6 +4,27 @@
     <title>Status Penarikan</title>
 @endsection
 
+
+@section('scripts')
+
+    <script>
+        $(document).ready(function () {
+
+            $('#withdraw-table').DataTable({
+                columnDefs: [
+                    {
+                        target: '_all',
+                        className: '!text-center',
+                    }
+                ],
+
+                stateSave: true,
+            });
+        });
+    </script>
+
+@endsection
+
 @section('main')
 
     <div class="w-full sm:p-6 p-4 sm:flex items-start lg:gap-8 gap-4 bg-primary-bg shadow-md text-black">
@@ -23,40 +44,41 @@
 
             <!-- Table -->
             <div class="overflow-x-auto">
-                <table class="table-auto w-full text-left border-collapse text-slate-500 sm:text-lg text-sm">
+                <table id="withdraw-table" class="row-border">
                     <thead class="bg-gray-100">
                         <tr>
                             <th class="py-3 sm:px-5 px-2 sm:font-medium">No</th>
                             <th class="py-3 sm:px-5 px-2 sm:font-medium">Tanggal Transaksi</th>
-                            <th class="py-3 sm:px-5 px-2 sm:font-medium">Jumlah Saldo</th>
+                            <th class="py-3 sm:px-5 px-2 sm:font-medium">Jumlah Penarikan</th>
                             <th class="py-3 sm:px-5 px-2 sm:font-medium">Status</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="border-b border-gray-200">
-                            <td class="py-3 sm:px-5 px-2">1</td>
-                            <td class="py-3 sm:px-5 px-2">14-11-2023</td>
-                            <td class="py-3 sm:px-5 px-2">Rp. 50.000</td>
-                            <td class="py-3 sm:px-5 px-2">
-                                <span class="bg-primary-500 text-white text-xs py-1 px-3 rounded-full">Berhasil</span>
-                            </td>
-                        </tr>
-                        <tr class="border-b border-gray-200">
-                            <td class="py-3 sm:px-5 px-2">2</td>
-                            <td class="py-3 sm:px-5 px-2">14-10-2023</td>
-                            <td class="py-3 sm:px-5 px-2">Rp. 25.000</td>
-                            <td class="py-3 sm:px-5 px-2">
-                                <span class="bg-gray-600 text-white text-xs py-1 px-3 rounded-full">Process</span>
-                            </td>
-                        </tr>
-                        <tr class="border-b border-gray-200">
-                            <td class="py-3 sm:px-5 px-2">3</td>
-                            <td class="py-3 sm:px-5 px-2">12-10-2023</td>
-                            <td class="py-3 sm:px-5 px-2">Rp. 15.000</td>
-                            <td class="py-3 sm:px-5 px-2">
-                                <span class="bg-red-500 text-white text-xs py-1 px-3 rounded-full">Ditolak</span>
-                            </td>
-                        </tr>
+                        @php
+                            $idx = 0;
+                        @endphp
+
+                        @foreach($data as $row)
+
+                            <tr class="border-b border-gray-200">
+                                <td class="py-3 sm:px-5 px-2">{{ ++$idx }}</td>
+                                <td class="py-3 sm:px-5 px-2">{{ $row->created_at_formatted }}</td>
+                                <td class="py-3 sm:px-5 px-2">
+                                    Rp <span x-data="{ value: {{ $row->jumlah_penarikan }} }" x-text="$rupiah(value)"></span>
+                                </td>
+                                <td class="py-3 sm:px-5 px-2">
+
+                                    @if ($row->state == 'accepted')
+                                        <span class="bg-primary-500 text-white text-xs py-1 px-3 rounded-full">Berhasil</span>
+                                    @elseif($row->state == 'rejected')
+                                        <span class="bg-red-500 text-white text-xs py-1 px-3 rounded-full">Ditolak</span>
+                                    @else
+                                        <span class="bg-yellow-400 text-white text-xs py-1 px-3 rounded-full">Process</span>
+                                    @endif
+                                </td>
+                            </tr>
+
+                        @endforeach
                     </tbody>
                 </table>
             </div>

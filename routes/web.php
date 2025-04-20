@@ -1,21 +1,13 @@
 <?php
 
+use App\Http\Controllers\DonasiGajahController;
+use App\Http\Controllers\PenarikanController;
 use App\Http\Controllers\profileController;
+use App\Http\Controllers\TransaksiController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
-// API
-
-Route::get('/search-user', function (Request $request) {
-    $query = $request->input('query');
-
-    // return User::where('name', 'like', '%{$query}%')
-    //     ->limit(5)
-    //     ->get(['id', 'name']);
-
-    return User::where('name', 'like', '%' . $query . '%')->get();
-});
 
 // ga perlu login
 Route::get('/', function () {
@@ -53,24 +45,14 @@ Route::middleware(['auth', 'multi_auth', 'verified'])->group(function () {
     Route::get('/profile/edit', [profileController::class, 'edit'])->name('profile.edit');
     Route::post('/profile/edit', [profileController::class, 'handleEdit'])->name('profile.handleEdit');
 
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [TransaksiController::class, 'indexDashboard'])->name('dashboard');
+    Route::get('/transaksi', [TransaksiController::class, 'indexTransaksi'])->name('transaksi');
+    Route::get('/penarikan', [PenarikanController::class, 'indexPenarikan'])->name('penarikan');
 
-    Route::get('/home', function () {
-        return view('home');
-    })->name('home');
-
-    Route::get('/transaksi', function () {
-        return view('transaksi');
-    })->name('transaksi');
-
-    Route::get('/penarikan', function () {
-        return view('penarikan');
-    })->name('penarikan');
-
+    Route::post('/donasi-gajah', [DonasiGajahController::class, 'donasiGajah'])->name('donasiGajah.donasi');
+    Route::post('/tarik-saldo', [PenarikanController::class, 'tarikSaldo'])->name('penarikan.tarikSaldo');
 
 });
 
 // ADMIN
-require __DIR__ . '/admin.php';
+require_once __DIR__ . '/admin.php';

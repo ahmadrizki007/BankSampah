@@ -10,7 +10,7 @@
         </svg> </div>
     <div
         class="px-4 py-6 bg-white rounded-r-lg flex justify-between items-center w-full border border-l-transparent border-gray-200">
-        <div>
+        <div class="italic text-black">
             {{ $message ?? "Peringatan" }}
         </div>
         <button @click="show = false">

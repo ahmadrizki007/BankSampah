@@ -31,7 +31,7 @@
                 <h3 class="italic text-black/50 dark:text-white font-thin pb-2">
                     <span class="pl-4 hidden lg:block lg:sidebar-expanded:hidden 2xl:hidden text-center w-6"
                         aria-hidden="true">•••</span>
-                    <span class="lg:hidden lg:sidebar-expanded:block 2xl:block">Information Type</span>
+                    <span class="lg:hidden lg:sidebar-expanded:block 2xl:block ms-2">Menu Kelola</span>
                 </h3>
                 <ul class="mt-3">
                     <!-- Dashboard -->

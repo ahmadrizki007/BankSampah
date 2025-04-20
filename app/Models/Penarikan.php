@@ -1,0 +1,22 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
+class Penarikan extends Model
+{
+    protected $table = 'penarikan';
+    protected $fillable = [
+        'id',
+        'jumlah_penarikan',
+        'state',
+        'user_id',
+    ];
+
+    public function User(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+}

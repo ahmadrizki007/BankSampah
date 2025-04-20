@@ -71,7 +71,11 @@
                                 <td class="px-6 py-4">{{ $row->phone }} </td>
                                 <td class="px-6 py-4"> {{ $row->email }} </td>
                                 <td class="px-6 py-4"> {{ $row->address }} </td>
-                                <td class="px-6 py-4">Rp.{{ $row->balance }}</td>
+                                <td class="px-6 py-4">
+                                    Rp <span x-data="{value: {{ $row->balance }}}" x-text="$rupiah(value)"></span>
+                                </td>
+
+
                             </tr>
 
                         @endforeach

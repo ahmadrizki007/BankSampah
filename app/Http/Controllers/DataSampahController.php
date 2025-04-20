@@ -48,7 +48,7 @@ class DataSampahController extends Controller
 
             DB::commit();
 
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             DB::rollBack();
             return redirect()->back()->withErrors([
                 'error' => [

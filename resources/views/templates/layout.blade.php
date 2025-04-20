@@ -44,6 +44,15 @@
 
 <body class="max-w-[100rem] mx-auto relative text-white overflow-x-hidden">
 
+    <!-- Error notif -->
+    @error('error')
+        <x-errors.red :message="$message" />
+    @enderror
+
+    <!-- Success notif -->
+    @if(session('success'))
+        <x-errors.green :message="session('success')" />
+    @endif
 
     @include('templates.header')
 
@@ -57,6 +66,14 @@
 
     @livewireScriptConfig
     @yield('scripts')
+
+    <script>
+        document.addEventListener('alpine:init', () => {
+            Alpine.magic('rupiah', () => (value) => {
+                return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
+            })
+        })
+    </script>
 
 
 </body>

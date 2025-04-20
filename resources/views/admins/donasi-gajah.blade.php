@@ -36,7 +36,9 @@
             <!-- Right Card -->
             <div class="mt-4 sm:mt-0 bg-green-700 text-white shadow-md p-4 rounded-sm text-sm font-light italic">
                 <p class="mb-1">Donasi Tekumpul</p>
-                <p class="text-center font-bold">Rp.50.000</p>
+                <p class="text-center font-bold">
+                    Rp <span x-data="{value: {{ $total ? $total : '0' }}}" x-text="$rupiah(value)"></span>
+                </p>
             </div>
         </div>
 
@@ -61,22 +63,20 @@
                         </tr>
                     </thead>
                     <tbody class="bg-white text-gray-700 dark:bg-gray-800 dark:text-white">
-                        <tr class="border-b">
-                            <td class="px-6 py-4">1</td>
-                            <td class="px-6 py-4">Plastik</td>
-                            <td class="px-6 py-4">Rp.5.000</td>
-                        </tr>
 
-                        <tr class="border-b">
-                            <td class="px-6 py-4">2</td>
-                            <td class="px-6 py-4">Sterofoam</td>
-                            <td class="px-6 py-4">Rp.10.000</td>
-                        </tr>
-                        <tr class="border-b">
-                            <td class="px-6 py-4">3</td>
-                            <td class="px-6 py-4">Besi</td>
-                            <td class="px-6 py-4">Rp.15.000</td>
-                        </tr>
+                        @php
+                            $idx = 0;
+                        @endphp
+
+                        @foreach ($data as $row)
+                            <tr class="border-b">
+                                <td class="px-6 py-4">{{ ++$idx }}</td>
+                                <td class="px-6 py-4">{{ $row->user->name }}</td>
+                                <td class="px-6 py-4">
+                                    Rp <span x-data="{value: {{ $row->donasi }}}" x-text="$rupiah(value)"></span>
+                                </td>
+                            </tr>
+                        @endforeach
 
                     </tbody>
                 </table>

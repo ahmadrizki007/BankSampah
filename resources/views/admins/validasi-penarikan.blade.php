@@ -58,40 +58,57 @@
                         </tr>
                     </thead>
                     <tbody class="bg-white text-gray-700 dark:bg-gray-800 dark:text-white">
-                        <tr class="border-b">
-                            <td class="px-6 py-4">1</td>
-                            <td class="px-6 py-4">Surtini</td>
-                            <td class="px-6 py-4">10-10-2025</td>
-                            <td class="px-6 py-4">Rp.50.000</td>
-                            <td class="px-6 py-4">
-                                <button class="bg-red-500 px-3 py-2 text-white rounded hover:bg-red-400">Tolak</button>
-                                <button
-                                    class="bg-green-500 px-3 py-2 text-white rounded hover:bg-green-400">Terima</button>
-                            </td>
-                        </tr>
 
-                        <tr class="border-b">
-                            <td class="px-6 py-4">2</td>
-                            <td class="px-6 py-4">Marjono</td>
-                            <td class="px-6 py-4">15-07-2024</td>
-                            <td class="px-6 py-4">Rp.100.000</td>
-                            <td class="px-6 py-4">
-                                <button class="bg-red-500 px-3 py-2 text-white rounded hover:bg-red-400">Tolak</button>
-                                <button
-                                    class="bg-green-500 px-3 py-2 text-white rounded hover:bg-green-400">Terima</button>
-                            </td>
-                        </tr>
-                        <tr class="border-b">
-                            <td class="px-6 py-4">3</td>
-                            <td class="px-6 py-4">Prabowo</td>
-                            <td class="px-6 py-4">01-04-2025</td>
-                            <td class="px-6 py-4">Rp.125.000</td>
-                            <td class="px-6 py-4">
-                                <button class="bg-red-500 px-3 py-2 text-white rounded hover:bg-red-400">Tolak</button>
-                                <button
-                                    class="bg-green-500 px-3 py-2 text-white rounded hover:bg-green-400">Terima</button>
-                            </td>
-                        </tr>
+                        @php
+                            $idx = 0;
+                        @endphp
+                        @foreach($data as $row)
+                            <tr class="border-b">
+                                <td class="px-6 py-4">{{ ++$idx }}</td>
+                                <td class="px-6 py-4">{{ $row->user->name }}</td>
+                                <td class="px-6 py-4">{{ $row->created_at_formatted }}</td>
+                                <td class="py-2 sm:px-4 px-2">
+                                    Rp <span x-data="{ value: {{ $row->jumlah_penarikan }} }"
+                                        x-text="$rupiah(value)"></span>
+                                </td>
+                                <td class="px-6 py-4">
+
+                                    @if ($row->state == 'process')
+                                        <form class="inline-block" action="{{ route('admin.validasiPenarikan.tolak') }}"
+                                            method="POST">
+                                            @csrf
+                                            <input type="hidden" name="user_id" value="{{ $row->user->id }}">
+                                            <input type="hidden" name="id" value="{{ $row->id }}">
+                                            <button class="bg-red-500 px-3 py-2 text-white rounded hover:bg-red-400">
+                                                Tolak
+                                            </button>
+                                        </form>
+
+
+                                        <form class="inline-block" action="{{ route('admin.validasiPenarikan.terima') }}"
+                                            method="POST">
+                                            @csrf
+                                            <input type="hidden" name="user_id" value="{{ $row->user->id }}">
+                                            <input type="hidden" name="id" value="{{ $row->id }}">
+                                            <input type="hidden" name="jumlah_penarikan" value="{{ $row->jumlah_penarikan }}">
+                                            <button type="submit"
+                                                class="bg-green-500 px-3 py-2 text-white rounded hover:bg-green-400">
+                                                Terima
+                                            </button>
+                                        </form>
+                                    @else
+                                        @if ($row->state == 'accepted')
+                                            <span class="bg-primary-500 text-white text-xs py-1 px-3 rounded-full">Berhasil</span>
+                                        @else
+                                            <span class="bg-red-500 text-white text-xs py-1 px-3 rounded-full">Ditolak</span>
+                                        @endif
+
+                                    @endif
+
+                                </td>
+                            </tr>
+
+                        @endforeach
 
                     </tbody>
                 </table>

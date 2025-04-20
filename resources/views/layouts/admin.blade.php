@@ -43,6 +43,10 @@
         <!-- DataTables JS (pindahkan ke bawah jQuery jika perlu) -->
         <script src="https://cdn.datatables.net/2.2.2/js/dataTables.js"></script>
 
+        <!-- Select2 -->
+         <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
         @stack('head')
 
     </head>
@@ -52,8 +56,6 @@
         x-data="{ sidebarOpen: false, sidebarExpanded: localStorage.getItem('sidebar-expanded') == 'true' }"
         x-init="$watch('sidebarExpanded', value => localStorage.setItem('sidebar-expanded', value))"    
     >
-
-        @stack('scripts')
 
         <script>
             if (localStorage.getItem('sidebar-expanded') == 'true') {
@@ -65,6 +67,15 @@
 
         <!-- Page wrapper -->
         <div class="flex h-[100dvh] overflow-hidden">
+                <!-- Error notif -->
+            @error('error')
+                <x-errors.red :message="$message" />
+            @enderror
+
+            <!-- Success notif -->
+            @if(session('success'))
+                <x-errors.green :message="session('success')" />
+            @endif
 
             <x-admin.sidebar :variant="$attributes['sidebarVariant']" />
 
@@ -80,8 +91,16 @@
             </div>
         </div>
 
-
         @livewireScriptConfig
+        @stack('scripts')
+
+         <script>
+            document.addEventListener('alpine:init', () => {
+                Alpine.magic('rupiah', () => (value) => {
+                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
+                })
+            })
+        </script>
 
     </body>
 </html>

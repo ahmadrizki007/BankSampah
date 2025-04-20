@@ -31,7 +31,7 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $validator = Validator::make($request->all(), [
-            'fullname' => ['required', 'max:255'],
+            'username' => ['required', 'max:255' . 'unique:' . User::class],
             'email' => ['required', 'email', 'max:255', 'unique:' . User::class],
             'age' => ['required'],
             'gender' => ['required'],
@@ -39,8 +39,9 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'min:8'],
             // 'password' => ['required', Rules\Password::defaults()],
         ], [
-            'fullname.required' => 'Nama lengkap harus diisi',
-            'fullname.max' => 'Nama lengkap maksimal 255 karakter',
+            'username.required' => 'Username harus diisi',
+            'username.max' => 'Username maksimal 255 karakter',
+            'username.unique' => 'Username sudah terdaftar',
             'email.required' => 'Email harus diisi',
             'email.email' => 'Email harus valid',
             'email.unique' => 'Email sudah terdaftar',
@@ -56,7 +57,7 @@ class RegisteredUserController extends Controller
         }
 
         $user = User::create([
-            'name' => $request->fullname,
+            'name' => $request->username,
             'email' => $request->email,
             'age' => $request->age,
             'gender' => $request->gender,

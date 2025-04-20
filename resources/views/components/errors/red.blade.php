@@ -11,7 +11,7 @@
     </div>
     <div
         class="py-4 px-6 bg-white rounded-r-lg flex justify-between items-center w-full border border-l-transparent border-gray-200">
-        <div class="italic">
+        <div class="italic text-black">
             {{ $message ?? "Terjadi kesalahan" }}
         </div>
         <button id="close-button" @click="show = false">

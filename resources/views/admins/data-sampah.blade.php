@@ -94,7 +94,9 @@
                             <tr class="border-b">
                                 <td class="px-6 py-4">{{ ++$idx }}</td>
                                 <td class="px-6 py-4">{{ $row->jenis_sampah }}</td>
-                                <td class="px-6 py-4">Rp.{{ $row->harga }}</td>
+                                <td class="py-2 sm:px-4 px-2">
+                                    Rp <span x-data="{ value: {{ $row->harga }} }" x-text="$rupiah(value)"></span>
+                                </td>
                                 <td x-data="{ openEdit{{ $row->id }}: false }" class="px-6 py-4 space-x-1">
 
                                     <button @click="openEdit{{ $row->id }} = true" type="button"
