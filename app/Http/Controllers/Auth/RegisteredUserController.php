@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 
@@ -31,8 +32,8 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $validator = Validator::make($request->all(), [
-            'username' => ['required', 'max:255' . 'unique:' . User::class],
-            'email' => ['required', 'email', 'max:255', 'unique:' . User::class],
+            'username' => ['required', 'max:255', Rule::unique(User::class, 'name')],
+            'email' => ['required', 'email', 'max:255', Rule::unique(User::class, 'email')],
             'age' => ['required'],
             'gender' => ['required'],
             'phone' => ['required'],
