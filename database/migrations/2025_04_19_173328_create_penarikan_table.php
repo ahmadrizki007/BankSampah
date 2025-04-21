@@ -15,7 +15,7 @@ return new class extends Migration {
             $table->id();
             $table->string('jumlah_penarikan');
             $table->enum('state', ['accepted', 'rejected', 'process'])->default('process');
-            $table->foreignIdFor(User::class);
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

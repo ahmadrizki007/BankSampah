@@ -70,6 +70,7 @@
                         <tr>
                             <th class="px-6 py-3">NO</th>
                             <th class="px-6 py-3">Nama Nasabah</th>
+                            <th class="px-6 py-3">Jenis Sampah</th>
                             <th class="px-6 py-3">Berat (KG)</th>
                             <th class="px-6 py-3">Harga</th>
 
@@ -85,6 +86,7 @@
                             <tr class="border-b">
                                 <td class="px-6 py-4">{{ ++$idx }}</td>
                                 <td class="px-6 py-4">{{ $row->user->name }}</td>
+                                <td class="px-6 py-4">{{ $row->datasampah->jenis_sampah }}</td>
                                 <td class="px-6 py-4">{{ $row->berat }}</td>
                                 <td class="py-2 sm:px-4 px-2">
                                     Rp <span x-data="{ value: {{ $row->harga }} }" x-text="$rupiah(value)"></span>
@@ -132,9 +134,9 @@
                     <div id="token" class="hidden">{{ $token }}</div>
                     <input id="user_id" type="hidden" name="user_id" :value="selectedId">
 
-                    @error('nama_nasabah')
+                    @error('user_id')
                         <p x-init="open = true"
-                            class="alert-nama-nasabah ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
+                            class="alert-user_id ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
                             {{ $message }}
                         </p>
                     @enderror
