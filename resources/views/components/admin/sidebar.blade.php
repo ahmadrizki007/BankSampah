@@ -31,7 +31,7 @@
                 <h3 class="italic text-black/50 dark:text-white font-thin pb-2">
                     <span class="pl-4 hidden lg:block lg:sidebar-expanded:hidden 2xl:hidden text-center w-6"
                         aria-hidden="true">•••</span>
-                    <span class="lg:hidden lg:sidebar-expanded:block 2xl:block ms-2">Menu Kelola</span>
+                    <span class="lg:hidden lg:sidebar-expanded:block 2xl:block ms-2">Kelola Menu</span>
                 </h3>
                 <ul class="mt-3">
                     <!-- Dashboard -->
@@ -110,9 +110,27 @@
                             </div>
                         </a>
                     </li>
+                </ul>
 
+                <h3 class="italic text-black/50 dark:text-white font-thin pb-2 mt-6">
+                    <span class="pl-4 hidden lg:block lg:sidebar-expanded:hidden 2xl:hidden text-center w-6"
+                        aria-hidden="true">•••</span>
+                    <span class="lg:hidden lg:sidebar-expanded:block 2xl:block ms-2">Kelola Halaman</span>
+                </h3>
 
-
+                <ul>
+                    <!-- Produk -->
+                    <li
+                        class="pl-4 pr-3 py-2 rounded-lg mb-0.5 last:mb-0 bg-linear-to-r truncate transition hover:bg-primary-btn-hover @if(Request::segment(2) == 'produk'){{ 'bg-black/10' }}@endif">
+                        <a class="block text-gray-800 dark:text-gray-100" href="{{ route('admin.produk') }}"
+                            @click="sidebarExpanded = true">
+                            <div class="flex items-center">
+                                <img class="shrink-0 w-7" src="{{ asset('icons/produk-admin.svg') }}" alt="produk">
+                                <span
+                                    class="text-sm font-medium ml-4 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Produk</span>
+                            </div>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>

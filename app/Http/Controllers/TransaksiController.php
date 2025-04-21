@@ -135,7 +135,6 @@ class TransaksiController extends Controller
 
     }
 
-
     /**
      * Update the specified resource in storage.
      */

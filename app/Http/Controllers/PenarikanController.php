@@ -134,22 +134,6 @@ class PenarikanController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(Penarikan $penarikan)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Penarikan $penarikan)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, Penarikan $penarikan)
