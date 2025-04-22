@@ -1,12 +1,12 @@
 @extends('templates.layout')
 
 @section('title')
-<title> Formulir Kunjungan </title>
+    <title> Formulir Kunjungan </title>
 @endsection
 
 @section('main')
 
-    <main class="w-full bg-primary-bg py-14 sm:py-10 sm:px-14 px-5">
+    <main class="w-full text-black bg-primary-bg py-14 sm:py-10 sm:px-14 px-5">
 
         <!-- Judul Formulir -->
         <div class="max-w-4xl mx-auto text-center">
@@ -77,5 +77,5 @@
 @endsection
 
 @section('scripts')
-<script></script>
+    <script></script>
 @endsection

@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             AdminAccountSeeder::class,
             JenisSampahSeeder::class,
+            ProgramSeeder::class,
         ]);
     }
 }

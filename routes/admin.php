@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\DataSampahController;
 use App\Http\Controllers\DonasiGajahController;
 use App\Http\Controllers\PenarikanController;
