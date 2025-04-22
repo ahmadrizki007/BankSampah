@@ -15,7 +15,7 @@ return new class extends Migration {
             $table->string('berat');
             $table->string('harga');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->unsignedBigInteger('data_sampah_id');
+            $table->unsignedBigInteger(column: 'data_sampah_id');
             $table->foreign('data_sampah_id')->references('id')->on('data_sampah')->onDelete('cascade');
             $table->timestamps();
         });

@@ -18,10 +18,11 @@
             </h1>
         </div>
 
+      <div class="flex flex-row gap-8 overflow-x-auto scrollbar-thin scrollbar-thumb-primary-gray py-4 snap-x scroll-pl-6">
         @foreach ($data as $row)
             @if($row->program->nama === 'Rumah Inspirasi')
                 <!-- Produk Box -->
-                <div class="mt-8 mx-auto sm:mx-0 max-w-xs rounded-2xl border border-primary-gray overflow-hidden">
+                <div class="mt-8 mx-auto sm:mx-0 max-w-xs rounded-2xl border border-primary-gray overflow-hidden w-full flex-shrink-0 snap-start">
                     <!-- Gambar Produk -->
                     <div class="w-full h-72 bg-cover bg-center" style="background-image: url('{{ asset($row->gambar) }}')">
                     </div>
@@ -39,6 +40,7 @@
                 </div>
             @endif
         @endforeach
+      </div>
 
         <!-- Box Lihat Produk Kami (Di bawah Produk) -->
         <div class="bg-primary-bg p-4 mt-6">
@@ -55,10 +57,11 @@
             <h1 class="text-xl font-bold text-primary-hover-2">RELOOP MARKET </h1>
         </div>
 
+       <div class="flex flex-row gap-8 overflow-x-auto scrollbar-thin scrollbar-thumb-primary-gray py-4 snap-x scroll-pl-6">
         @foreach ($data as $row)
             @if($row->program->nama === 'Reloop Market')
                 <!-- Produk Box -->
-                <div class="mt-8  mx-auto sm:mx-0 max-w-xs rounded-2xl border border-primary-gray overflow-hidden">
+                <div class="mt-8 mx-auto sm:mx-0 max-w-xs rounded-2xl border border-primary-gray overflow-hidden w-full flex-shrink-0 snap-start">
                     <!-- Gambar Produk -->
                     <div class="w-full h-64 bg-cover bg-center"
                         style="background-image: url('{{ asset($row->gambar) }}'); background-size: contain; background-repeat: no-repeat; background-position: center;">
@@ -77,6 +80,7 @@
                 </div>
             @endif
         @endforeach
+       </div>
 
         <!-- Box Lihat Produk Kami (Di bawah Produk) -->
         <div class="bg-primary-bg p-4 mt-6">
