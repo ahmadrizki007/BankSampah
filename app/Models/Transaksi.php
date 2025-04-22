@@ -14,6 +14,7 @@ class Transaksi extends Model
         'berat',
         'harga',
         'user_id',
+        'data_sampah_id',
     ];
 
     // protected function CreatedAtFormatted(): Attribute
@@ -28,4 +29,11 @@ class Transaksi extends Model
         return $this->belongsTo(User::class);
     }
 
+
+    public function DataSampah(): BelongsTo
+    {
+        return $this->belongsTo(
+            DataSampah::class
+        );
+    }
 }

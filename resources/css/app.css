@@ -10,6 +10,7 @@
 
 @theme {
   --shadow-sm: 0 1px 1px 0 rgb(0 0 0 / 0.05), 0 1px 2px 0 rgb(0 0 0 / 0.02);
+  --shadow-xs: 0 1px 1px 0 rgb(0 0 0 / 0.05), 0 1px 2px 0 rgb(0 0 0 / 0.02);
 
   --color-gray-50: #f9fafb;
   --color-gray-100: #f3f4f6;

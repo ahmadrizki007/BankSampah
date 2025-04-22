@@ -11,6 +11,7 @@ Route::middleware('auth:sanctum')->group(function () {
         $q = $request->input('q');
 
         $data = User::where('name', 'like', '%' . (string) $q . '%')
+            ->whereNot('role', 'admin')
             ->limit(3)
             ->get(['id', 'name']);
 

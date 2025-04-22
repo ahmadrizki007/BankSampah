@@ -4,6 +4,7 @@ use App\Http\Controllers\DonasiGajahController;
 use App\Http\Controllers\PenarikanController;
 use App\Http\Controllers\profileController;
 use App\Http\Controllers\TransaksiController;
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
@@ -23,7 +24,10 @@ Route::get('/tentang-kami', function () {
 });
 
 Route::get('/produk', function () {
-    return view('product');
+    $data = Product::all();
+    return view('product', [
+        'data' => $data,
+    ]);
 });
 
 Route::get('/formulir', function () {

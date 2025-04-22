@@ -49,7 +49,7 @@
                         <th class="py-3 sm:px-5 px-2 sm:font-medium">Tanggal Transaksi</th>
                         <th class="py-3 sm:px-5 px-2 sm:font-medium">Berat (kg)</th>
                         <th class="py-3 sm:px-5 px-2 sm:font-medium">Pendapatan</th>
-                        <th class="py-3 sm:px-5 px-2 sm:font-medium">Actions</th>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -65,9 +65,7 @@
                             <td class="py-3 sm:px-5 px-2">
                                 Rp <span x-data="{ value: {{ $row->harga }} }" x-text="$rupiah(value)"></span>
                             </td>
-                            <td class="py-3 sm:px-5 px-2">
-                                <a href="#" class="text-white bg-slate-500 sm:text-base text-xs px-2 py-1 rounded-md">Detail</a>
-                            </td>
+
                         </tr>
 
                     @endforeach

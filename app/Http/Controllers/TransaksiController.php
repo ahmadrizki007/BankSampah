@@ -95,7 +95,7 @@ class TransaksiController extends Controller
                 'jenis_sampah' => 'required',
             ],
             [
-                'user_id.required' => 'Nama nasabah harus diisi',
+                'user_id.required' => 'Pilih nama nasabah',
                 'berat.required' => 'Berat harus diisi',
                 'berat.numeric' => 'Berat harus berupa angka',
                 'jenis_sampah.required' => 'Jenis Sampah harus diisi',
@@ -114,6 +114,7 @@ class TransaksiController extends Controller
                 'user_id' => (int) $user_id,
                 'berat' => (string) $request->berat,
                 'harga' => (string) $harga,
+                'data_sampah_id' => (int) $request->jenis_sampah,
             ]);
 
             $user = User::find((int) $user_id);
@@ -135,7 +136,6 @@ class TransaksiController extends Controller
         return redirect()->back()->with('success', 'Data transaksi berhasil disimpan');
 
     }
-
 
     /**
      * Update the specified resource in storage.
