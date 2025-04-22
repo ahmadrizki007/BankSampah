@@ -18,7 +18,8 @@ class DonasiGajahController extends Controller
     {
         $data = DonasiGajah::with('user')->get();
 
-        $sum = DonasiGajah::selectRaw('SUM(donasi::numeric) as total')->value('total');
+        $sum = DonasiGajah::selectRaw('SUM(CAST(donasi AS DECIMAL(10, 2))) as total')->value('total');
+        //         $sum = DonasiGajah::selectRaw('SUM(donasi::numeric) as total')->value('total');
 
         return view('admins.donasi-gajah', [
             'data' => $data,

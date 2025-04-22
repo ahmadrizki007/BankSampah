@@ -14,8 +14,8 @@ class JenisSampahSeeder extends Seeder
     {
         //mock data
         $data = [
-            ['jenis_sampah' => 'PET brsh bning', 'harga' => 4000],
-            ['jenis_sampah' => 'Pet brsh BM', 'harga' => 3500],
+            ['jenis_sampah' => 'PET bersih bening', 'harga' => 4000],
+            ['jenis_sampah' => 'Pet bersih BM', 'harga' => 3500],
             ['jenis_sampah' => 'Botol PET kotor', 'harga' => 2500],
             ['jenis_sampah' => 'Gelas / cup brsh', 'harga' => 4000],
             ['jenis_sampah' => 'Gelas / cup kotor', 'harga' => 1800],

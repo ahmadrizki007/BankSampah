@@ -68,8 +68,10 @@ class TransaksiController extends Controller
 
     public function indexAdmin()
     {
-        $data = Transaksi::all();
+        $data = Transaksi::with(('user'))->get();
         $dataJenisSampah = DataSampah::all();
+
+        // dd($data);
 
         // create token for api fetching data
         $token = Auth::user()->createToken(Auth::user()->name)->plainTextToken;
