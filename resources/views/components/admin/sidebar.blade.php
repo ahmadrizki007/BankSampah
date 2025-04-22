@@ -48,6 +48,19 @@
                         </a>
                     </li>
 
+                    <!-- Formulir -->
+                    <li
+                        class="pl-4 pr-3 py-2 rounded-lg mb-0.5 last:mb-0 bg-linear-to-r truncate transition hover:bg-primary-btn-hover @if(Request::segment(2) == 'formulir'){{ 'bg-black/10' }}@endif">
+                        <a class="block text-gray-800 dark:text-gray-100" href="{{ route('admin.formulir') }}"
+                            @click="sidebarExpanded = true">
+                            <div class="flex items-center">
+                                <img class="shrink-0 w-7" src="{{ asset('icons/formulir-admin.svg') }}" alt="formulir">
+                                <span
+                                    class="text-sm font-medium ml-4 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Formulir</span>
+                            </div>
+                        </a>
+                    </li>
+
                     <!-- Data Transaki -->
                     <li
                         class="pl-4 pr-3 py-2 rounded-lg mb-0.5 last:mb-0 bg-linear-to-r truncate transition hover:bg-primary-btn-hover @if(Request::segment(2) == 'data-transaksi'){{ 'bg-black/10' }}@endif">

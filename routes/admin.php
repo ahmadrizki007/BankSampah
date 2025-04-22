@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DataSampahController;
 use App\Http\Controllers\DonasiGajahController;
+use App\Http\Controllers\FormulirController;
 use App\Http\Controllers\PenarikanController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TransaksiController;
@@ -14,6 +15,7 @@ Route::middleware(['auth', 'multi_auth'])->prefix('admin')->group(function () {
     Route::get('/', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+    Route::get('/formulir', [FormulirController::class, 'indexAdmin'])->name('admin.formulir');
 
     Route::get('/data-transaksi', [TransaksiController::class, 'indexAdmin'])->name('admin.dataTransaksi');
     Route::post('/data-transaksi', [TransaksiController::class, 'storeAdmin'])->name('admin.dataTransaksi.store');

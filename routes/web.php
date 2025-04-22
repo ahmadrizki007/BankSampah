@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DonasiGajahController;
+use App\Http\Controllers\FormulirController;
 use App\Http\Controllers\PenarikanController;
 use App\Http\Controllers\profileController;
 use App\Http\Controllers\TransaksiController;
@@ -30,9 +31,8 @@ Route::get('/produk', function () {
     ]);
 });
 
-Route::get('/formulir', function () {
-    return view('formulir'); // 
-});
+Route::get('/formulir', [FormulirController::class, 'indexUser']);
+Route::post('/formulir', [FormulirController::class, 'store'])->name('formulir.tambah');
 
 Route::get('/kunjungan', function () {
     return view('kunjungan'); // 
