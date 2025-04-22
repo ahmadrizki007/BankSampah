@@ -33,4 +33,9 @@ Route::middleware(['auth', 'multi_auth'])->prefix('admin')->group(function () {
     Route::get('/produk', [ProductController::class, 'index'])->name('admin.produk');
     Route::get('/produk/tambah', [ProductController::class, 'create'])->name('admin.produk.tambah');
     Route::post('/produk/tambah', [ProductController::class, 'store'])->name('admin.produk.tambah.store');
+
+    Route::get('/produk/edit/{id}', [ProductController::class, 'edit'])->name('admin.produk.edit')->where('id', '[0-9]+');
+    Route::put('/produk/edit', [ProductController::class, 'update'])->name('admin.produk.edit.update');
+
+    Route::delete('/produk/hapus', [ProductController::class, 'destroy'])->name('admin.produk.destroy');
 });

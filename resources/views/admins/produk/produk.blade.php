@@ -2,10 +2,6 @@
     $title = 'Pengelolaan Produk';
 @endphp
 
-@section('scripts')
-
-@endsection
-
 <x-admin-layout :title="$title">
 
     <div class="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
@@ -47,6 +43,7 @@
                         <tr>
                             <th class="px-6 py-3">NO</th>
                             <th class="px-6 py-3">Gambar</th>
+                            <th class="px-6 py-3">Program</th>
                             <th class="px-6 py-3">Nama</th>
                             <th class="px-6 py-3">Harga</th>
                             <th class="px-6 py-3"></th>
@@ -55,17 +52,38 @@
                     </thead>
                     <tbody class="bg-white text-gray-700 dark:bg-gray-800 dark:text-white">
 
-                        <tr class="border-b">
-                            <td>1</td>
-                            <td class="flex justify-center">
-                                <img src="{{ asset('asset/G1.jpg') }}" alt="produk" width="50">
-                            </td>
-                            <td>ssggg</td>
-                            <td></td>
-                            <td></td>
+                        @php
+                            $idx = 0;
+                        @endphp
+                        @foreach ($data as $row)
+                            <tr class="border-b">
+                                <td class="px-6 py-4">{{ ++$idx }}</td>
+                                <td class="flex justify-center px-6 py-4">
+                                    <img src="{{ asset($row->gambar) }}" alt="produk" class="w-40 rounded-md">
+                                </td>
+                                <td class="px-6 py-4">{{ $row->program->nama }}</td>
+                                <td class="px-6 py-4">{{ $row->nama }}</td>
+                                <td class="px-6 py-4">Rp <span x-data="{value: {{ $row->harga }}}"
+                                        x-text="$rupiah(value)"></span></td>
+                                <td class="px-6 py-4 space-x-2">
 
-                        </tr>
+                                    <a href="{{ url('admin/produk/edit/' . (string) $row->id) }}"
+                                        class="bg-yellow-400 px-3 py-2 text-white rounded hover:bg-yellow-300">
+                                        Edit
+                                    </a>
 
+
+                                    <form class="inline-block" action="{{ route('admin.produk.destroy') }}" method="POST">
+                                        @csrf
+                                        @method('delete')
+                                        <input type="hidden" name="id" value="{{ $row->id }}">
+                                        <button class="bg-red-500 px-3 py-2 text-white rounded hover:bg-red-400">
+                                            Hapus
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
 
                     </tbody>
                 </table>
@@ -73,5 +91,21 @@
         </div>
 
     </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable({
+                // Styling kolom tabel
+                columnDefs: [
+                    {
+                        target: '_all',
+                        className: '!text-center',
+                    }
+                ],
+                // scrollY: 300,
+                // scroller: true
+            });
+        });
+    </script>
 
 </x-admin-layout>

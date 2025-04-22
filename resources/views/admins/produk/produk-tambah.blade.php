@@ -2,27 +2,6 @@
     $title = 'Pengelolaan Produk';
 @endphp
 
-@section('scripts')
-    <script>
-        // $(document).ready(function (e) {
-
-        //     $('#image').change(function () {
-
-        //         let reader = new FileReader();
-
-        //         reader.onload = (e) => {
-
-        //             $('#preview-image-before-upload').attr('src', e.target.result);
-        //         }
-
-        //         reader.readAsDataURL(this.files[0]);
-
-        //     });
-
-        // });
-    </script>
-@endsection
-
 <x-admin-layout :title="$title">
 
     <div class="px-4 sm:px-6 lg:px-8 py-8 max-w-9xl">
@@ -62,7 +41,7 @@
                                 @enderror
                             </div>
 
-                            <div class="mt-2">
+                            <div class="mt-3">
                                 <label for="harga" class="block mb-2 font-medium dark:text-white">Harga Produk</label>
                                 <div class="flex">
                                     <span
@@ -80,6 +59,19 @@
                                     </p>
                                 @enderror
                             </div>
+
+                            <div class="mt-3">
+                                <label for="program" class="block mb-2 font-medium dark:text-white">
+                                    Pilih Program
+                                </label>
+                                <select name="program_id" id="program"
+                                    class="px-4 py-2 w-full text-sm rounded-md outline-none bg-gray-50 border border-gray-300 text-gray-900 focus:ring-2 focus:ring-primary-300 focus:border-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-primary-300 dark:focus:border-primary-300">
+                                    <option value="" disabled selected>Pilih Program</option>
+                                    @foreach ($dataProgram as $data)
+                                        <option value="{{ $data->id }}">{{ $data->nama }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
 
                         <div class="row flex flex-col justify-center items-center">
@@ -87,25 +79,25 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <input type="file" name="gambar" placeholder="Pilih Gambar" id="image">
-
-                                    @error('gambar')
-                                        <p class="ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
-                                            {{ $message }}
-                                        </p>
-                                    @enderror
                                 </div>
                             </div>
 
                             <div class="col-md-12 mb-2">
                                 <img id="preview-image-before-upload" src="{{ asset('asset/bef-img-input.png')  }}"
-                                    alt="preview image" style="max-height: 200px;">
+                                    alt="preview image" class="w-48 mt-2">
                             </div>
+
+                            @error('gambar')
+                                <p class="ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
+                                    {{ $message }}
+                                </p>
+                            @enderror
                         </div>
                     </div>
 
                     <div class="mt-6 flex justify-end">
                         <button type="submit"
-                            class="block flex-none text-center py-2 px-10 rounded-md bg-primary-300 text-white font-semibold shadow hover:shadow-lg hover:font-bold transition duration-200">
+                            class="block flex-none text-center py-2 px-10 rounded-md bg-primary-300 text-white font-semibold shadow hover:bg-primary-500 hover:shadow-lg hover:font-bold transition duration-200">
                             Tambah
                         </button>
                     </div>

@@ -68,6 +68,7 @@
     @yield('scripts')
 
     <script>
+        // magic attribute alpine ($rupiah)
         document.addEventListener('alpine:init', () => {
             Alpine.magic('rupiah', () => (value) => {
                 return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')

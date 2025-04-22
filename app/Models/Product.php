@@ -11,9 +11,9 @@ class Product extends Model
 
     protected $fillable = [
         'id',
+        'gambar',
         'nama',
         'harga',
-        'img_asset',
         'program_id',
     ];
 
