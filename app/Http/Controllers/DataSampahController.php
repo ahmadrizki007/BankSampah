@@ -28,22 +28,22 @@ class DataSampahController extends Controller
     {
         $request->validate([
             'jenis_sampah' => 'required|max:255|unique:App\Models\DataSampah,jenis_sampah',
-            'harga' => 'required|numeric',
+            'harga' => 'required',
         ], [
             'jenis_sampah.required' => 'Jenis Sampah harus diisi',
             'jenis_sampah.max' => 'Jenis Sampah maksimal 255 karakter',
             'jenis_sampah.unique' => 'Jenis Sampah sudah ada',
             'harga.required' => 'Harga harus diisi',
-            'harga.numeric' => 'Harga harus berupa angka',
         ]);
 
         try {
+            $harga = str_replace('.', '', $request->harga);
 
             DB::beginTransaction();
 
             DataSampah::create([
                 'jenis_sampah' => ucfirst($request->jenis_sampah),
-                'harga' => (string) $request->harga,
+                'harga' => $harga,
             ]);
 
             DB::commit();
@@ -72,21 +72,21 @@ class DataSampahController extends Controller
 
         $request->validate([
             $jenisSampahField => ['required', 'max:255', Rule::unique('data_sampah', 'jenis_sampah')->ignore($id)],
-            $hargaField => ['required', 'numeric'],
+            $hargaField => ['required'],
         ], [
             $jenisSampahField . '.required' => 'Jenis Sampah Harus diisi',
             $jenisSampahField . '.max' => 'Jenis Sampah maksimal 255 karakter',
             $jenisSampahField . '.unique' => 'Jenis Sampah sudah ada',
             $hargaField . '.required' => 'Harga harus diisi',
-            $hargaField . '.numeric' => 'Harga harus berupa angka',
         ]);
 
         try {
+            $harga = str_replace('.', '', $request['harga_' . (string) $id]);
             DB::beginTransaction();
 
             $data = DataSampah::find($id);
             $data->jenis_sampah = $request['jenis_sampah_' . (string) $id];
-            $data->harga = $request['harga_' . (string) $id];
+            $data->harga = $harga;
             $data->save();
 
             DB::commit();
