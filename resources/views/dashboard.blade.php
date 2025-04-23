@@ -37,16 +37,15 @@
             <div class="flex gap-6 lg:flex-row flex-col">
                 <!-- Card: Dompet Kamu (Balance) -->
                 <div x-data="{ mode: null,
-                                                    balance: {{ Auth::user()->balance }}, 
-                                                    amount: '',
-                                                    get numericAmount() {
-                                                        return Number(this.amount.replaceAll('.', '').replaceAll(',', '')) || 0;
-                                                    },
-                                                    get error() {
-                                                        return this.numericAmount > this.balance;
-                                                    }
-                                                    }"
-                    class="sm:p-6 h-full p-3 bg-white rounded-lg shadow-lg flex flex-col">
+                    balance: {{ Auth::user()->balance }}, 
+                    amount: '',
+                    get numericAmount() {
+                        return Number(this.amount.replaceAll('.', '').replaceAll(',', '')) || 0;
+                    },
+                    get error() {
+                        return this.numericAmount > this.balance;
+                    }
+                    }" class="sm:p-6 h-full p-3 bg-white rounded-lg shadow-lg flex flex-col">
                     <div class="sm:text-2xl text-lg text-gray-600 mb-4">Dompet Kamu</div>
                     <div class="sm:text-lg font-inter text-primary-gray">Saldo Tersedia</div>
                     <div class="sm:text-4xl text-3xl font-semibold mt-4 mb-4">
@@ -81,7 +80,8 @@
                             <input x-model="amount" x-mask:dynamic="$money($input, ',')"
                                 value="{{ (old('nominal')) ? old('nominal') : ''}}" type="text" name="nominal"
                                 class="px-4 py-2 w-full block flex-1 rounded-none rounded-e-lg text-sm bg-gray-50 border border-gray-300 text-gray-900 outline-none focus:ring-2 focus:ring-primary-300 focus:border-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-primary-300 dark:focus:border-primary-300"
-                                placeholder="0" required min="0" pattern="^[0-9,.]*$" oninput="this.value = this.value.replace(/[-]/g, '')">
+                                placeholder="0" required min="0" pattern="^[0-9,.]*$"
+                                oninput="this.value = this.value.replace(/[-]/g, '')">
                         </div>
                         <p x-show="error" class="ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">Saldo tidak cukup
                         </p>
@@ -113,7 +113,8 @@
                             <input x-model="amount" x-mask:dynamic="$money($input, ',')"
                                 value="{{ (old('nominal')) ? old('nominal') : ''}}" type="text" name="nominal"
                                 class="px-4 py-2 w-full block flex-1 rounded-none rounded-e-lg text-sm bg-gray-50 border border-gray-300 text-gray-900 outline-none focus:ring-2 focus:ring-primary-300 focus:border-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-primary-300 dark:focus:border-primary-300"
-                                placeholder="0" required min="0" pattern="^[0-9,.]*$" oninput="this.value = this.value.replace(/[-]/g, '')">
+                                placeholder="0" required min="0" pattern="^[0-9,.]*$"
+                                oninput="this.value = this.value.replace(/[-]/g, '')">
 
                         </div>
                         <p x-show="error" class="ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">Saldo tidak cukup
