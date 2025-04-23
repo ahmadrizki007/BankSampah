@@ -1,6 +1,8 @@
 import defaultTheme from "tailwindcss/defaultTheme";
 // import forms from '@tailwindcss/forms';
 
+const plugin = require('tailwindcss/plugin');
+
 /** @type {import('tailwindcss').Config} */
 export default {
     content: [
@@ -16,13 +18,14 @@ export default {
                 caveat: ["Caveat", "cursive"],
             },
 
-            colors: {
+            colors:{
                 primary: {
-                    500: "#276461",
+                    '300': '#A8D5BA',
+                    '500': "#276461",
                     btn: "#3D3D3D",
                     hover: "#BCC8A2",
                     "hover-2": "#A8B78D",
-                    "btn-hover": "#555555",
+                    "btn-hover": "rgba(0,0,0,0.1)",
                     bg: "#F8F8F8",
                     gray: "#9D9D9D",
                 },
@@ -67,5 +70,13 @@ export default {
     },
     darkMode: "class", // or 'media' or 'class'
 
-    // plugins: [forms],
+    plugins: [
+        plugin(function ({ addVariant }) {
+        addVariant('sidebar-expanded', ({ modifySelectors, separator }) => {
+            modifySelectors(({ className }) => {
+            return `.sidebar-expanded .sidebar-expanded\\${separator}${className}`;
+            });
+        });
+        }),
+    ],
 };

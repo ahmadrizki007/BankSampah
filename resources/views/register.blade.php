@@ -1,8 +1,8 @@
-@extends('templates.layout_auth')
+@extends('templates.auth_layout')
 
 @section('title')
 
-<title> Sign Up </title>
+    <title> Sign Up </title>
 
 @endsection
 
@@ -11,7 +11,8 @@
     <main class="sm:flex items-center justify-center sm:h-screen bg-primary-bg md:px-5">
         <div class="flex sm:flex-row flex-col w-full max-w-4xl bg-white rounded-lg shadow-2xl md:overflow-hidden">
             <!-- Bagian Kiri -->
-            <div class="sm:w-1/2 bg-primary-500 text-white p-10 flex flex-col justify-center shadow-lg text-center sm:text-left">
+            <div
+                class="sm:w-1/2 bg-primary-500 text-white p-10 flex flex-col justify-center shadow-lg text-center sm:text-left">
                 <h2 class="sm:text-4xl text-2xl font-bold">Selamat Datang</h2>
                 <p class="mt-4 font-caveat sm:text-2xl text-xl italic">Rumah Inspirasi Sahabat Gajah</p>
             </div>
@@ -23,12 +24,12 @@
                 <form method="POST" action={{ route('register.store') }}>
                     @csrf
                     <div class="sm:mb-4 mb-2">
-                        <input type="text" name="fullname" placeholder="nama lengkap" value="{{ old('fullname') }}"
-                            class="fullname w-full px-4 py-2 mt-2 border rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
+                        <input type="text" name="username" placeholder="Username" value="{{ old('username') }}"
+                            class="username w-full px-4 py-2 mt-2 border rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
                             required>
                         <ul>
-                            @error('fullname')
-                                <li class="alert-fullname ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
+                            @error('username')
+                                <li class="alert-username ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
                                     {{ $message }}
                                 </li>
                             @enderror
@@ -96,7 +97,8 @@
                         <ul class="">
                             @error('password')
                                 <li class="alert-password ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
-                                    {{ $message }}</li>
+                                    {{ $message }}
+                                </li>
                             @enderror
                         </ul>
                     </div>
@@ -118,44 +120,44 @@
 @endsection
 
 @section('scripts')
-<script>
-    $(document).ready(function () {
-        $('#password-hide a').on('click', function (event) {
-            event.preventDefault();
-            if ($('#password').attr('type') == 'text') {
-                $('#password').attr('type', 'password');
-                $('#password-hide a i').removeClass('fa-regular fa-eye').addClass('fa-regular fa-eye-slash');
-            } else if ($('#password').attr('type') == 'password') {
-                $('#password').attr('type', 'text');
-                $('#password-hide a i').removeClass('fa-regular fa-eye-slash').addClass('fa-regular fa-eye');
-            }
+    <script>
+        $(document).ready(function () {
+            $('#password-hide a').on('click', function (event) {
+                event.preventDefault();
+                if ($('#password').attr('type') == 'text') {
+                    $('#password').attr('type', 'password');
+                    $('#password-hide a i').removeClass('fa-regular fa-eye').addClass('fa-regular fa-eye-slash');
+                } else if ($('#password').attr('type') == 'password') {
+                    $('#password').attr('type', 'text');
+                    $('#password-hide a i').removeClass('fa-regular fa-eye-slash').addClass('fa-regular fa-eye');
+                }
+            });
+
+            // handle untuk menghilangkan pesan error saat user menginputkan data
+            $('.fullname').on('input', function () {
+                $('.alert-fullname').remove();
+            });
+
+            $('.email').on('input', function () {
+                $('.alert-email').remove();
+            });
+
+            $('.age').on('input', function () {
+                $('.alert-age').remove();
+            });
+
+            $('.gender').on('input', function () {
+                $('.alert-gender').remove();
+            });
+
+            $('.phone').on('input', function () {
+                $('.alert-phone').remove();
+            });
+
+            $('.password').on('input', function () {
+                $('.alert-password').remove();
+            });
         });
 
-        // handle untuk menghilangkan pesan error saat user menginputkan data
-        $('.fullname').on('input', function () {
-            $('.alert-fullname').remove();
-        });
-
-        $('.email').on('input', function () {
-            $('.alert-email').remove();
-        });
-
-        $('.age').on('input', function () {
-            $('.alert-age').remove();
-        });
-
-        $('.gender').on('input', function () {
-            $('.alert-gender').remove();
-        });
-
-        $('.phone').on('input', function () {
-            $('.alert-phone').remove();
-        });
-
-        $('.password').on('input', function () {
-            $('.alert-password').remove();
-        });
-    });
-
-</script>
+    </script>
 @endsection

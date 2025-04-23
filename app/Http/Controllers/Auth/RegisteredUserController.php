@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 
@@ -31,16 +32,17 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $validator = Validator::make($request->all(), [
-            'fullname' => ['required', 'max:255'],
-            'email' => ['required', 'email', 'max:255', 'unique:' . User::class],
+            'username' => ['required', 'max:255', Rule::unique(User::class, 'name')],
+            'email' => ['required', 'email', 'max:255', Rule::unique(User::class, 'email')],
             'age' => ['required'],
             'gender' => ['required'],
             'phone' => ['required'],
             'password' => ['required', 'min:8'],
             // 'password' => ['required', Rules\Password::defaults()],
         ], [
-            'fullname.required' => 'Nama lengkap harus diisi',
-            'fullname.max' => 'Nama lengkap maksimal 255 karakter',
+            'username.required' => 'Username harus diisi',
+            'username.max' => 'Username maksimal 255 karakter',
+            'username.unique' => 'Username sudah terdaftar',
             'email.required' => 'Email harus diisi',
             'email.email' => 'Email harus valid',
             'email.unique' => 'Email sudah terdaftar',
@@ -56,7 +58,7 @@ class RegisteredUserController extends Controller
         }
 
         $user = User::create([
-            'name' => $request->fullname,
+            'name' => $request->username,
             'email' => $request->email,
             'age' => $request->age,
             'gender' => $request->gender,
@@ -64,7 +66,9 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        // event(new Registered($user));
+        event(new Registered($user));  // trigger listener email verification
+
+        Auth::login($user);
 
         return redirect(route('login', absolute: false))->with('success', 'Registrasi berhasil');
     }

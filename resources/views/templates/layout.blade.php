@@ -28,13 +28,31 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
+
     <!-- Styles / Scripts -->
     @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     @endif
+
+
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.css">
+
+    <!-- DataTables JS (pindahkan ke bawah jQuery jika perlu) -->
+    <script src="https://cdn.datatables.net/2.2.2/js/dataTables.js"></script>
 </head>
 
 <body class="max-w-[100rem] mx-auto relative text-white overflow-x-hidden">
+
+    <!-- Error notif -->
+    @error('error')
+        <x-errors.red :message="$message" />
+    @enderror
+
+    <!-- Success notif -->
+    @if(session('success'))
+        <x-errors.green :message="session('success')" />
+    @endif
 
     @include('templates.header')
 
@@ -42,9 +60,22 @@
         @yield('main')
     </div>
 
+
+
     @include('templates.footer')
 
+    @livewireScriptConfig
     @yield('scripts')
+
+    <script>
+        // magic attribute alpine ($rupiah)
+        document.addEventListener('alpine:init', () => {
+            Alpine.magic('rupiah', () => (value) => {
+                return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
+            })
+        })
+    </script>
+
 
 </body>
 

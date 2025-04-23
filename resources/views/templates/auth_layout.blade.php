@@ -13,8 +13,6 @@
     <!-- JQUERY -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
 
-    <!-- CSS script -->
-    <link rel="stylesheet" href={{ asset("css/style.css")}}>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href={{ asset("asset/logo.png") }} type="image/x-icon">

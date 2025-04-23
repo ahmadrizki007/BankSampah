@@ -1,10 +1,20 @@
 <?php
 
+use App\Http\Controllers\DonasiGajahController;
+use App\Http\Controllers\FormulirController;
+use App\Http\Controllers\PenarikanController;
 use App\Http\Controllers\profileController;
-use App\Http\Controllers\profilePrevController;
+use App\Http\Controllers\TransaksiController;
+use App\Models\Product;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
-// INI CUMAN BUAT DEV AJA
+
+// ga perlu login
+Route::get('/', function () {
+    return view('beranda');
+})->name('/');
 
 Route::get('/kunjungan', function () {
     return view('kunjungan');
@@ -15,50 +25,38 @@ Route::get('/tentang-kami', function () {
 });
 
 Route::get('/produk', function () {
-    return view('product');
+    $data = Product::all();
+    return view('product', [
+        'data' => $data,
+    ]);
 });
 
-Route::get('/', function () {
-    return view('beranda');
-})->name('/');
-
-Route::get('/formulir', function () {
-    return view('formulir'); // 
-});
+Route::get('/formulir', [FormulirController::class, 'indexUser']);
+Route::post('/formulir', [FormulirController::class, 'store'])->name('formulir.tambah');
 
 Route::get('/kunjungan', function () {
     return view('kunjungan'); // 
 });
 
-Route::middleware('auth')->group(function () {
+
+// AUTH
+require_once __DIR__ . '/auth.php';
+
+Route::middleware(['auth', 'multi_auth', 'verified'])->group(function () {
 
     Route::get('/profile', action: [profileController::class, 'index'])->name('profile');
 
-
-
     Route::get('/profile/edit', [profileController::class, 'edit'])->name('profile.edit');
     Route::post('/profile/edit', [profileController::class, 'handleEdit'])->name('profile.handleEdit');
-    // Route::delete('/profile/destroy', [profilePrevController::class, 'destroy'])->name('profile.destroy');
 
+    Route::get('/dashboard', [TransaksiController::class, 'indexDashboard'])->name('dashboard');
+    Route::get('/transaksi', [TransaksiController::class, 'indexTransaksi'])->name('transaksi');
+    Route::get('/penarikan', [PenarikanController::class, 'indexPenarikan'])->name('penarikan');
 
-
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-
-    Route::get('/home', function () {
-        return view('home');
-    })->name('home');
-
-    Route::get('/transaksi', function () {
-        return view('transaksi');
-    })->name('transaksi');
-
-    Route::get('/penarikan', function () {
-        return view('penarikan');
-    })->name('penarikan');
-
+    Route::post('/donasi-gajah', [DonasiGajahController::class, 'donasiGajah'])->name('donasiGajah.donasi');
+    Route::post('/tarik-saldo', [PenarikanController::class, 'tarikSaldo'])->name('penarikan.tarikSaldo');
 
 });
 
-require __DIR__ . '/auth.php';
+// ADMIN
+require_once __DIR__ . '/admin.php';
