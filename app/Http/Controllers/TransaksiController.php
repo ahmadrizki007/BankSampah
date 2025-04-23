@@ -88,6 +88,7 @@ class TransaksiController extends Controller
      */
     public function storeAdmin(Request $request)
     {
+        
         $request->validate(
             [
                 'user_id' => 'required',
@@ -125,6 +126,7 @@ class TransaksiController extends Controller
 
         } catch (\Exception $e) {
             DB::rollBack();
+
             return redirect()->back()->withErrors(
                 [
                     'error' => [
