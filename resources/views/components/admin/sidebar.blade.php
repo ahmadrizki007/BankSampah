@@ -21,7 +21,7 @@
             </button>
             <!-- Logo -->
             <a class="pb-8 block" href="{{ route('admin.dashboard') }}">
-                <img class="h-16 w-auto" src="{{ asset('icons/admin_logo.svg') }}" alt="Logo" />
+                <img class="h-16 w-auto" src="{{ asset('svg_asset/admin_logo.svg') }}" alt="Logo" />
             </a>
         </div>
 
@@ -40,7 +40,7 @@
                         <a class="block text-gray-800 dark:text-gray-100" href="{{ route('admin.dashboard') }}"
                             @click="sidebarExpanded = true">
                             <div class="flex items-center">
-                                <img class="shrink-0 w-7" src="{{ asset('icons/dashboard-admin.svg') }}"
+                                <img class="shrink-0 w-7" src="{{ asset('svg_asset/dashboard-admin.svg') }}"
                                     alt="dashboard">
                                 <span
                                     class="text-sm font-medium ml-4 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Dashboard</span>
@@ -54,7 +54,7 @@
                         <a class="block text-gray-800 dark:text-gray-100" href="{{ route('admin.formulir') }}"
                             @click="sidebarExpanded = true">
                             <div class="flex items-center">
-                                <img class="shrink-0 w-7" src="{{ asset('icons/formulir-admin.svg') }}" alt="formulir">
+                                <img class="shrink-0 w-7" src="{{ asset('svg_asset/formulir-admin.svg') }}" alt="formulir">
                                 <span
                                     class="text-sm font-medium ml-4 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Formulir</span>
                             </div>
@@ -67,7 +67,7 @@
                         <a class="block text-gray-800 dark:text-gray-100" href="{{ route('admin.dataTransaksi') }}"
                             @click="sidebarExpanded = true">
                             <div class="flex items-center">
-                                <img class="shrink-0 w-6" src="{{ asset('icons/data-transaksi.svg') }}"
+                                <img class="shrink-0 w-6" src="{{ asset('svg_asset/data-transaksi.svg') }}"
                                     alt="data-transaksi">
                                 <span
                                     class="text-sm font-medium ml-4 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
@@ -83,7 +83,7 @@
                         <a class="block text-gray-800 dark:text-gray-100 " href="{{ route('admin.dataSampah') }}"
                             @click="sidebarExpanded = true">
                             <div class="flex items-center">
-                                <img class="shrink-0 w-6" src="{{ asset('icons/data-sampah.svg') }}" alt="data-sampah">
+                                <img class="shrink-0 w-6" src="{{ asset('svg_asset/data-sampah.svg') }}" alt="data-sampah">
                                 <span
                                     class="text-sm font-medium ml-4 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
                                     Data Sampah
@@ -98,7 +98,7 @@
                         <a class="block text-gray-800 dark:text-gray-100 " href="{{ route('admin.validasiPenarikan') }}"
                             @click="sidebarExpanded = true">
                             <div class="flex items-center">
-                                <img class="shrink-0 w-6" src="{{ asset('icons/validasi-penarikan.svg') }}"
+                                <img class="shrink-0 w-6" src="{{ asset('svg_asset/validasi-penarikan.svg') }}"
                                     alt="validasi-penarikan">
                                 <span
                                     class="text-sm font-medium ml-4 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
@@ -114,7 +114,7 @@
                         <a class="block text-gray-800 dark:text-gray-100 " href="{{ route('admin.donasiGajah') }}"
                             @click="sidebarExpanded = true">
                             <div class="flex items-center">
-                                <img class="shrink-0 w-7" src="{{ asset('icons/donasi-gajah.svg') }}"
+                                <img class="shrink-0 w-7" src="{{ asset('svg_asset/donasi-gajah.svg') }}"
                                     alt="donasi-gajah">
                                 <span
                                     class="text-sm font-medium ml-4 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
@@ -138,7 +138,7 @@
                         <a class="block text-gray-800 dark:text-gray-100" href="{{ route('admin.produk') }}"
                             @click="sidebarExpanded = true">
                             <div class="flex items-center">
-                                <img class="shrink-0 w-7" src="{{ asset('icons/produk-admin.svg') }}" alt="produk">
+                                <img class="shrink-0 w-7" src="{{ asset('svg_asset/produk-admin.svg') }}" alt="produk">
                                 <span
                                     class="text-sm font-medium ml-4 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Produk</span>
                             </div>
