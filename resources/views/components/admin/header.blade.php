@@ -19,7 +19,7 @@
                     </svg>
                 </button>
 
-                <img src="{{ asset('icons/rumah-inspirasi.svg') }}" alt="rumah-inspirasi"
+                <img src="{{ asset('svg_asset/rumah-inspirasi.svg') }}" alt="rumah-inspirasi"
                     class="ps-4 hidden md:block lg:block">
 
             </div>
