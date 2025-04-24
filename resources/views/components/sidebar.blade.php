@@ -9,7 +9,7 @@
         href="/dashboard"
         :class="{'bg-primary-btn-hover': path === '/dashboard' }"
         >
-            <img src="{{ asset('icons/dashboard.svg') }}" width="20" alt="home">
+            <img src="{{ asset('svg_asset/dashboard.svg') }}" width="20" alt="home">
             <span class="">Dashboard</span></a>
     </li>
     <li class="sm:w-full">
@@ -18,7 +18,7 @@
         href="/transaksi"
         :class="{'bg-primary-btn-hover' : path === '/transaksi'}"
         >
-            <img src="{{ asset('icons/data-transaksi.svg') }}" width="20" alt="transaksi"><span
+            <img src="{{ asset('svg_asset/data-transaksi.svg') }}" width="20" alt="transaksi"><span
                 class="">Transaksi</span></a>
     </li>
     <li class="sm:w-full">
@@ -27,7 +27,7 @@
         href="/penarikan"
         :class="{'bg-primary-btn-hover' : path === '/penarikan'}"
         >
-            <img src="{{ asset('icons/status-penarikan.svg') }}" width="20" alt="penarikan"><span
+            <img src="{{ asset('svg_asset/status-penarikan.svg') }}" width="20" alt="penarikan"><span
                 class="">Penarikan</span></a>
     </li>
 </ul>
