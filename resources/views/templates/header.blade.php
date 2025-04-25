@@ -72,6 +72,7 @@
                                 <a href="{{ route('profile') }}"
                                     class="flex items-center px-3 py-2 text-black text-sm font-medium rounded-md hover:text-primary-hover transition duration-150">Profile</a>
                             </li>
+                            
                         </ul>
                         <div>
                             <form action="{{ route('logout') }}" method="POST">
@@ -126,6 +127,15 @@
                                 </div>
                             </div>
                             <ul class="py-2 text-sm">
+
+                            @if(Auth::user()->role === 'admin')
+                            
+                                <li>
+                                    <a href="{{ route('admin.dashboard') }}"
+                                        class="flex items-center px-3 py-2 text-black text-sm font-medium rounded-md hover:text-primary-hover transition duration-150">Dashboard</a>
+                                </li>
+
+                            @else
                                 <li>
                                     <a href="{{ route('dashboard') }}"
                                         class="flex items-center px-3 py-2 text-black text-sm font-medium rounded-md hover:text-primary-hover transition duration-150">Menu</a>
@@ -134,6 +144,8 @@
                                     <a href="{{ route('profile') }}"
                                         class="flex items-center px-3 py-2 text-black text-sm font-medium rounded-md hover:text-primary-hover transition duration-150">Profile</a>
                                 </li>
+
+                                @endif
                             </ul>
                             <div>
                                 <form action="{{ route('logout') }}" method="POST">
