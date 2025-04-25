@@ -8,7 +8,7 @@
 
         <!-- Button back -->
         <a href="{{ route('admin.produk') }}" class="hover:font-bold cursor pointer">
-            <img src="{{ asset('icons/left-arrow.svg') }}" alt="back" width="20" class="inline-block">
+            <img src="{{ asset('svg_asset/left-arrow.svg') }}" alt="back" width="20" class="inline-block">
             <span class="ms-1 mt-1">Kembali</span>
         </a>
 
@@ -49,8 +49,7 @@
                                         Rp.
                                     </span>
                                     <input x-mask:dynamic="$money($input, ',')" type="text" name="harga" id="harga"
-                                        value="{{ (old('harga')) ? old('harga') : ''  }}"
-                                        pattern="^[0-9]*$"
+                                        value="{{ (old('harga')) ? old('harga') : ''  }}" pattern="^[0-9]*$"
                                         oninput="this.value = this.value.replace(/[^0-9]/g, '')"
                                         class="px-4 py-2 w-full block flex-1 rounded-none rounded-e-lg text-sm bg-gray-50 border border-gray-300 text-gray-900 outline-none focus:ring-2 focus:ring-primary-300 focus:border-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-primary-300 dark:focus:border-primary-300">
                                 </div>

@@ -55,6 +55,16 @@ class ProductController extends Controller
             'program_id' => 'Program harus diisi',
         ]);
 
+        if ((int) $request->harga < 500) {
+            return redirect()->back()->withErrors(
+                [
+                    'harga' => [
+                        'message' => 'Harga minimal Rp 500',
+                    ],
+                ]
+            )->withInput();
+        }
+
 
         if (!$request->hasFile('gambar')) {
             return redirect()->back()->withErrors([
@@ -129,6 +139,17 @@ class ProductController extends Controller
             'harga' => 'Harga harus diisi',
             'program_id' => 'Program harus diisi',
         ]);
+
+
+        if ((int) $request->harga < 500) {
+            return redirect()->back()->withErrors(
+                [
+                    'harga' => [
+                        'message' => 'Harga minimal Rp 500',
+                    ],
+                ]
+            )->withInput();
+        }
 
         try {
             $harga = str_replace('.', '', $request->harga);

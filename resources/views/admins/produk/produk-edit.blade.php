@@ -8,7 +8,7 @@
 
         <!-- Button back -->
         <a href="{{ route('admin.produk') }}" class="hover:font-bold cursor pointer">
-            <img src="{{ asset('icons/left-arrow.svg') }}" alt="back" width="20" class="inline-block">
+            <img src="{{ asset('svg_asset/left-arrow.svg') }}" alt="back" width="20" class="inline-block">
             <span class="ms-1 mt-1">Kembali</span>
         </a>
 
