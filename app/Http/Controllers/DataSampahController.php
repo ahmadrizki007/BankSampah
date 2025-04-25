@@ -36,6 +36,16 @@ class DataSampahController extends Controller
             'harga.required' => 'Harga harus diisi',
         ]);
 
+        if ((int) $request->harga < 500) {
+            return redirect()->back()->withErrors(
+                [
+                    'harga' => [
+                        'message' => 'Harga minimal Rp 500',
+                    ],
+                ]
+            )->withInput();
+        }
+
         try {
             $harga = str_replace('.', '', $request->harga);
 
@@ -79,6 +89,17 @@ class DataSampahController extends Controller
             $jenisSampahField . '.unique' => 'Jenis Sampah sudah ada',
             $hargaField . '.required' => 'Harga harus diisi',
         ]);
+
+
+        if ((int) $request->$hargaField < 500) {
+            return redirect()->back()->withErrors(
+                [
+                    $hargaField => [
+                        'message' => 'Harga minimal Rp 500',
+                    ],
+                ]
+            )->withInput();
+        }
 
         try {
             $harga = str_replace('.', '', $request['harga_' . (string) $id]);
