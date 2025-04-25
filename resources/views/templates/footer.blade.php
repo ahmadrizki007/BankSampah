@@ -27,8 +27,8 @@
             <ul class="mt-2 space-y-2 text-center sm:text-left">
                 <li class="space-x-2"><i class="fa-solid fa-envelope text-lg"></i><a
                         href="mailto:banksampahsahabatgajah@gmail.com">banksampahsahabatgajah@gmail.com</a></li>
-                <li class="space-x-2"><i class="fa-solid fa-phone text-lg"></i><a href="tel:+6281234567890">+62 821 8552
-                        6668</a>
+                <li class="space-x-2"><i class="fa-solid fa-phone text-lg"></i><a href="tel:+6281234567890">
+                    +62 821 8552 6668</a>
                 </li>
             </ul>
             <li class="list-none mt-5">

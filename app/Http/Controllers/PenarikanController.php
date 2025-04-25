@@ -44,17 +44,28 @@ class PenarikanController extends Controller
      */
     public function terimaPenarikan(Request $request)
     {
+
+        $isSaldoTidakCukup = false;
+
         try {
             $user_id = $request->input('user_id');
             $id = $request->input('id');
             $jumlah_penarikan = $request->input('jumlah_penarikan');
 
             DB::beginTransaction();
-
-            Penarikan::where('user_id', $user_id)->where('id', $id)->update(['state' => 'accepted']);
+            
             $user = User::find((int) $user_id);
-            $user->balance = (string) ((int) $user->balance - (int) $jumlah_penarikan);
-            $user->save();
+            $result = (int) $user->balance - (int) $jumlah_penarikan;
+            
+            if($result >= 0){
+                Penarikan::where('user_id', $user_id)->where('id', $id)->update(['state' => 'accepted']);
+                $user->balance = (string) $result;
+                $user->save();
+            }else{
+                Penarikan::where('user_id', $user_id)->where('id', $id)->update(['state' => 'rejected']);
+
+                $isSaldoTidakCukup = true;
+            }
 
             DB::commit();
 
@@ -64,6 +75,16 @@ class PenarikanController extends Controller
             return redirect()->back()->withErrors([
                 'error' => [
                     'message' => 'Terjadi kesalahan server',
+                ]
+            ]);
+        }
+
+
+        if($isSaldoTidakCukup){
+
+            return redirect()->back()->withErrors([
+                'error' => [
+                    'message' => 'Saldo tidak cukup',
                 ]
             ]);
         }

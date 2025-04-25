@@ -88,11 +88,11 @@ class TransaksiController extends Controller
      */
     public function storeAdmin(Request $request)
     {
-        
+
         $request->validate(
             [
                 'user_id' => 'required',
-                'berat' => 'required|numeric',
+                'berat' => 'required',
                 'jenis_sampah' => 'required',
             ],
             [
@@ -102,6 +102,16 @@ class TransaksiController extends Controller
                 'jenis_sampah.required' => 'Jenis Sampah harus diisi',
             ]
         );
+
+        if ((float) $request->berat <= 0) {
+            return redirect()->back()->withErrors(
+                [
+                    'berat' => [
+                        'message' => 'Berat minimal 0.1',
+                    ],
+                ]
+            )->withInput();
+        }
 
         try {
             // calculate harga based on jenis sampah
