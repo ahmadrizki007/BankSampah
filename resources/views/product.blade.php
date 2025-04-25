@@ -18,37 +18,36 @@
             </h1>
         </div>
 
-      <div class="flex flex-row gap-8 overflow-x-auto scrollbar-thin scrollbar-thumb-primary-gray py-4 snap-x scroll-pl-6">
-        @foreach ($data as $row)
-            @if($row->program->nama === 'Rumah Inspirasi')
-                <!-- Produk Box -->
-                <div class="mt-8 mx-auto sm:mx-0 max-w-xs rounded-2xl border border-primary-gray overflow-hidden w-full flex-shrink-0 snap-start">
-                    <!-- Gambar Produk -->
-                    <div class="w-full h-72 bg-cover bg-center" style="background-image: url('{{ asset($row->gambar) }}')">
-                    </div>
+        <div
+            class="flex flex-row gap-8 overflow-x-auto scrollbar-thin scrollbar-thumb-primary-gray py-4 snap-x scroll-pl-6">
+            @foreach ($data as $row)
+                @if($row->program->nama === 'Rumah Inspirasi')
+                    <!-- Produk Box -->
+                    <div
+                        class="mt-8 mx-auto sm:mx-0 max-w-xs rounded-2xl border border-primary-gray overflow-hidden w-full flex-shrink-0 snap-start">
+                        <!-- Gambar Produk -->
+                        <div class="w-full h-72 bg-cover bg-center" style="background-image: url('{{ asset($row->gambar) }}')">
+                        </div>
 
-                    <!-- Info Produk -->
-                    <div class="p-4">
-                        <!-- Nama Produk -->
-                        <h2 class="text-xl font-bold text-primary-gray text-center mb-3.5">{{ $row->nama }}</h2>
+                        <!-- Info Produk -->
+                        <div class="p-4">
+                            <!-- Nama Produk -->
+                            <h2 class="text-xl font-bold text-primary-gray text-center mb-3.5">{{ $row->nama }}</h2>
 
-                        <!-- Harga Produk -->
-                        <p class="text-lg font-bold text-primary-hover-2 text-center mt-3.5">
-                            Rp <span x-data="{ value: {{ $row->harga }} }" x-text="$rupiah(value)"></span>
-                        </p>
+                            <!-- Harga Produk -->
+                            <p class="text-lg font-bold text-primary-hover-2 text-center mt-3.5">
+                                Rp <span x-data="{ value: {{ $row->harga }} }" x-text="$rupiah(value)"></span>
+                            </p>
+                        </div>
                     </div>
-                </div>
-            @endif
-        @endforeach
-      </div>
+                @endif
+            @endforeach
+        </div>
 
         <!-- Box Lihat Produk Kami (Di bawah Produk) -->
         <div class="bg-primary-bg p-4 mt-6">
             <div class="flex items-center justify-between">
-                <p class="px-6 py-2 text-sm font-bold text-primary-gray">Lihat Produk Kami untuk Reloop Market</p>
-                <button class="px-6 py-2 text-sm text-primary-hover-2 rounded-2xl border border-primary-hover">
-                    Selengkapnya
-                </button>
+                <p class="px-6 py-2 text-sm font-bold text-primary-gray">Lihat Produk Kami untuk Rumah Inspirasi</p>
             </div>
         </div>
 
@@ -57,38 +56,37 @@
             <h1 class="text-xl font-bold text-primary-hover-2">RELOOP MARKET </h1>
         </div>
 
-       <div class="flex flex-row gap-8 overflow-x-auto scrollbar-thin scrollbar-thumb-primary-gray py-4 snap-x scroll-pl-6">
-        @foreach ($data as $row)
-            @if($row->program->nama === 'Reloop Market')
-                <!-- Produk Box -->
-                <div class="mt-8 mx-auto sm:mx-0 max-w-xs rounded-2xl border border-primary-gray overflow-hidden w-full flex-shrink-0 snap-start">
-                    <!-- Gambar Produk -->
-                    <div class="w-full h-64 bg-cover bg-center"
-                        style="background-image: url('{{ asset($row->gambar) }}'); background-size: contain; background-repeat: no-repeat; background-position: center;">
-                    </div>
+        <div
+            class="flex flex-row gap-8 overflow-x-auto scrollbar-thin scrollbar-thumb-primary-gray py-4 snap-x scroll-pl-6">
+            @foreach ($data as $row)
+                @if($row->program->nama === 'Reloop Market')
+                    <!-- Produk Box -->
+                    <div
+                        class="mt-8 mx-auto sm:mx-0 max-w-xs rounded-2xl border border-primary-gray overflow-hidden w-full flex-shrink-0 snap-start">
+                        <!-- Gambar Produk -->
+                        <div class="w-full h-64 bg-cover bg-center"
+                            style="background-image: url('{{ asset($row->gambar) }}'); background-size: contain; background-repeat: no-repeat; background-position: center;">
+                        </div>
 
-                    <!-- Info Produk -->
-                    <div class="p-4">
-                        <!-- Nama Produk -->
-                        <h2 class="text-xl font-bold text-primary-gray text-center mb-3.5">{{ $row->nama }}</h2>
+                        <!-- Info Produk -->
+                        <div class="p-4">
+                            <!-- Nama Produk -->
+                            <h2 class="text-xl font-bold text-primary-gray text-center mb-3.5">{{ $row->nama }}</h2>
 
-                        <!-- Harga Produk -->
-                        <p class="text-lg font-bold text-primary-hover-2 text-center mt-3.5">
-                            Rp <span x-data="{value: {{ $row->harga }}}" x-text="$rupiah(value)"></span>
-                        </p>
+                            <!-- Harga Produk -->
+                            <p class="text-lg font-bold text-primary-hover-2 text-center mt-3.5">
+                                Rp <span x-data="{value: {{ $row->harga }}}" x-text="$rupiah(value)"></span>
+                            </p>
+                        </div>
                     </div>
-                </div>
-            @endif
-        @endforeach
-       </div>
+                @endif
+            @endforeach
+        </div>
 
         <!-- Box Lihat Produk Kami (Di bawah Produk) -->
         <div class="bg-primary-bg p-4 mt-6">
             <div class="flex items-center justify-between">
                 <p class="px-6 py-2 text-sm font-bold text-primary-gray">Lihat Produk Kami untuk Reloop Market</p>
-                <button class="px-6 py-2 text-sm text-primary-hover-2 rounded-2xl border border-primary-hover">
-                    Selengkapnya
-                </button>
             </div>
         </div>
 
@@ -103,7 +101,8 @@
                             Lengkap?
                         </h2>
                         <!-- Tombol dengan Background Hijau -->
-                        <a href="#" class="bg-primary-500 text-white py-3 px-10 rounded-lg text-xl hover:bg-opacity-90">
+                        <a href="tel:+6281234567890"
+                            class="bg-primary-500 text-white py-3 px-10 rounded-lg text-xl hover:bg-opacity-90">
                             Hubungi CS
                         </a>
                     </div>
@@ -118,9 +117,12 @@
                 </p>
 
                 <!-- Tombol Selengkapnya -->
-                <button class="px-6 py-2 text-sm text-primary-hover-2 rounded-2xl border border-primary-hover">
-                    Selengkapnya
-                </button>
+
+                <a href="https://www.instagram.com/reloop.market/">
+                    <button class="px-6 py-2 text-sm text-primary-hover-2 rounded-2xl border border-primary-hover">
+                        Selengkapnya
+                    </button>
+                </a>
             </div>
         </div>
 

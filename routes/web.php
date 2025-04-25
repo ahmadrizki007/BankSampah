@@ -18,18 +18,18 @@ Route::get('/', function () {
 
 Route::get('/kunjungan', function () {
     return view('kunjungan');
-});
+})->name('kunjungan');
 
 Route::get('/tentang-kami', function () {
     return view('about');
-});
+})->name('tentang-kami');
 
 Route::get('/produk', function () {
     $data = Product::all();
     return view('product', [
         'data' => $data,
     ]);
-});
+})->name('produk');
 
 Route::get('/formulir', [FormulirController::class, 'indexUser']);
 Route::post('/formulir', [FormulirController::class, 'store'])->name('formulir.tambah');

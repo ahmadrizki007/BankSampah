@@ -7,19 +7,22 @@
 @section('main')
     <main class="bg-primary-500 overflow-hidden">
         <!-- Hero Section -->
-        <section class="relative h-full flex flex-col-reverse sm:flex-row items-center justify-center py-24 px-5 text-center clip-path-desktop bg-white border-none">
+        <section
+            class="relative h-full flex flex-col-reverse sm:flex-row items-center justify-center py-24 px-5 text-center clip-path-desktop bg-white border-none">
             <!-- Segitiga Kiri Bawah -->
             <div class="lg:max-w-[50%]">
                 <div class="lg:w-500px hidden sm:block">
-                    <img src={{ asset("asset/RE.png") }} alt="REUSE REDUCE RECYCLE" class="mx-auto d-block lg:w-300px md:w-200px mb-3"
-                        style="display: block; margin: 0 auto;">
+                    <img src={{ asset("asset/RE.png") }} alt="REUSE REDUCE RECYCLE"
+                        class="mx-auto d-block lg:w-300px md:w-200px mb-3" style="display: block; margin: 0 auto;">
                 </div>
                 <p class="m-3 text-lg font-bold text-primary-hover text-center ">
                     Selamat Datang di Bank Sampah Sahabat Gajah,<br>
                     Melindungi Gajah dan Melindungi Alam
                 </p>
+
                 <button class="primary-btn"
                     onclick="document.querySelector('.join-section').scrollIntoView({ behavior: 'smooth' })">Selengkapnya</button>
+
             </div>
             <div class="w-64 sm:w-500px">
                 <img src={{asset("asset/icon_1.png")}} alt="Ilustrasi Recycle">
@@ -27,7 +30,8 @@
         </section>
 
         <!-- Section Bergabung -->
-        <section class="sm:flex items-center justify-center lg:gap-8 gap-5 md:h-400px py-14 sm:py-0 lg:px-0 md:px-5 border-none">
+        <section
+            class="join-section sm:flex items-center justify-center lg:gap-8 gap-5 md:h-400px py-14 sm:py-0 lg:px-0 md:px-5 border-none">
             <!-- Kotak Langkah-Langkah -->
             <div class="flex items-center lg:gap-8 gap-5 justify-center">
                 <div class="flex flex-col gap-3">
@@ -49,8 +53,10 @@
             </div>
 
             <!-- Teks Ajak Bergabung -->
-            <div class="sm:max-w-lg text-center items-center sm:items-start sm:text-left pt-10 px-5 sm:p-0 flex flex-col gap-5 sm:gap-7">
-                <h2 class="sm:text-xl text-lg font-bold">Ayo Bergabung <br><span>untuk Pengelolaan Sampah yang Lebih Baik!</span></h2>
+            <div
+                class="sm:max-w-lg text-center items-center sm:items-start sm:text-left pt-10 px-5 sm:p-0 flex flex-col gap-5 sm:gap-7">
+                <h2 class="sm:text-xl text-lg font-bold">Ayo Bergabung <br><span>untuk Pengelolaan Sampah yang Lebih
+                        Baik!</span></h2>
                 <p class=" sm:text-base text-sm">
                     Ambil bagian dalam upaya melestarikan lingkungan dengan bertanggung jawab atas sampah yang Anda hasilkan
                     melalui Bank Sampah Sahabat Gajah. Ikuti langkah mudah ini untuk mulai berkontribusi.
@@ -60,7 +66,7 @@
         </section>
 
         <section class="clip-path-desktop bg-primary-bg -mb-[0.5px] border-none">
-        <!-- Pencapaian Kami -->
+            <!-- Pencapaian Kami -->
             <div class="sm:py-14 py-10 px-5 border-none">
                 <h2 class="text-2xl font-bold text-primary-hover mb-8 text-center">PENCAPAIAN KAMI</h2>
                 <div class="grid sm:grid-flow-col justify-center gap-5">
@@ -86,7 +92,8 @@
                     <div class="benefit-box">
                         <div class="sm:text-right text-center lg:max-w-sm md:max-w-60">
                             <h3 class="font-bold">Sampah Terkelola</h3>
-                            <p class="text-sm">Sampah akan dikelola secara bertanggung jawab dan mengurangi jumlah sampah yang berakhir di TPA.
+                            <p class="text-sm">Sampah akan dikelola secara bertanggung jawab dan mengurangi jumlah sampah
+                                yang berakhir di TPA.
                             </p>
                         </div>
                         <div class="icon">
@@ -98,7 +105,8 @@
                     <div class="benefit-box">
                         <div class="sm:text-right text-center lg:max-w-sm md:max-w-60">
                             <h3 class="font-bold">Pemberdayaan Masyarakat</h3>
-                            <p class="text-sm">Masyarakat diajak terlibat langsung dan sambil menggali potensi yang dimiliki.</p>
+                            <p class="text-sm">Masyarakat diajak terlibat langsung dan sambil menggali potensi yang
+                                dimiliki.</p>
                         </div>
                         <div class="icon">
                             <i class="fa-solid fa-people-group fa-2xs text-white"></i>
@@ -120,7 +128,8 @@
                     <div class="benefit-box">
                         <div class="sm:text-right text-center lg:max-w-sm md:max-w-60">
                             <h3 class="font-bold">Apresiasi Reward</h3>
-                            <p class="text-sm">Masyarakat yang menyetorkan sampah akan mendapatkan reward dalam bentuk tabungan.</p>
+                            <p class="text-sm">Masyarakat yang menyetorkan sampah akan mendapatkan reward dalam bentuk
+                                tabungan.</p>
                         </div>
                         <div class="icon">
                             <i class="fa-solid fa-gift fa-2xs text-white"></i>
@@ -227,7 +236,8 @@
                         Lakukan aksi nyata dalam upaya menjaga gajah untuk hidup lebih baik bersama
                         Bank Sampah Sahabat Gajah
                     </p>
-                    <a href="{{ route('login') }}" class="primary-btn !bg-primary-hover w-fit hover:!bg-primary-hover-2">Donasi Sekarang</a>
+                    <a href="{{ route('login') }}"
+                        class="primary-btn !bg-primary-hover w-fit hover:!bg-primary-hover-2">Donasi Sekarang</a>
                 </div>
 
                 <!-- Bagian Gambar -->
