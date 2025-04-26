@@ -36,7 +36,8 @@ class DataSampahController extends Controller
             'harga.required' => 'Harga harus diisi',
         ]);
 
-        if ((int) $request->harga < 500) {
+        $harga = str_replace('.', '', $request->harga);
+        if ((int) $harga < 500) {
             return redirect()->back()->withErrors(
                 [
                     'harga' => [
@@ -47,7 +48,7 @@ class DataSampahController extends Controller
         }
 
         try {
-            $harga = str_replace('.', '', $request->harga);
+
 
             DB::beginTransaction();
 
@@ -90,8 +91,9 @@ class DataSampahController extends Controller
             $hargaField . '.required' => 'Harga harus diisi',
         ]);
 
+        $harga = str_replace('.', '', $request['harga_' . (string) $id]);
 
-        if ((int) $request->$hargaField < 500) {
+        if ((int) $harga < 500) {
             return redirect()->back()->withErrors(
                 [
                     $hargaField => [
@@ -102,7 +104,6 @@ class DataSampahController extends Controller
         }
 
         try {
-            $harga = str_replace('.', '', $request['harga_' . (string) $id]);
             DB::beginTransaction();
 
             $data = DataSampah::find($id);
