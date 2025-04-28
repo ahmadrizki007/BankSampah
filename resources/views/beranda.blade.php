@@ -1,7 +1,7 @@
 @extends('templates.layout')
 
 @section('title')
-    <title>Bank Sampah Sahabat Gajah</title>
+    <title>Bank Sampah</title>
 @endsection
 
 @section('main')
@@ -12,7 +12,8 @@
             <!-- Segitiga Kiri Bawah -->
             <div class="lg:max-w-[50%]">
                 <div class="lg:w-500px hidden sm:block">
-                    <img src={{ asset("asset/RE.png") }} alt="REUSE REDUCE RECYCLE"
+                    <img src={{ asset("asset/RE.png") }} alt="REUSE REDUCE RECYCLE Bank Sampah"
+
                         class="mx-auto d-block lg:w-300px md:w-200px mb-3" style="display: block; margin: 0 auto;">
                 </div>
                 <p class="m-3 text-lg font-bold text-primary-hover text-center ">
@@ -25,13 +26,14 @@
 
             </div>
             <div class="w-64 sm:w-500px">
-                <img src={{asset("asset/icon_1.png")}} alt="Ilustrasi Recycle">
+                <img src={{asset("asset/icon_1.png")}} alt="Bank Sampah Ilustrasi Recycle">
             </div>
         </section>
 
         <!-- Section Bergabung -->
         <section
             class="join-section sm:flex items-center justify-center lg:gap-8 gap-5 md:h-400px py-14 sm:py-0 lg:px-0 md:px-5 border-none">
+
             <!-- Kotak Langkah-Langkah -->
             <div class="flex items-center lg:gap-8 gap-5 justify-center">
                 <div class="flex flex-col gap-3">
@@ -48,7 +50,7 @@
 
                 <!-- Gambar Tengah -->
                 <div class="lg:w-64 md:w-48 w-36 bg-white sm:rounded-6xl rounded-5xl p-5">
-                    <img src={{ asset("asset/gajah.png") }} alt="Gajah Menggemaskan">
+                    <img src={{ asset("asset/gajah.png") }} alt="Bank Sampah Gajah Menggemaskan">
                 </div>
             </div>
 
@@ -176,7 +178,7 @@
 
                     <!-- Gambar Tengah -->
                     <div class="max-w-350px mx-auto sm:block hidden md:my-auto">
-                        <img src={{ asset("asset/G0.png") }} alt="Protecting the Environment">
+                        <img src={{ asset("asset/G0.png") }} alt="Protecting the Environment Bank Sampah">
                     </div>
 
                     <!-- Kolom Kanan -->
@@ -216,10 +218,10 @@
                 <h2 class="text-2xl font-bold text-primary-hover mb-8">Partner</h2>
                 <div class="grid grid-flow-col gap-5 justify-center">
                     <div class="partner-box">
-                        <img src={{ asset("asset/G1.jpg") }} alt="Partner 1">
+                        <img src={{ asset("asset/G1.jpg") }} alt="Partner 1 Bank Sampah">
                     </div>
                     <div class="partner-box">
-                        <img src={{ asset("asset/G4.jpg") }} alt="Partner 4">
+                        <img src={{ asset("asset/G4.jpg") }} alt="Partner 4 Bank Sampah Sahabat Gajah">
                     </div>
                 </div>
             </div>
@@ -242,7 +244,7 @@
 
                 <!-- Bagian Gambar -->
                 <div class="lg:max-w-400px md:max-w-350px max-w-72">
-                    <img src={{ asset("asset/G6.png") }} alt="Bantu Gajah">
+                    <img src={{ asset("asset/G6.png") }} alt="Bantu Bank Sampah Sahabat Gajah">
                 </div>
             </div>
         </section>
@@ -254,7 +256,7 @@
                 <h2 class="text-2xl font-bold text-primary-hover mb-8">Reloop Market</h2>
                 <!-- Gambar Poster -->
                 <div class="max-w-400px mx-auto">
-                    <img src={{ asset("asset/G8.jpg") }} alt="Reloop Market">
+                    <img src={{ asset("asset/G8.jpg") }} alt="Reloop Market Bank Sampah">
                 </div>
             </div>
             <!-- Segitiga Dekoratif -->

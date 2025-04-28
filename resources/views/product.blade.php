@@ -2,7 +2,7 @@
 
 @section('title')
 
-    <title> Produk </title>
+    <title> Bank Sampah | Produk </title>
 
 @endsection
 
