@@ -7,6 +7,13 @@
 
     @yield('title')
 
+    <!-- SEO -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="description"
+        content="Bank Sampah - ♻️ Konsultan lingkungan berbasis wilayah | 🐘 Yayasan RISG | 🏆 Kalpataru 2020, UGM Award 2021 | 🤝 MoU: DLH Metro, CCEP, BNI,Itera">
+
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/7191805df1.js" crossorigin="anonymous"></script>
 
@@ -17,7 +24,7 @@
     <link rel="stylesheet" href={{ asset("css/style.css")}}>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href={{ asset("asset/logo.png") }} type="image/x-icon">
+    <link rel="shortcut icon" href={{ asset("favicon.ico") }} type="image/x-icon">
 
     <!-- Font Link -->
     <link
@@ -60,6 +67,13 @@
         @yield('main')
     </div>
 
+    <!-- SEO -->
+    <h1 x-show="false">
+        Bank Sampah
+        <h2 x-show="false">
+            Bank Sampah Sahabat Gajah
+        </h2>
+    </h1>
 
 
     @include('templates.footer')

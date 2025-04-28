@@ -1,7 +1,7 @@
 @extends('templates.layout')
 
 @section('title')
-<title>Tentang Kami</title>
+    <title>Bank Sampah | Tentang Kami</title>
 @endsection
 
 
@@ -29,7 +29,8 @@
                     </iframe>
                     <div class="text-slate-700 text-lg p-4">
                         <h3 class="font-bold mb-3 text-left">Pengenalan: <br>Bank Sampah Sahabat Gajah</h3>
-                        <p class="text-justify text-sm">Bank sampah yang berada di jalan airan raya, Way Huwi, Lampung Selatan, memanfaatkan aplikasi
+                        <p class="text-justify text-sm">Bank sampah yang berada di jalan airan raya, Way Huwi, Lampung
+                            Selatan, memanfaatkan aplikasi
                             digital, sebagai salah satu layanan untuk mendapatkan sampah. Masyarakat yang ingin menjual
                             sampah bisa datang langsung, atau menjualnya melalui aplikasi.</p>
                     </div>
@@ -67,17 +68,20 @@
                         <div class="text-overlay">
                             <h3 class="font-bold sm:text-lg mb-2 sm:mb-4">Kisah Berdirinya</h3>
                             <ul class="list-disc pl-2 sm:pl-5">
-                                <li class="text-xs sm:text-sm mb-2">Terinspirasi dari pengalaman di Coca-Cola Forest Lampung yang kaya akan pembelajaran
+                                <li class="text-xs sm:text-sm mb-2">Terinspirasi dari pengalaman di Coca-Cola Forest Lampung
+                                    yang kaya akan pembelajaran
                                     lingkungan, seperti penyelamatan Gajah Sumatera melalui program SAVE G.PROJECT dan
                                     pemanfaatan limbah teh, Tedy Purwoko mulai merintis inisiatif pengelolaan sampah dengan
                                     menata lahan kosong di Tanjung Bintang.</li>
-                                <li class="text-xs sm:text-sm mb-2">Pendampingan dari CCEP Indonesia mendorong perubahan signifikan, membawa Bank Sampah
+                                <li class="text-xs sm:text-sm mb-2">Pendampingan dari CCEP Indonesia mendorong perubahan
+                                    signifikan, membawa Bank Sampah
                                     Sahabat Gajah meraih prestasi gemilang dalam kontribusinya bagi pelestarian lingkungan
                                     dan kesejahteraan sosial, serta mewujudkan visi Tedy untuk manfaat lingkungan yang lebih
                                     luas.</li>
                             </ul>
                         </div>
-                        <img src={{  asset('/asset/G10.jpg') }} alt="Kisah Berdirinya" class="rounded-xl sm:h-auto h-72 w-full">
+                        <img src={{  asset('/asset/G10.jpg') }} alt="Kisah Berdirinya Bank Sampah"
+                            class="rounded-xl sm:h-auto h-72 w-full">
                     </div>
                 </div>
                 <!-- Tab 2 -->
@@ -86,16 +90,19 @@
                         <div class="text-overlay">
                             <h3 class="font-bold sm:text-lg mb-2 sm:mb-4">PENDIRIAN</h3>
                             <ul class="list-disc pl-2 sm:pl-5">
-                                <li class="text-xs sm:text-sm mb-2">Bank Sampah ini diibaratkan seperti gajah yang selalu memberikan manfaat baik ke manusia
+                                <li class="text-xs sm:text-sm mb-2">Bank Sampah ini diibaratkan seperti gajah yang selalu
+                                    memberikan manfaat baik ke manusia
                                     ataupun lingkungannya.</li>
-                                <li class="text-xs sm:text-sm mb-2">Bank sampah sahabat gajah sudah berjalan mulai dari tahun 2017 sebagai salah satu Bank
+                                <li class="text-xs sm:text-sm mb-2">Bank sampah sahabat gajah sudah berjalan mulai dari
+                                    tahun 2017 sebagai salah satu Bank
                                     Sampah yang berada di Kecamatan Tanjung Bintang, Kabupaten Lampung Selatan yang kini
                                     pindah operasi di Kecamatan Airan Raya Lampung Selatan agar mempermudah kegiatan operasi
                                     dan pengembangan Bank Sampah Unit (BSU) yang akan didirikan di 22 Kelurahan, Kota Metro.
                                 </li>
                             </ul>
                         </div>
-                        <img src={{  asset("/asset/G14.png") }} alt="Pendirian" class="rounded-xl sm:h-auto h-72 w-full">
+                        <img src={{  asset("/asset/G14.png") }} alt="Pendirian Bank Sampah Sahabat Gajah"
+                            class="rounded-xl sm:h-auto h-72 w-full">
                     </div>
                 </div>
             </div>
@@ -133,7 +140,8 @@
 
         {{-- Struktur Bank Sampah --}}
         <section class="sm:py-14 py-10 px-5 text-center">
-            <h2 class="text-2xl font-bold mb-8 text-primary-hover">STRUKTUR KEPENGURUSAN BANK SAMPAH <br> “SAHABAT GAJAH”</h2>
+            <h2 class="text-2xl font-bold mb-8 text-primary-hover">STRUKTUR KEPENGURUSAN BANK SAMPAH <br> “SAHABAT GAJAH”
+            </h2>
             <div class="max-w-4xl mx-auto shadow-lg rounded-lg overflow-hidden">
                 <img src={{  asset("/asset/G12.png") }} alt="Struktur Kepengurusan Bank Sampah Sahabat Gajah" class="w-full">
             </div>
@@ -145,22 +153,22 @@
             <div class="flex gap-5 justify-center flex-wrap">
                 <!-- Unit 1 -->
                 <div class="unit-box">
-                    <img src={{  asset("/asset/G13.jpg")}} alt=" Consult">
+                    <img src={{  asset("/asset/G13.jpg")}} alt="Bank Sampah Consult">
                     <div class="unit-text">Consult</div>
                 </div>
                 <!-- Unit 2 -->
                 <div class="unit-box">
-                    <img src={{  asset("/asset/G11.jpg")}} alt=" Campaign">
+                    <img src={{  asset("/asset/G11.jpg")}} alt="Campaign Sahabat Gajah">
                     <div class="unit-text">Campaign</div>
                 </div>
                 <!-- Unit 3 -->
                 <div class="unit-box">
-                    <img src={{  asset("/asset/G15.png")}} alt=" Collect">
+                    <img src={{  asset("/asset/G15.png")}} alt="Collect Bank Sampah">
                     <div class="unit-text">Collect</div>
                 </div>
                 <!-- Unit 4 -->
                 <div class="unit-box">
-                    <img src={{  asset("asset/G16.jpg") }} alt=" Class">
+                    <img src={{  asset("asset/G16.jpg") }} alt="Class Sahabat Gajah">
                     <div class="unit-text">Class</div>
                 </div>
             </div>
@@ -168,7 +176,8 @@
 
         {{-- Highlight Section --}}
         <section class="relative w-full h-300px overflow-hidden text-center">
-            <img src={{  asset("asset/G17.jpeg") }} alt="Bank Sampah Sahabat Gajah" class="absolute top-0 left-0 w-full h-full object-cover opacity-50">
+            <img src={{  asset("asset/G17.jpeg") }} alt="Bank Sampah Sahabat Gajah"
+                class="absolute top-0 left-0 w-full h-full object-cover opacity-50">
             <div class="z-10 text-black text-xl flex justify-center items-center relative h-full">
                 <p>
                     Mulai Langkah Nyata, Bersama <strong>Bank Sampah Sahabat Gajah</strong> <br>
@@ -181,5 +190,5 @@
 @endsection
 
 @section('scripts')
-<script src="{{ asset('js/script.js') }}"></script>
+    <script src="{{ asset('js/script.js') }}"></script>
 @endsection

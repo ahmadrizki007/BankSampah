@@ -6,10 +6,22 @@ use App\Http\Controllers\PenarikanController;
 use App\Http\Controllers\profileController;
 use App\Http\Controllers\TransaksiController;
 use App\Models\Product;
-use App\Models\User;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Http\Request;
 
+use Spatie\Sitemap\Sitemap;
+use Spatie\Sitemap\Tags\Url;
+
+
+// SEO
+Route::get('/sitemap.xml', function () {
+    $sitemap = Sitemap::create()
+        ->add(Url::create('/'))
+        ->add(Url::create('/tentang-kami'))
+        ->add(Url::create('/kunjungan'))
+        ->add(Url::create('/produk'));
+
+    return $sitemap->toResponse(request());
+});
 
 // ga perlu login
 Route::get('/', function () {
