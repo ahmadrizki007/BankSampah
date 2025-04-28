@@ -24,6 +24,12 @@
                 width: '100%',
                 dropdownParent: $('body'),
             });
+
+            $('#jenis-sampah2').select2({
+                dropdownAutoWidth: true,
+                width: '100%',
+                dropdownParent: $('body'),
+            });
         });
     </script>
 
@@ -85,7 +91,9 @@
                         @foreach($data as $row)
                             <tr class="border-b">
                                 <td class="px-6 py-4">{{ ++$idx }}</td>
-                                <td class="px-6 py-4">{{ $row->user->name }}</td>
+                                <td class="px-6 py-4">
+                                    {{ $row->user !== null ? $row->user->name : $row->usersanonym->nama }}
+                                </td>
                                 <td class="px-6 py-4">{{ $row->datasampah->jenis_sampah }}</td>
                                 <td class="px-6 py-4">{{ $row->berat }}</td>
                                 <td class="py-2 sm:px-4 px-2">
@@ -102,15 +110,109 @@
 
         <!-- Modal Tambah Data Transaksi -->
         <div class="fixed inset-0 z-50 bg-black/50" x-show="open" x-cloak></div>
-        <div x-show="open" x-on:click.away="open = false" x-cloak
-            class="fixed z-50 top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1/3 pb-4 rounded-xl shadow-lg bg-white dark:bg-gray-800">
+        <div x-data="{ state: null }" x-show="open" x-on:click.away="open = false" x-cloak
+            class="fixed z-50 top-2 left-1/2 -translate-x-1/2 w-1/3 pb-4 rounded-xl shadow-lg bg-white dark:bg-gray-800">
             <header class="px-5 py-4 mb-4 border-b border-gray-100 dark:border-gray-700/60">
-                <h2 class="font-semibold text-gray-800 dark:text-gray-100">
-                    Form Tambah Data
+                <h2 x-show="state === null" x-transition class="font-semibold text-gray-800 dark:text-gray-100">
+                    Pilihan User
+                </h2>
+                <h2 x-show="state !== null" x-transition class="font-semibold text-gray-800 dark:text-gray-100">
+                    Form Tambah Transaksi
                 </h2>
             </header>
 
-            <form x-ref="form" action="{{ route('admin.dataTransaksi.store') }}" method="POST" class="px-5">
+            <!-- Pilihan -->
+            <div x-show="state === null" x-transition class="py-4 gap-y-2 flex flex-col justify-center items-center">
+                <button x-on:click="state = '!terdaftar'"
+                    class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border-2 border-gray-200 hover:bg-gray-100 hover:text-primary-500 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                    User tidak terdaftar
+                </button>
+                <p>Atau</p>
+                <button x-on:click="state = 'terdaftar'"
+                    class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border-2 border-gray-200 hover:bg-gray-100 hover:text-primary-500 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                    User terdaftar
+                </button>
+            </div>
+
+            <!-- User Tidak Terdaftat -->
+            <form x-show="state === '!terdaftar'" x-transition x-ref="form1"
+                action="{{ route('admin.dataTransaksi.store.tidakTerdaftar') }}" method="POST" class="px-5">
+                @csrf
+
+                <div class="mb-4">
+                    <label for="nama" class="block mb-2 font-medium dark:text-white">Nama</label>
+                    <input type="text" name="nama" id="nama"
+                        class="px-4 py-2 w-full block flex-1 rounded-lg text-sm outline-none bg-gray-50 border border-gray-300 text-gray-900 focus:ring-2 focus:ring-primary-300 focus:border-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-primary-300 dark:focus:border-primary-300"
+                        required placeholder="e.g : Budi">
+
+                    @error('nama')
+                        <p x-init="open = true" class="ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
+                            {{ $message }}
+                        </p>
+                    @enderror
+                </div>
+
+                <div class="mb-4">
+                    <label for="nomor-telepon" class="block mb-2 font-medium dark:text-white">Nomor Telepon</label>
+                    <input type="text" name="nomor_telepon" id="nomor-telepon"
+                        class="px-4 py-2 w-full block flex-1 rounded-lg text-sm outline-none bg-gray-50 border border-gray-300 text-gray-900 focus:ring-2 focus:ring-primary-300 focus:border-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-primary-300 dark:focus:border-primary-300"
+                        required placeholder="e.g : 08xx xxxx xxxx"
+                        oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+
+                    @error('nomor_telepon')
+                        <p x-init=" open=true" class="ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
+                            {{ $message }}
+                        </p>
+                    @enderror
+                </div>
+
+                <div class="mb-4">
+                    <label for="berat" class="block mb-2 font-medium dark:text-white">Berat</label>
+                    <div class="flex">
+                        <input type="text" id="berat" name="berat"
+                            class="px-4 py-2 w-full block flex-1 rounded-none rounded-s-lg text-sm outline-none bg-gray-50 border border-gray-300 text-gray-900 focus:ring-2 focus:ring-primary-300 focus:border-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-primary-300 dark:focus:border-primary-300"
+                            placeholder="Berat (kilogram)" required pattern="^[0-9]*$"
+                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')">
+                        <span
+                            class="inline-flex items-center px-3 font-semibold text-sm text-gray-900 bg-gray-200 border rounded-s-0 border-gray-300 border-e-0 rounded-e-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
+                            Kg
+                        </span>
+                    </div>
+
+                    @error('berat')
+                        <p x-init="open = true" class="ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
+                            {{ $message }}
+                        </p>
+                    @enderror
+
+                </div>
+
+                <div class="mb-4">
+                    <label for="jenis-sampah2" class="block mb-2 font-medium dark:text-white">Jenis Sampah</label>
+
+                    <select id="jenis-sampah2" name="jenis_sampah" required
+                        class="px-4 py-2 w-full text-sm rounded-md outline-none bg-gray-50 border border-gray-300 text-gray-900  focus:ring-2 focus:ring-primary-300 focus:border-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-primary-300 dark:focus:border-primary-300">
+                        <option value="" disabled selected>Pilih Jenis Sampah</option>
+
+                        @foreach ($dataJenisSampah as $row)
+                            <option value="{{ $row->id }}">{{ $row->jenis_sampah }}</option>
+                        @endforeach
+
+                    </select>
+
+
+                    @error('jenis_sampah')
+                        <p x-init="open = true" class="alert-harga ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
+                            {{ $message }}
+                        </p>
+                    @enderror
+                </div>
+
+            </form>
+
+            <!-- User Terdaftar -->
+            <form x-show="state === 'terdaftar'" x-transition x-ref="form2"
+                action="{{ route('admin.dataTransaksi.store') }}" method="POST" class="px-5">
                 @csrf
 
                 <div x-data="userSearch()" class="mb-4 relative">
@@ -187,14 +289,30 @@
 
             </form>
 
-            <footer class="text-right space-x-2 px-5 py-4 border-t border-gray-100 dark:border-gray-700/60">
-                <button type="button" x-on:click="$refs.form.submit()"
-                    class="text-center py-2 px-4 rounded-md bg-primary-300 text-white font-semibold shadow hover:shadow-lg hover:font-bold transition duration-200">
-                    Simpan
+            <footer class="space-x-2 px-5 py-4 border-t border-gray-100 dark:border-gray-700/60" :class="state !== null ? 'flex justify-between' : ''">
+
+                <button x-on:click="state = null" x-show="state !== null"
+                    class="text-center py-2 px-4 rounded-md bg-white text-black/70 font-thin border border-gray-200 shadow hover:shadow-lg">
+                    Kembali
                 </button>
 
-                <button x-on:click="open = false"
-                    class="text-center py-2 px-4 rounded-md bg-white text-black/70 font-thin border border-gray-200 shadow hover:shadow-lg">Tutup</button>
+                <div class="text-right">
+                    <button type="button" x-show="state === '!terdaftar'" x-on:click="$refs.form1.submit()"
+                        class="text-center py-2 px-4 rounded-md bg-primary-300 text-white font-semibold shadow hover:shadow-lg hover:font-bold transition duration-200">
+                        Simpan
+                    </button>
+
+                    <button type="button" x-show="state === 'terdaftar'" x-on:click="$refs.form2.submit()"
+                        class="text-center py-2 px-4 rounded-md bg-primary-300 text-white font-semibold shadow hover:shadow-lg hover:font-bold transition duration-200">
+                        Simpan
+                    </button>
+
+                    <button x-on:click="open = false"
+                        class="text-center py-2 px-4 rounded-md bg-white text-black/70 font-thin border border-gray-200 shadow hover:shadow-lg">
+                        Tutup
+                    </button>
+
+                </div>
             </footer>
 
         </div>

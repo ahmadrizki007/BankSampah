@@ -10,10 +10,10 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('data_sampah', function (Blueprint $table) {
+        Schema::create('users_anonyms', function (Blueprint $table) {
             $table->id();
-            $table->string('jenis_sampah')->unique();
-            $table->string('harga')->default('0');
+            $table->string('nama');
+            $table->string('nomor_telepon');
             $table->timestamps();
         });
     }
@@ -23,6 +23,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('data_sampah');
+        Schema::dropIfExists('users_anonyms');
     }
 };
