@@ -13,6 +13,7 @@
             <div class="lg:max-w-[50%]">
                 <div class="lg:w-500px hidden sm:block">
                     <img src={{ asset("asset/RE.png") }} alt="REUSE REDUCE RECYCLE Bank Sampah"
+
                         class="mx-auto d-block lg:w-300px md:w-200px mb-3" style="display: block; margin: 0 auto;">
                 </div>
                 <h3 class="m-3 text-lg font-bold text-primary-hover text-center ">
@@ -21,6 +22,7 @@
                 </h3>
                 <button class="primary-btn"
                     onclick="document.querySelector('.join-section').scrollIntoView({ behavior: 'smooth' })">Selengkapnya</button>
+
             </div>
             <div class="w-64 sm:w-500px">
                 <img src={{asset("asset/icon_1.png")}} alt="Bank Sampah Ilustrasi Recycle">
@@ -29,7 +31,8 @@
 
         <!-- Section Bergabung -->
         <section
-            class="sm:flex items-center justify-center lg:gap-8 gap-5 md:h-400px py-14 sm:py-0 lg:px-0 md:px-5 border-none">
+            class="join-section sm:flex items-center justify-center lg:gap-8 gap-5 md:h-400px py-14 sm:py-0 lg:px-0 md:px-5 border-none">
+
             <!-- Kotak Langkah-Langkah -->
             <div class="flex items-center lg:gap-8 gap-5 justify-center">
                 <div class="flex flex-col gap-3">

@@ -16,8 +16,8 @@
         <div class="flex flex-col gap-3 pt-11 sm:items-start items-center">
             <h3 class="font-bold">BANK SAMPAH SAHABAT GAJAH</h3>
             <ul class="mt-2 space-y-2 text-center sm:text-left">
-                <li><a href="#">Tentang Kami</a></li>
-                <li><a href="#">Produk</a></li>
+                <li><a href="{{ route('tentang-kami') }}">Tentang Kami</a></li>
+                <li><a href="{{ route('produk') }}">Produk</a></li>
                 <li><a href="https://www.instagram.com/reloop.market/">Reloop Market</a></li>
             </ul>
         </div>
@@ -28,8 +28,13 @@
             <ul class="mt-2 space-y-2 text-center sm:text-left">
                 <li class="space-x-2"><i class="fa-solid fa-envelope text-lg"></i><a
                         href="mailto:banksampahsahabatgajah@gmail.com">banksampahsahabatgajah@gmail.com</a></li>
-                <li class="space-x-2"><i class="fa-solid fa-phone text-lg"></i><a href="tel:+6281234567890">
-                        +62 821 8552 6668</a>
+
+                <li class="space-x-2">
+                <i class="fa-solid fa-phone text-lg">
+                </i>
+                    <a href="tel:+6281234567890">
+                        +62 821 8552 6668
+                    </a>
                 </li>
             </ul>
             <li class="list-none mt-5">
