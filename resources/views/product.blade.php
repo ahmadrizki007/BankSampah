@@ -47,10 +47,7 @@
         <!-- Box Lihat Produk Kami (Di bawah Produk) -->
         <div class="bg-primary-bg p-4 mt-6">
             <div class="flex items-center justify-between">
-                <p class="px-6 py-2 text-sm font-bold text-primary-gray">Lihat Produk Kami untuk Reloop Market</p>
-                <button class="px-6 py-2 text-sm text-primary-hover-2 rounded-2xl border border-primary-hover">
-                    Selengkapnya
-                </button>
+                <p class="px-6 py-2 text-sm font-bold text-primary-gray">Lihat Produk Kami untuk Rumah Inspirasi</p>
             </div>
         </div>
 
@@ -90,9 +87,6 @@
         <div class="bg-primary-bg p-4 mt-6">
             <div class="flex items-center justify-between">
                 <p class="px-6 py-2 text-sm font-bold text-primary-gray">Lihat Produk Kami untuk Reloop Market</p>
-                <button class="px-6 py-2 text-sm text-primary-hover-2 rounded-2xl border border-primary-hover">
-                    Selengkapnya
-                </button>
             </div>
         </div>
 
@@ -107,7 +101,8 @@
                             Lengkap?
                         </h2>
                         <!-- Tombol dengan Background Hijau -->
-                        <a href="#" class="bg-primary-500 text-white py-3 px-10 rounded-lg text-xl hover:bg-opacity-90">
+                        <a href="tel:+6281234567890"
+                            class="bg-primary-500 text-white py-3 px-10 rounded-lg text-xl hover:bg-opacity-90">
                             Hubungi CS
                         </a>
                     </div>
@@ -122,9 +117,12 @@
                 </p>
 
                 <!-- Tombol Selengkapnya -->
-                <button class="px-6 py-2 text-sm text-primary-hover-2 rounded-2xl border border-primary-hover">
-                    Selengkapnya
-                </button>
+
+                <a href="https://www.instagram.com/reloop.market/">
+                    <button class="px-6 py-2 text-sm text-primary-hover-2 rounded-2xl border border-primary-hover">
+                        Selengkapnya
+                    </button>
+                </a>
             </div>
         </div>
 
