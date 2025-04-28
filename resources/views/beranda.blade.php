@@ -16,11 +16,10 @@
 
                         class="mx-auto d-block lg:w-300px md:w-200px mb-3" style="display: block; margin: 0 auto;">
                 </div>
-                <p class="m-3 text-lg font-bold text-primary-hover text-center ">
+                <h3 class="m-3 text-lg font-bold text-primary-hover text-center ">
                     Selamat Datang di Bank Sampah Sahabat Gajah,<br>
                     Melindungi Gajah dan Melindungi Alam
-                </p>
-
+                </h3>
                 <button class="primary-btn"
                     onclick="document.querySelector('.join-section').scrollIntoView({ behavior: 'smooth' })">Selengkapnya</button>
 
