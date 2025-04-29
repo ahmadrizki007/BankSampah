@@ -163,10 +163,12 @@
             </div>
 
 
-            <!-- User Tidak Terdaftat -->
+            <!-- User Tidak Terdaftar -->
             <form x-show="state === '!terdaftar'" x-transition x-ref="form1"
                 action="{{ route('admin.dataTransaksi.store.tidakTerdaftar') }}" method="POST" class="px-5 ">
                 @csrf
+
+                <input type="hidden" :value="state" name="state">
 
                 <div class="mb-4">
                     <label for="nama" class="block mb-2 font-medium dark:text-white">Nama</label>
@@ -175,7 +177,10 @@
                         required placeholder="e.g : Budi">
 
                     @error('nama')
-                        <p x-init="open = true; state = '!terdaftar'"
+                        @if(session('state') == '!terdaftar')
+                            <span x-show="false" x-init="state = '!terdaftar'"></span>
+                        @endif
+                        <p x-init="open = true" x-show="state === '!terdaftar'"
                             class="ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
                             {{ $message }}
                         </p>
@@ -190,7 +195,10 @@
                         oninput="this.value = this.value.replace(/[^0-9]/g, '')">
 
                     @error('nomor_telepon')
-                        <p x-init="open = true; state = '!terdaftar'"
+                        @if(session('state') == '!terdaftar')
+                            <span x-show="false" x-init="state = '!terdaftar'"></span>
+                        @endif
+                        <p x-init="open = true" x-show="state === '!terdaftar'"
                             class="ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
                             {{ $message }}
                         </p>
@@ -211,7 +219,10 @@
                     </div>
 
                     @error('berat')
-                        <p x-init="open = true; state = '!terdaftar'"
+                        @if(session('state') == '!terdaftar')
+                            <span x-show="false" x-init="state = '!terdaftar'"></span>
+                        @endif
+                        <p x-init="open = true" x-show="state === '!terdaftar'"
                             class="ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
                             {{ $message }}
                         </p>
@@ -234,7 +245,10 @@
 
 
                     @error('jenis_sampah')
-                        <p x-init="open = true; state = '!terdaftar'"
+                        @if(session('state') == '!terdaftar')
+                            <span x-show="false" x-init="state = '!terdaftar'"></span>
+                        @endif
+                        <p x-init="open = true" x-show="state === '!terdaftar'"
                             class="alert-harga ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
                             {{ $message }}
                         </p>
@@ -247,6 +261,8 @@
             <form x-show="state === 'terdaftar'" x-transition x-ref="form2"
                 action="{{ route('admin.dataTransaksi.store') }}" method="POST" class="px-5 pb-2">
                 @csrf
+
+                <input type="hidden" :value="state" name="state">
 
                 <div x-data="userSearch()" class="mb-4 relative">
                     <label for="nama-nasabah" class="block mb-2 font-medium dark:text-white">Nama Nasabah</label>
@@ -270,7 +286,10 @@
                     <input id="user_id" type="hidden" name="user_id" :value="selectedId">
 
                     @error('user_id')
-                        <p x-init="open = true; state = 'terdaftar'"
+                        @if(session('state') == 'terdaftar')
+                            <span x-show="false" x-init="state = 'terdaftar'"></span>
+                        @endif
+                        <p x-init="open = true" x-show="state === 'terdaftar'"
                             class="alert-user_id ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
                             {{ $message }}
                         </p>
@@ -292,7 +311,10 @@
                     </div>
 
                     @error('berat')
-                        <p x-init="open = true; state = 'terdaftar'"
+                        @if(session('state') == 'terdaftar')
+                            <span x-show="false" x-init="state = 'terdaftar'"></span>
+                        @endif
+                        <p x-init="open = true" x-show="state === 'terdaftar'"
                             class="alert-berat ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
                             {{ $message }}
                         </p>
@@ -315,7 +337,10 @@
 
 
                     @error('jenis_sampah')
-                        <p x-init="open = true; state = 'terdaftar'"
+                        @if(session('state') == 'terdaftar')
+                            <span x-show="false" x-init="state = 'terdaftar'"></span>
+                        @endif
+                        <p x-init="open = true" x-show="state === 'terdaftar'"
                             class="alert-harga ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
                             {{ $message }}
                         </p>
