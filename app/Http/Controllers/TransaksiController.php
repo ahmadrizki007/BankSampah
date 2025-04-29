@@ -182,8 +182,6 @@ class TransaksiController extends Controller
                 'nomor_telepon' => (string) $request->nomor_telepon,
             ]);
 
-            dd($userAnonym->id);
-
             DB::beginTransaction();
 
             Transaksi::create([

@@ -111,8 +111,9 @@
         <!-- Modal Tambah Data Transaksi -->
         <div class="fixed inset-0 z-50 bg-black/50" x-show="open" x-cloak></div>
         <div x-data="{ state: null }" x-show="open" x-on:click.away="open = false" x-cloak
-            class="fixed z-50 top-2 left-1/2 -translate-x-1/2 w-1/3 pb-4 rounded-xl shadow-lg bg-white dark:bg-gray-800">
+            class="lg:w-2/5 md:w1/2 fixed z-50 top-2 left-1/2 -translate-x-1/2 rounded-xl shadow-lg bg-white dark:bg-gray-800">
             <header class="px-5 py-4 mb-4 border-b border-gray-100 dark:border-gray-700/60">
+
                 <h2 x-show="state === null" x-transition class="font-semibold text-gray-800 dark:text-gray-100">
                     Pilihan User
                 </h2>
@@ -121,54 +122,50 @@
                 </h2>
             </header>
 
-            <div x-data="{ state: null }" class="flex flex-col items-center justify-center p-6 space-y-6 bg-gray-50 rounded-lg shadow-lg max-w-lg w-full">
-                <!-- Judul Form -->
-                <h2 class="text-3xl font-semibold text-gray-800">Form Tambah Data</h2>
-                <p class="text-sm text-gray-500 text-center">Silakan pilih jenis nasabah untuk transaksi.</p>
-                
-                <!-- Pilihan Jenis Nasabah -->
-                <div x-show="state === null" x-transition class="w-full space-y-6">
-                    <!-- Pilihan Transaksi Tanpa Akun -->
-                    <div class="bg-white rounded-lg shadow-md border-2 border-gray-300 hover:bg-gray-50 transition duration-200">
-                        <button x-on:click="state = '!terdaftar'" class="w-full py-4 text-lg font-medium text-gray-800 flex justify-between items-center rounded-t-lg px-6">
-                            <span>Transaksi Tanpa Akun (Cash In Langsung)</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
-                        <p class="text-sm text-gray-600 p-4 bg-gray-50 rounded-b-lg">Transaksi untuk nasabah tidak terdaftar.</p>
-                    </div>
-            
-                    <!-- Atau -->
-                    <p class="text-center text-sm text-gray-500">Atau</p>
-            
-                    <!-- Pilihan Nasabah Terdaftar -->
-                    <div class="bg-white rounded-lg shadow-md border-2 border-gray-300 hover:bg-gray-50 transition duration-200">
-                        <button x-on:click="state = 'terdaftar'" class="w-full py-4 text-lg font-medium text-gray-800 flex justify-between items-center rounded-t-lg px-6">
-                            <span>Nasabah Terdaftar (Tabungan Sampah)</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
-                        <p class="text-sm text-gray-600 p-4 bg-gray-50 rounded-b-lg">Transaksi untuk nasabah yang sudah memiliki akun.</p>
-                    </div>
+            <!-- Pilihan Jenis Nasabah -->
+            <div x-show="state === null" x-transition class="w-full px-5 py-2 space-y-6">
+                <!-- Pilihan Transaksi Tanpa Akun -->
+                <div
+                    class="bg-white rounded-lg shadow-md border-2 border-gray-300 hover:bg-gray-50 transition duration-200">
+                    <button x-on:click="state = '!terdaftar'"
+                        class="w-full py-4 font-medium text-gray-800 flex justify-between items-center rounded-t-lg px-6">
+                        <span>Transaksi Tanpa Akun (Cash In Langsung)</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                    <p class="text-sm text-gray-600 p-4 bg-gray-50 rounded-b-lg">
+                        Transaksi untuk nasabah tidak
+                        terdaftar.
+                    </p>
                 </div>
-            
-                <!-- Tombol Simpan dan Tutup -->
-                <div class="flex justify-end w-full space-x-4 mt-6">
-                    <button class="px-6 py-3 text-lg font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 rounded-lg">
-                        Simpan
+
+                <!-- Atau -->
+                <p class="text-center text-sm text-gray-500">Atau</p>
+
+                <!-- Pilihan Nasabah Terdaftar -->
+                <div
+                    class="bg-white rounded-lg shadow-md border-2 border-gray-300 hover:bg-gray-50 transition duration-200">
+                    <button x-on:click="state = 'terdaftar'"
+                        class="w-full py-4 font-medium text-gray-800 flex justify-between items-center rounded-t-lg px-6">
+                        <span>Nasabah Terdaftar (Tabungan Sampah)</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
                     </button>
-                    <button @click="state = null" class="px-6 py-3 text-lg font-medium text-gray-700 bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-opacity-50 rounded-lg">
-                        Tutup
-                    </button>
+                    <p class="text-sm text-gray-600 p-4 bg-gray-50 rounded-b-lg">
+                        Transaksi untuk nasabah yang sudah
+                        memiliki akun.
+                    </p>
                 </div>
             </div>
-            
+
 
             <!-- User Tidak Terdaftat -->
             <form x-show="state === '!terdaftar'" x-transition x-ref="form1"
-                action="{{ route('admin.dataTransaksi.store.tidakTerdaftar') }}" method="POST" class="px-5">
+                action="{{ route('admin.dataTransaksi.store.tidakTerdaftar') }}" method="POST" class="px-5 ">
                 @csrf
 
                 <div class="mb-4">
@@ -244,7 +241,7 @@
 
             <!-- User Terdaftar -->
             <form x-show="state === 'terdaftar'" x-transition x-ref="form2"
-                action="{{ route('admin.dataTransaksi.store') }}" method="POST" class="px-5">
+                action="{{ route('admin.dataTransaksi.store') }}" method="POST" class="px-5 pb-2">
                 @csrf
 
                 <div x-data="userSearch()" class="mb-4 relative">
