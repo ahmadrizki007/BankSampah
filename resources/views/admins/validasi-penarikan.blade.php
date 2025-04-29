@@ -65,7 +65,8 @@
                         @foreach($data as $row)
                             <tr class="border-b">
                                 <td class="px-6 py-4">{{ ++$idx }}</td>
-                                <td class="px-6 py-4">{{ $row->user->name }}</td>
+                                <td class="px-6 py-4">{{ $row->user !== null ? $row->user->name : $row->usersanonym->nama }}
+                                </td>
                                 <td class="px-6 py-4">{{ $row->created_at_formatted }}</td>
                                 <td class="py-2 sm:px-4 px-2">
                                     Rp <span x-data="{ value: {{ $row->jumlah_penarikan }} }"

@@ -13,10 +13,16 @@ class Penarikan extends Model
         'jumlah_penarikan',
         'state',
         'user_id',
+        'user_anonym_id'
     ];
 
     public function User(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function usersanonym(): BelongsTo
+    {
+        return $this->belongsTo(UsersAnonym::class, 'user_anonym_id');
     }
 }

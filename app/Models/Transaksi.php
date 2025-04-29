@@ -15,6 +15,7 @@ class Transaksi extends Model
         'harga',
         'user_id',
         'data_sampah_id',
+        'user_anonym_id'
     ];
 
     public function User(): BelongsTo

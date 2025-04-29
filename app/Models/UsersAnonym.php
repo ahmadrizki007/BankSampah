@@ -17,4 +17,9 @@ class UsersAnonym extends Model
     {
         return $this->hasOne(Transaksi::class);
     }
+
+    public function penarikan(): HasOne
+    {
+        return $this->hasOne(Transaksi::class);
+    }
 }

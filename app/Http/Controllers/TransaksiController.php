@@ -191,6 +191,11 @@ class TransaksiController extends Controller
                 'user_anonym_id' => (int) $userAnonym->id,
             ]);
 
+            Penarikan::create([
+                'jumlah_penarikan' => (string) $harga,
+                'state' => 'accepted',
+                'user_anonym_id' => (int) $userAnonym->id,
+            ]);
 
             DB::commit();
 
