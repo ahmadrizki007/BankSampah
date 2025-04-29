@@ -19,6 +19,7 @@ Route::middleware(['auth', 'multi_auth'])->prefix('admin')->group(function () {
 
     Route::get('/data-transaksi', [TransaksiController::class, 'indexAdmin'])->name('admin.dataTransaksi');
     Route::post('/data-transaksi', [TransaksiController::class, 'storeAdmin'])->name('admin.dataTransaksi.store');
+    Route::post('/data-transaksi/tidak-terdaftar', [TransaksiController::class, 'storeAdminNotReqistered'])->name('admin.dataTransaksi.store.tidakTerdaftar');
 
     Route::get('/data-sampah', [DataSampahController::class, 'index'])->name('admin.dataSampah');
     Route::post('/data-sampah', [DataSampahController::class, 'store'])->name('admin.dataSampah.store');

@@ -140,9 +140,8 @@ class ProductController extends Controller
             'harga' => 'Harga harus diisi',
             'program_id' => 'Program harus diisi',
         ]);
-
-
-        if ((int) $request->harga < 500) {
+        $harga = str_replace('.', '', $request->harga);
+        if ((int) $harga < 500) {
             return redirect()->back()->withErrors(
                 [
                     'harga' => [
@@ -153,7 +152,7 @@ class ProductController extends Controller
         }
 
         try {
-            $harga = str_replace('.', '', $request->harga);
+            
 
             if ($request->hasFile('gambar')) {
                 // simpan img di public/produk_img

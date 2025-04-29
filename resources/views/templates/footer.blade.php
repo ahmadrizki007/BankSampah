@@ -5,7 +5,8 @@
         <!-- Kolom Alamat -->
         <div class="flex sm:flex-col gap-5">
             <a href="{{ route('/') }}">
-                <img src={{ asset("asset/logo.png") }} alt="Logo Bank Sampah" class="sm:max-w-44 max-w-36">
+                <img src={{ asset("asset/logo.png") }} alt="Logo Bank Sampah" class="sm:max-w-44 max-w-36"
+                    alt="Sahabat Gajah Lampung Logo">
             </a>
             <p class="sm:max-w-72">
                 Jl. Airan Raya No.8, Way Huwi, lampung selatan, Kabupaten Lampung Selatan, Lampung 35141
@@ -27,7 +28,10 @@
             <ul class="mt-2 space-y-2 text-center sm:text-left">
                 <li class="space-x-2"><i class="fa-solid fa-envelope text-lg"></i><a
                         href="mailto:banksampahsahabatgajah@gmail.com">banksampahsahabatgajah@gmail.com</a></li>
-                <li class="space-x-2"><i class="fa-solid fa-phone text-lg"></i>
+
+                <li class="space-x-2">
+                <i class="fa-solid fa-phone text-lg">
+                </i>
                     <a href="tel:+6281234567890">
                         +62 821 8552 6668
                     </a>

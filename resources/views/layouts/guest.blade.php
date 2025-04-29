@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="description"
+        content="♻️ Konsultan lingkungan berbasis wilayah | 🐘 Yayasan RISG | 🏆 Kalpataru 2020, UGM Award 2021 | 🤝 MoU: DLH Metro, CCEP, BNI,Itera">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
@@ -20,7 +22,8 @@
     <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
         <div>
             <a href="/">
-                <img src="{{ asset('asset/logo.png') }}" class="w-20 h-20 fill-current text-gray-500" />
+                <img src="{{ asset('asset/logo.png') }}" class="w-20 h-20 fill-current text-gray-500"
+                    alt="Bank Sampah bandar lampung logo" />
             </a>
         </div>
 

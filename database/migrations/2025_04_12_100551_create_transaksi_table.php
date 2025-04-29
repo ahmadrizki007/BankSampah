@@ -14,9 +14,11 @@ return new class extends Migration {
             $table->id();
             $table->string('berat');
             $table->string('harga');
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->unsignedBigInteger(column: 'data_sampah_id');
+            $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
+            $table->unsignedBigInteger('data_sampah_id');
             $table->foreign('data_sampah_id')->references('id')->on('data_sampah')->onDelete('cascade');
+            $table->unsignedBigInteger('user_anonym_id')->nullable();
+            $table->foreign('user_anonym_id')->references('id')->on('users_anonyms')->onDelete('cascade');
             $table->timestamps();
         });
     }

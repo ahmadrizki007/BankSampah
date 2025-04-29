@@ -7,6 +7,8 @@ use App\Models\DonasiGajah;
 use App\Models\Penarikan;
 use App\Models\Transaksi;
 use App\Models\User;
+use App\Models\UsersAnonym;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -68,10 +70,8 @@ class TransaksiController extends Controller
 
     public function indexAdmin()
     {
-        $data = Transaksi::with(('user'))->get();
+        $data = Transaksi::with(['user', 'usersanonym'])->get();
         $dataJenisSampah = DataSampah::all();
-
-        // dd($data);
 
         // create token for api fetching data
         $token = Auth::user()->createToken(Auth::user()->name)->plainTextToken;
@@ -88,7 +88,6 @@ class TransaksiController extends Controller
      */
     public function storeAdmin(Request $request)
     {
-
         $request->validate(
             [
                 'user_id' => 'required',
@@ -134,7 +133,7 @@ class TransaksiController extends Controller
 
             DB::commit();
 
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             DB::rollBack();
 
             return redirect()->back()->withErrors(
@@ -145,6 +144,70 @@ class TransaksiController extends Controller
                 ]
             )->withInput();
         }
+        return redirect()->back()->with('success', 'Data transaksi berhasil disimpan');
+
+    }
+
+    public function storeAdminNotReqistered(Request $request)
+    {
+
+        $request->validate([
+            'nama' => ['required'],
+            'nomor_telepon' => ['required'],
+            'berat' => ['required'],
+            'jenis_sampah' => ['required'],
+        ], [
+            'nama.required' => 'Nama harus diisi',
+            'nomor_telepon.required' => 'Nomor telepon harus diisi',
+            'berat.required' => 'Berat harus diisi',
+            'jenis_sampah' => 'Jenis sampah harus diisi',
+        ]);
+
+
+        if ((float) $request->berat <= 0) {
+            return redirect()->back()->withErrors([
+                'berat' => [
+                    'message' => 'Berat minimal 0.1',
+                ]
+            ])->withInput();
+        }
+
+        try {
+            // calculate harga based on jenis sampah
+            $hargaJenisSampah = DataSampah::where('id', $request->jenis_sampah)->first();
+            $harga = $request->berat * (int) $hargaJenisSampah->harga;
+
+            $userAnonym = UsersAnonym::create([
+                'nama' => (string) $request->nama,
+                'nomor_telepon' => (string) $request->nomor_telepon,
+            ]);
+
+            dd($userAnonym->id);
+
+            DB::beginTransaction();
+
+            Transaksi::create([
+                'berat' => (string) $request->berat,
+                'harga' => (string) $harga,
+                'data_sampah_id' => (int) $request->jenis_sampah,
+                'user_anonym_id' => (int) $userAnonym->id,
+            ]);
+
+
+            DB::commit();
+
+        } catch (Exception $e) {
+            DB::rollBack();
+
+            return redirect()->back()->withErrors(
+                [
+                    'error' => [
+                        'message' => 'Terjadi kesalahan pada server',
+                    ],
+                ]
+            )->withInput();
+        }
+
         return redirect()->back()->with('success', 'Data transaksi berhasil disimpan');
 
     }
