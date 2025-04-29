@@ -20,7 +20,7 @@ jobs:
 
     - name: Deploy ke VPS
       run: |
-        ssh -o StrictHostKeyChecking=no ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << 'EOF'
+        ssh -o StrictHostKeyChecking=no root@bssahabatgajah.site << 'EOF'
           cd /var/www/bank-sampah
 
           # Pull update
