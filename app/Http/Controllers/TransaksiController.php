@@ -12,6 +12,7 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class TransaksiController extends Controller
 {
@@ -88,7 +89,10 @@ class TransaksiController extends Controller
      */
     public function storeAdmin(Request $request)
     {
-        $request->validate(
+        $state = $request->input('state');
+
+        $validator = Validator::make(
+            $request->all(),
             [
                 'user_id' => 'required',
                 'berat' => 'required',
@@ -102,6 +106,13 @@ class TransaksiController extends Controller
             ]
         );
 
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput()
+                ->with('state', $state);
+        }
+
         if ((float) $request->berat <= 0) {
             return redirect()->back()->withErrors(
                 [
@@ -109,7 +120,7 @@ class TransaksiController extends Controller
                         'message' => 'Berat minimal 0.1',
                     ],
                 ]
-            )->withInput();
+            )->withInput()->with('state', $state);
         }
 
         try {
@@ -150,8 +161,9 @@ class TransaksiController extends Controller
 
     public function storeAdminNotReqistered(Request $request)
     {
+        $state = $request->input('state_not');
 
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'nama' => ['required'],
             'nomor_telepon' => ['required'],
             'berat' => ['required'],
@@ -163,13 +175,19 @@ class TransaksiController extends Controller
             'jenis_sampah' => 'Jenis sampah harus diisi',
         ]);
 
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput()
+                ->with('state_not', $state);
+        }
 
         if ((float) $request->berat <= 0) {
             return redirect()->back()->withErrors([
                 'berat' => [
                     'message' => 'Berat minimal 0.1',
                 ]
-            ])->withInput();
+            ])->withInput()->with('state_not', $state);
         }
 
         try {
@@ -182,8 +200,6 @@ class TransaksiController extends Controller
                 'nomor_telepon' => (string) $request->nomor_telepon,
             ]);
 
-            dd($userAnonym->id);
-
             DB::beginTransaction();
 
             Transaksi::create([
@@ -193,6 +209,11 @@ class TransaksiController extends Controller
                 'user_anonym_id' => (int) $userAnonym->id,
             ]);
 
+            Penarikan::create([
+                'jumlah_penarikan' => (string) $harga,
+                'state' => 'accepted',
+                'user_anonym_id' => (int) $userAnonym->id,
+            ]);
 
             DB::commit();
 

@@ -20,13 +20,19 @@
 
             // handle select element
             $('#jenis-sampah').select2({
+                selectionCssClass: 'select2--small',
+                dropdownCssClass: 'select2--small',
                 dropdownAutoWidth: true,
+                dropdownPosition: 'below',
                 width: '100%',
                 dropdownParent: $('body'),
             });
 
             $('#jenis-sampah2').select2({
+                selectionCssClass: 'select2--small',
+                dropdownCssClass: 'select2--small',
                 dropdownAutoWidth: true,
+                dropdownPosition: 'below',
                 width: '100%',
                 dropdownParent: $('body'),
             });
@@ -111,8 +117,9 @@
         <!-- Modal Tambah Data Transaksi -->
         <div class="fixed inset-0 z-50 bg-black/50" x-show="open" x-cloak></div>
         <div x-data="{ state: null }" x-show="open" x-on:click.away="open = false" x-cloak
-            class="fixed z-50 top-2 left-1/2 -translate-x-1/2 w-1/3 pb-4 rounded-xl shadow-lg bg-white dark:bg-gray-800">
+            class="lg:w-2/5 md:w1/2 fixed z-50 top-2 left-1/2 -translate-x-1/2 rounded-xl shadow-lg bg-white dark:bg-gray-800">
             <header class="px-5 py-4 mb-4 border-b border-gray-100 dark:border-gray-700/60">
+
                 <h2 x-show="state === null" x-transition class="font-semibold text-gray-800 dark:text-gray-100">
                     Pilihan User
                 </h2>
@@ -121,55 +128,91 @@
                 </h2>
             </header>
 
-            <!-- Pilihan -->
-            <div x-show="state === null" x-transition class="py-4 gap-y-2 flex flex-col justify-center items-center">
-                <button x-on:click="state = '!terdaftar'"
-                    class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border-2 border-gray-200 hover:bg-gray-100 hover:text-primary-500 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
-                    User tidak terdaftar
-                </button>
-                <p>Atau</p>
-                <button x-on:click="state = 'terdaftar'"
-                    class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border-2 border-gray-200 hover:bg-gray-100 hover:text-primary-500 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
-                    User terdaftar
-                </button>
+            <!-- Pilihan Jenis Nasabah -->
+            <div x-show="state === null" x-transition class="w-full px-5 py-2 space-y-6">
+                <!-- Pilihan Transaksi Tanpa Akun -->
+                <div
+                    class="bg-white rounded-lg shadow-md border-2 border-gray-300 hover:bg-gray-50 transition duration-200">
+                    <button x-on:click="state = '!terdaftar'"
+                        class="w-full py-4 font-medium text-gray-800 flex justify-between items-center rounded-t-lg px-6">
+                        <span>Transaksi Tanpa Akun (Cash In Langsung)</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                    <p class="text-sm text-gray-600 p-4 bg-gray-50 rounded-b-lg">
+                        Transaksi untuk nasabah tidak
+                        terdaftar.
+                    </p>
+                </div>
+
+                <!-- Atau -->
+                <p class="text-center text-sm text-gray-500">Atau</p>
+
+                <!-- Pilihan Nasabah Terdaftar -->
+                <div
+                    class="bg-white rounded-lg shadow-md border-2 border-gray-300 hover:bg-gray-50 transition duration-200">
+                    <button x-on:click="state = 'terdaftar'"
+                        class="w-full py-4 font-medium text-gray-800 flex justify-between items-center rounded-t-lg px-6">
+                        <span>Nasabah Terdaftar (Tabungan Sampah)</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                    <p class="text-sm text-gray-600 p-4 bg-gray-50 rounded-b-lg">
+                        Transaksi untuk nasabah yang sudah
+                        memiliki akun.
+                    </p>
+                </div>
             </div>
 
-            <!-- User Tidak Terdaftat -->
+
+            <!-- User Tidak Terdaftar -->
             <form x-show="state === '!terdaftar'" x-transition x-ref="form1"
-                action="{{ route('admin.dataTransaksi.store.tidakTerdaftar') }}" method="POST" class="px-5">
+                action="{{ route('admin.dataTransaksi.store.tidakTerdaftar') }}" method="POST" class="px-5 ">
                 @csrf
+
+                <input type="hidden" :value="state" name="state_not">
 
                 <div class="mb-4">
                     <label for="nama" class="block mb-2 font-medium dark:text-white">Nama</label>
-                    <input type="text" name="nama" id="nama"
+                    <input value="{{ old('nama') }}" type="text" name="nama" id="nama"
                         class="px-4 py-2 w-full block flex-1 rounded-lg text-sm outline-none bg-gray-50 border border-gray-300 text-gray-900 focus:ring-2 focus:ring-primary-300 focus:border-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-primary-300 dark:focus:border-primary-300"
                         required placeholder="e.g : Budi">
 
                     @error('nama')
-                        <p x-init="open = true" class="ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
-                            {{ $message }}
-                        </p>
+                        @if(session('state_not'))
+                            <p x-init="open = true; state = '!terdaftar'"
+                                class="ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
+                                {{ $message }}
+                            </p>
+                        @endif
                     @enderror
                 </div>
 
                 <div class="mb-4">
                     <label for="nomor-telepon" class="block mb-2 font-medium dark:text-white">Nomor Telepon</label>
-                    <input type="text" name="nomor_telepon" id="nomor-telepon"
+                    <input value="{{ old('nomor_telepon') }}" type="text" name="nomor_telepon" id="nomor-telepon"
                         class="px-4 py-2 w-full block flex-1 rounded-lg text-sm outline-none bg-gray-50 border border-gray-300 text-gray-900 focus:ring-2 focus:ring-primary-300 focus:border-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-primary-300 dark:focus:border-primary-300"
                         required placeholder="e.g : 08xx xxxx xxxx"
                         oninput="this.value = this.value.replace(/[^0-9]/g, '')">
 
                     @error('nomor_telepon')
-                        <p x-init=" open=true" class="ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
-                            {{ $message }}
-                        </p>
+                        @if(session('state_not'))
+                            <p x-init="open = true; state = '!terdaftar'"
+                                class="ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
+                                {{ $message }}
+                            </p>
+                        @endif
                     @enderror
                 </div>
 
                 <div class="mb-4">
                     <label for="berat" class="block mb-2 font-medium dark:text-white">Berat</label>
                     <div class="flex">
-                        <input type="text" id="berat" name="berat"
+                        <input value="{{ old('berat') }}" type="text" id="berat" name="berat"
                             class="px-4 py-2 w-full block flex-1 rounded-none rounded-s-lg text-sm outline-none bg-gray-50 border border-gray-300 text-gray-900 focus:ring-2 focus:ring-primary-300 focus:border-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-primary-300 dark:focus:border-primary-300"
                             placeholder="Berat (kilogram)" required pattern="^[0-9]*$"
                             oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')">
@@ -180,9 +223,12 @@
                     </div>
 
                     @error('berat')
-                        <p x-init="open = true" class="ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
-                            {{ $message }}
-                        </p>
+                        @if(session('state_not'))
+                            <p x-init="open = true; state = '!terdaftar'"
+                                class="ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
+                                {{ $message }}
+                            </p>
+                        @endif
                     @enderror
 
                 </div>
@@ -192,19 +238,22 @@
 
                     <select id="jenis-sampah2" name="jenis_sampah" required
                         class="px-4 py-2 w-full text-sm rounded-md outline-none bg-gray-50 border border-gray-300 text-gray-900  focus:ring-2 focus:ring-primary-300 focus:border-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-primary-300 dark:focus:border-primary-300">
-                        <option value="" disabled selected>Pilih Jenis Sampah</option>
+
+                        <option disabled selected>Pilih Jenis Sampah</option>
 
                         @foreach ($dataJenisSampah as $row)
                             <option value="{{ $row->id }}">{{ $row->jenis_sampah }}</option>
-                        @endforeach
 
+                        @endforeach
                     </select>
 
-
                     @error('jenis_sampah')
-                        <p x-init="open = true" class="alert-harga ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
-                            {{ $message }}
-                        </p>
+                        @if(session('state_not'))
+                            <p x-init="open = true; state = '!terdaftar'"
+                                class="alert-harga ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
+                                {{ $message }}
+                            </p>
+                        @endif
                     @enderror
                 </div>
 
@@ -212,13 +261,15 @@
 
             <!-- User Terdaftar -->
             <form x-show="state === 'terdaftar'" x-transition x-ref="form2"
-                action="{{ route('admin.dataTransaksi.store') }}" method="POST" class="px-5">
+                action="{{ route('admin.dataTransaksi.store') }}" method="POST" class="px-5 pb-2">
                 @csrf
+
+                <input type="hidden" :value="state" name="state">
 
                 <div x-data="userSearch()" class="mb-4 relative">
                     <label for="nama-nasabah" class="block mb-2 font-medium dark:text-white">Nama Nasabah</label>
-                    <input x-model="search" @input.debounce.300ms="fetchUser" type="text" id="nama-nasabah"
-                        name="nama_nasabah"
+                    <input x-model="search" @input.debounce.300ms="fetchUser" value="{{ old('nama_nasabah') }}"
+                        type="text" id="nama-nasabah" name="nama_nasabah"
                         class="px-4 py-2 w-full text-sm rounded-md outline-none bg-gray-50 border border-gray-300 text-gray-900 focus:ring-2 focus:ring-primary-300 focus:border-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-primary-300 dark:focus:border-primary-300"
                         placeholder="Cari user.." required>
 
@@ -237,10 +288,12 @@
                     <input id="user_id" type="hidden" name="user_id" :value="selectedId">
 
                     @error('user_id')
-                        <p x-init="open = true"
-                            class="alert-user_id ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
-                            {{ $message }}
-                        </p>
+                        @if(session('state'))
+                            <p x-init="open = true; state = 'terdaftar'"
+                                class="alert-user_id ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
+                                {{ $message }}
+                            </p>
+                        @endif
                     @enderror
 
                 </div>
@@ -248,7 +301,7 @@
                 <div class="mb-4">
                     <label for="berat" class="block mb-2 font-medium dark:text-white">Berat</label>
                     <div class="flex">
-                        <input type="text" id="berat" name="berat"
+                        <input value="{{ old('berat') }}" type="text" id="berat" name="berat"
                             class="px-4 py-2 w-full block flex-1 rounded-none rounded-s-lg text-sm outline-none bg-gray-50 border border-gray-300 text-gray-900 focus:ring-2 focus:ring-primary-300 focus:border-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-primary-300 dark:focus:border-primary-300"
                             placeholder="Berat (kilogram)" required pattern="^[0-9]*$"
                             oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')">
@@ -259,9 +312,12 @@
                     </div>
 
                     @error('berat')
-                        <p x-init="open = true" class="alert-berat ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
-                            {{ $message }}
-                        </p>
+                        @if(session('state'))
+                            <p x-init="open = true; state = 'terdaftar'"
+                                class="alert-berat ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
+                                {{ $message }}
+                            </p>
+                        @endif
                     @enderror
 
                 </div>
@@ -271,7 +327,8 @@
 
                     <select id="jenis-sampah" name="jenis_sampah" required
                         class="px-4 py-2 w-full text-sm rounded-md outline-none bg-gray-50 border border-gray-300 text-gray-900  focus:ring-2 focus:ring-primary-300 focus:border-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-primary-300 dark:focus:border-primary-300">
-                        <option value="" disabled selected>Pilih Jenis Sampah</option>
+
+                        <option disabled selected>Pilih Jenis Sampah</option>
 
                         @foreach ($dataJenisSampah as $row)
                             <option value="{{ $row->id }}">{{ $row->jenis_sampah }}</option>
@@ -281,9 +338,12 @@
 
 
                     @error('jenis_sampah')
-                        <p x-init="open = true" class="alert-harga ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
-                            {{ $message }}
-                        </p>
+                        @if(session('state'))
+                            <p x-init="open = true; state = 'terdaftar'"
+                                class="alert-harga ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
+                                {{ $message }}
+                            </p>
+                        @endif
                     @enderror
                 </div>
 

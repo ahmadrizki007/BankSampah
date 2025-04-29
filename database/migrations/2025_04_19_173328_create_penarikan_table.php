@@ -15,7 +15,9 @@ return new class extends Migration {
             $table->id();
             $table->string('jumlah_penarikan');
             $table->enum('state', ['accepted', 'rejected', 'process'])->default('process');
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
+            $table->unsignedBigInteger('user_anonym_id')->nullable();
+            $table->foreign('user_anonym_id')->references('id')->on('users_anonyms')->onDelete('cascade');
             $table->timestamps();
         });
     }
