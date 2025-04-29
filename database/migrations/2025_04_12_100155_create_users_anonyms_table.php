@@ -13,7 +13,7 @@ return new class extends Migration {
         Schema::create('users_anonyms', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->string('nomor_telepon');
+            $table->string('nomor_telepon')->nullable();
             $table->timestamps();
         });
     }

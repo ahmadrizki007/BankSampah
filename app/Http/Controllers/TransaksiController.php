@@ -161,7 +161,7 @@ class TransaksiController extends Controller
 
     public function storeAdminNotReqistered(Request $request)
     {
-        $state = $request->input('state');
+        $state = $request->input('state_not');
 
         $validator = Validator::make($request->all(), [
             'nama' => ['required'],
@@ -179,7 +179,7 @@ class TransaksiController extends Controller
             return redirect()->back()
                 ->withErrors($validator)
                 ->withInput()
-                ->with('state', $state);
+                ->with('state_not', $state);
         }
 
         if ((float) $request->berat <= 0) {
@@ -187,7 +187,7 @@ class TransaksiController extends Controller
                 'berat' => [
                     'message' => 'Berat minimal 0.1',
                 ]
-            ])->withInput()->with('state', $state);
+            ])->withInput()->with('state_not', $state);
         }
 
         try {
