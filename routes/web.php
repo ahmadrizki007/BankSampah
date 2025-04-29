@@ -7,13 +7,13 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TransaksiController;
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
-
 use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\Tags\Url;
 
 
 // SEO
 Route::get('/sitemap.xml', function () {
+ob_clean();
     $sitemap = Sitemap::create()
         ->add(Url::create('/'))
         ->add(Url::create('/tentang-kami'))
