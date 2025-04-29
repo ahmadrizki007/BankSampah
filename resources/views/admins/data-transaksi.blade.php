@@ -121,18 +121,50 @@
                 </h2>
             </header>
 
-            <!-- Pilihan -->
-            <div x-show="state === null" x-transition class="py-4 gap-y-2 flex flex-col justify-center items-center">
-                <button x-on:click="state = '!terdaftar'"
-                    class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border-2 border-gray-200 hover:bg-gray-100 hover:text-primary-500 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
-                    User tidak terdaftar
-                </button>
-                <p>Atau</p>
-                <button x-on:click="state = 'terdaftar'"
-                    class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border-2 border-gray-200 hover:bg-gray-100 hover:text-primary-500 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
-                    User terdaftar
-                </button>
+            <div x-data="{ state: null }" class="flex flex-col items-center justify-center p-6 space-y-6 bg-gray-50 rounded-lg shadow-lg max-w-lg w-full">
+                <!-- Judul Form -->
+                <h2 class="text-3xl font-semibold text-gray-800">Form Tambah Data</h2>
+                <p class="text-sm text-gray-500 text-center">Silakan pilih jenis nasabah untuk transaksi.</p>
+                
+                <!-- Pilihan Jenis Nasabah -->
+                <div x-show="state === null" x-transition class="w-full space-y-6">
+                    <!-- Pilihan Transaksi Tanpa Akun -->
+                    <div class="bg-white rounded-lg shadow-md border-2 border-gray-300 hover:bg-gray-50 transition duration-200">
+                        <button x-on:click="state = '!terdaftar'" class="w-full py-4 text-lg font-medium text-gray-800 flex justify-between items-center rounded-t-lg px-6">
+                            <span>Transaksi Tanpa Akun (Cash In Langsung)</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <p class="text-sm text-gray-600 p-4 bg-gray-50 rounded-b-lg">Transaksi untuk nasabah tidak terdaftar.</p>
+                    </div>
+            
+                    <!-- Atau -->
+                    <p class="text-center text-sm text-gray-500">Atau</p>
+            
+                    <!-- Pilihan Nasabah Terdaftar -->
+                    <div class="bg-white rounded-lg shadow-md border-2 border-gray-300 hover:bg-gray-50 transition duration-200">
+                        <button x-on:click="state = 'terdaftar'" class="w-full py-4 text-lg font-medium text-gray-800 flex justify-between items-center rounded-t-lg px-6">
+                            <span>Nasabah Terdaftar (Tabungan Sampah)</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <p class="text-sm text-gray-600 p-4 bg-gray-50 rounded-b-lg">Transaksi untuk nasabah yang sudah memiliki akun.</p>
+                    </div>
+                </div>
+            
+                <!-- Tombol Simpan dan Tutup -->
+                <div class="flex justify-end w-full space-x-4 mt-6">
+                    <button class="px-6 py-3 text-lg font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 rounded-lg">
+                        Simpan
+                    </button>
+                    <button @click="state = null" class="px-6 py-3 text-lg font-medium text-gray-700 bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-opacity-50 rounded-lg">
+                        Tutup
+                    </button>
+                </div>
             </div>
+            
 
             <!-- User Tidak Terdaftat -->
             <form x-show="state === '!terdaftar'" x-transition x-ref="form1"
