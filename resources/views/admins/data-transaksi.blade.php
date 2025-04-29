@@ -175,7 +175,8 @@
                         required placeholder="e.g : Budi">
 
                     @error('nama')
-                        <p x-init="open = true" class="ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
+                        <p x-init="open = true; state = '!terdaftar'"
+                            class="ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
                             {{ $message }}
                         </p>
                     @enderror
@@ -189,7 +190,8 @@
                         oninput="this.value = this.value.replace(/[^0-9]/g, '')">
 
                     @error('nomor_telepon')
-                        <p x-init=" open=true" class="ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
+                        <p x-init="open = true; state = '!terdaftar'"
+                            class="ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
                             {{ $message }}
                         </p>
                     @enderror
@@ -209,7 +211,8 @@
                     </div>
 
                     @error('berat')
-                        <p x-init="open = true" class="ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
+                        <p x-init="open = true; state = '!terdaftar'"
+                            class="ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
                             {{ $message }}
                         </p>
                     @enderror
@@ -231,7 +234,8 @@
 
 
                     @error('jenis_sampah')
-                        <p x-init="open = true" class="alert-harga ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
+                        <p x-init="open = true; state = '!terdaftar'"
+                            class="alert-harga ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
                             {{ $message }}
                         </p>
                     @enderror
@@ -266,7 +270,7 @@
                     <input id="user_id" type="hidden" name="user_id" :value="selectedId">
 
                     @error('user_id')
-                        <p x-init="open = true"
+                        <p x-init="open = true; state = 'terdaftar'"
                             class="alert-user_id ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
                             {{ $message }}
                         </p>
@@ -288,7 +292,8 @@
                     </div>
 
                     @error('berat')
-                        <p x-init="open = true" class="alert-berat ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
+                        <p x-init="open = true; state = 'terdaftar'"
+                            class="alert-berat ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
                             {{ $message }}
                         </p>
                     @enderror
@@ -310,7 +315,8 @@
 
 
                     @error('jenis_sampah')
-                        <p x-init="open = true" class="alert-harga ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
+                        <p x-init="open = true; state = 'terdaftar'"
+                            class="alert-harga ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
                             {{ $message }}
                         </p>
                     @enderror
