@@ -117,7 +117,7 @@
         <!-- Modal Tambah Data Transaksi -->
         <div class="fixed inset-0 z-50 bg-black/50" x-show="open" x-cloak></div>
         <div x-data="{ state: null }" x-show="open" x-on:click.away="open = false" x-cloak
-            class="lg:w-2/5 md:w1/2 fixed z-50 top-2 left-1/2 -translate-x-1/2 rounded-xl shadow-lg bg-white dark:bg-gray-800">
+            class="w-5/6 sm:w-1/2 md:w-1/2 lg:w-2/5 fixed z-50 top-2 left-1/2 -translate-x-1/2 rounded-xl shadow-lg bg-white dark:bg-gray-800">
             <header class="px-5 py-4 mb-4 border-b border-gray-100 dark:border-gray-700/60">
 
                 <h2 x-show="state === null" x-transition class="font-semibold text-gray-800 dark:text-gray-100">
