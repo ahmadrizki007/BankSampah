@@ -59,8 +59,8 @@
         <div class="pb-4 bg-white dark:bg-gray-800 shadow-md rounded-xl">
 
             <header
-                class="flex items-center justify-between px-5 py-4 mb-3 border-b border-gray-100 dark:border-gray-700/60">
-                <h2 class="font-semibold text-gray-800 dark:text-gray-100">
+                class="flex items-center justify-end sm:justify-between px-5 py-4 mb-3 border-b border-gray-100 dark:border-gray-700/60">
+                <h2 x-show="$media.isMobile ? false : true" class="font-semibold text-gray-800 dark:text-gray-100">
                     Data Transaksi
                 </h2>
 
@@ -351,12 +351,18 @@
 
             <footer class="space-x-2 px-5 py-4 border-t border-gray-100 dark:border-gray-700/60" :class="state !== null ? 'flex justify-between' : ''">
 
-                <button x-on:click="state = null" x-show="state !== null"
-                    class="text-center py-2 px-4 rounded-md bg-white text-black/70 font-thin border border-gray-200 shadow hover:shadow-lg">
-                    Kembali
-                </button>
+                <div x-data :class="$media.isMobile ? 'flex flex-col gap-y-1 justify-center' : ''">
+                    <button x-on:click="state = null" x-show="state !== null" `
+                        class="text-center py-2 px-4 rounded-md bg-white text-black/70 font-thin border border-gray-200 shadow hover:shadow-lg">
+                        Kembali
+                    </button>
+                    <button x-on:click="open = false" x-show="$media.isMobile ? true : false" :class="state === null ? 'self-start' : ''"
+                        class="text-center py-2 px-4 rounded-md bg-white text-black/70 font-thin border border-gray-200 shadow hover:shadow-lg">
+                        Tutup
+                    </button>
+                </div>
 
-                <div class="text-right">
+                <div class="text-right" x-data :class="$media.isMobile ? 'flex items-center justify-center' : ''">
                     <button type="button" x-show="state === '!terdaftar'" x-on:click="$refs.form1.submit()"
                         class="text-center py-2 px-4 rounded-md bg-primary-300 text-white font-semibold shadow hover:shadow-lg hover:font-bold transition duration-200">
                         Simpan
@@ -367,7 +373,7 @@
                         Simpan
                     </button>
 
-                    <button x-on:click="open = false"
+                    <button x-on:click="open = false" x-show="$media.isMobile ? false : true"
                         class="text-center py-2 px-4 rounded-md bg-white text-black/70 font-thin border border-gray-200 shadow hover:shadow-lg">
                         Tutup
                     </button>
