@@ -1,19 +1,12 @@
 import { Livewire } from '../../vendor/livewire/livewire/dist/livewire.esm';
 import Alpine from 'alpinejs';
-import responsive from '@cesarfernandoig/alpine-responsive-plugin';
 import mask from '@alpinejs/mask';
 
-Alpine.plugin(responsive)
 Alpine.plugin(mask)
-
-Alpine.start()
 
 Livewire.start()
 
-
-
 import './bootstrap';
- 
 
 document.addEventListener('DOMContentLoaded', () => {
 

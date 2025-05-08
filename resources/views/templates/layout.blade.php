@@ -78,7 +78,7 @@
 
     @include('templates.footer')
 
-    @livewireScriptConfig
+    <!-- @livewireScriptConfig -->
     @yield('scripts')
 
     <script>
