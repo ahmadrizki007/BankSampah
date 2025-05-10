@@ -68,9 +68,9 @@
     </div>
 
     <!-- SEO -->
-    <h1 x-show="false">
+    <h1 class="hidden">
         Bank Sampah
-        <h2 x-show="false">
+        <h2 class="hidden">
             Bank Sampah Sahabat Gajah
         </h2>
     </h1>
