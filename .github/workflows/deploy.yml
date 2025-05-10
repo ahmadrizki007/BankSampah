@@ -1,4 +1,4 @@
-name: Deploy ke VPS
+name: Deploy into VPS
 
 on:
   push:
@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Repository
+    - name: Checkout Repository  # upload the repo into virtual machine 
       uses: actions/checkout@v4
 
     - name: Setup SSH
@@ -18,7 +18,7 @@ jobs:
       with:
         ssh-private-key: ${{ secrets.VPS_SSH_KEY }}
 
-    - name: Deploy ke VPS
+    - name: Deploy into VPS
       run: |
         ssh -o StrictHostKeyChecking=no ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << 'EOF'
           cd /var/www/bank-sampah
@@ -30,7 +30,7 @@ jobs:
           npm install
           npm run build
 
-          # Laravel stuff
+          # Laravel preparation
           composer install --no-dev --optimize-autoloader
           # php artisan migrate --force
           php artisan config:clear
