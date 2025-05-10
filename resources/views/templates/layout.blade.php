@@ -49,7 +49,7 @@
     <script src="https://cdn.datatables.net/2.2.2/js/dataTables.js"></script>
 </head>
 
-<body class="max-w-[100rem] mx-auto relative text-white overflow-x-hidden">
+<body class="mx-auto relative text-white overflow-x-hidden">
 
     <!-- Error notif -->
     @error('error')
