@@ -23,3 +23,6 @@ yarn-error.log
 /.vscode
 /.zed
 /.hostinger_config
+Dockerfile
+docker-compose.yml
+frankenphp.yaml

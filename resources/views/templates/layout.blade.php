@@ -49,7 +49,7 @@
     <script src="https://cdn.datatables.net/2.2.2/js/dataTables.js"></script>
 </head>
 
-<body class="max-w-[100rem] mx-auto relative text-white overflow-x-hidden">
+<body class="mx-auto relative text-white overflow-x-hidden">
 
     <!-- Error notif -->
     @error('error')
@@ -68,9 +68,9 @@
     </div>
 
     <!-- SEO -->
-    <h1 x-show="false">
+    <h1 class="hidden">
         Bank Sampah
-        <h2 x-show="false">
+        <h2 class="hidden">
             Bank Sampah Sahabat Gajah
         </h2>
     </h1>

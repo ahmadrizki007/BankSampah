@@ -59,8 +59,8 @@
         <div class="pb-4 bg-white dark:bg-gray-800 shadow-md rounded-xl">
 
             <header
-                class="flex items-center justify-between px-5 py-4 mb-3 border-b border-gray-100 dark:border-gray-700/60">
-                <h2 class="font-semibold text-gray-800 dark:text-gray-100">
+                class="flex items-center justify-end sm:justify-between px-5 py-4 mb-3 border-b border-gray-100 dark:border-gray-700/60">
+                <h2 class="hidden sm:block  font-semibold text-gray-800 dark:text-gray-100">
                     Data Transaksi
                 </h2>
 
@@ -117,7 +117,7 @@
         <!-- Modal Tambah Data Transaksi -->
         <div class="fixed inset-0 z-50 bg-black/50" x-show="open" x-cloak></div>
         <div x-data="{ state: null }" x-show="open" x-on:click.away="open = false" x-cloak
-            class="lg:w-2/5 md:w1/2 fixed z-50 top-2 left-1/2 -translate-x-1/2 rounded-xl shadow-lg bg-white dark:bg-gray-800">
+            class="w-5/6 sm:w-1/2 md:w-1/2 lg:w-2/5 fixed z-50 top-2 left-1/2 -translate-x-1/2 rounded-xl shadow-lg bg-white dark:bg-gray-800">
             <header class="px-5 py-4 mb-4 border-b border-gray-100 dark:border-gray-700/60">
 
                 <h2 x-show="state === null" x-transition class="font-semibold text-gray-800 dark:text-gray-100">
@@ -351,12 +351,18 @@
 
             <footer class="space-x-2 px-5 py-4 border-t border-gray-100 dark:border-gray-700/60" :class="state !== null ? 'flex justify-between' : ''">
 
-                <button x-on:click="state = null" x-show="state !== null"
-                    class="text-center py-2 px-4 rounded-md bg-white text-black/70 font-thin border border-gray-200 shadow hover:shadow-lg">
-                    Kembali
-                </button>
+                <div class="flex flex-col gap-y-1 justify-center md:flex-none md:gap-0">
+                    <button x-on:click="state = null" x-show="state !== null" `
+                        class="text-center py-2 px-4 rounded-md bg-white text-black/70 font-thin border border-gray-200 shadow hover:shadow-lg">
+                        Kembali
+                    </button>
+                    <button x-on:click="open = false" :class="state === null ? 'self-start' : ''"
+                        class="block sm:hidden text-center py-2 px-4 rounded-md bg-white text-black/70 font-thin border border-gray-200 shadow hover:shadow-lg">
+                        Tutup
+                    </button>
+                </div>
 
-                <div class="text-right">
+                <div class="flex items-center justify-center md:flex-none md:justify-end md:gap-x-2">
                     <button type="button" x-show="state === '!terdaftar'" x-on:click="$refs.form1.submit()"
                         class="text-center py-2 px-4 rounded-md bg-primary-300 text-white font-semibold shadow hover:shadow-lg hover:font-bold transition duration-200">
                         Simpan
@@ -368,7 +374,7 @@
                     </button>
 
                     <button x-on:click="open = false"
-                        class="text-center py-2 px-4 rounded-md bg-white text-black/70 font-thin border border-gray-200 shadow hover:shadow-lg">
+                        class="hidden md:block text-center py-2 px-4 rounded-md bg-white text-black/70 font-thin border border-gray-200 shadow hover:shadow-lg">
                         Tutup
                     </button>
 

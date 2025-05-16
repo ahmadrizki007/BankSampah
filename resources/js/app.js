@@ -1,17 +1,14 @@
 import { Livewire } from '../../vendor/livewire/livewire/dist/livewire.esm';
 import Alpine from 'alpinejs';
 import mask from '@alpinejs/mask';
- 
+
 Alpine.plugin(mask)
 
 Livewire.start()
 
 import './bootstrap';
- 
 
 document.addEventListener('DOMContentLoaded', () => {
-
-
   // light/dark mode switcher
   const lightSwitches = document.querySelectorAll('.light-switch');
   if (lightSwitches.length > 0) {
@@ -28,8 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         document.documentElement.classList.add('**:transition-none!');
         if (lightSwitch.checked) {
-          document.documentElement.classList.add('dark');
-          document.querySelector('html').style.colorScheme = 'dark';
+            document.documentElement.classList.add('dark');
+            document.querySelector('html').style.colorScheme = 'dark';
           localStorage.setItem('dark-mode', true);
           document.dispatchEvent(new CustomEvent('darkMode', { detail: { mode: 'on' } }));
         } else {
