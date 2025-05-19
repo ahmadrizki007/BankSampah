@@ -51,11 +51,11 @@
                                         class="inline-flex items-center px-3 font-semibold text-sm text-gray-900 bg-gray-200 border rounded-e-0 border-gray-300 border-e-0 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
                                         Rp.
                                     </span>
+                                    
                                     <input x-mask:dynamic="$money($input, ',')" type="text" name="harga" id="harga"
-                                        value="{{ (old('harga')) ? old('harga') : $data->harga }}" pattern="^[0-9]*$"
-                                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')"
+                                        value="{{ (old('harga')) ? old('harga') : $data->harga }}" 
                                         class="px-4 py-2 w-full block flex-1 rounded-none rounded-e-lg text-sm bg-gray-50 border border-gray-300 text-gray-900 outline-none focus:ring-2 focus:ring-primary-300 focus:border-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-primary-300 dark:focus:border-primary-300">
-                                </div>
+                                    </div>
 
                                 @error('harga')
                                     <p class="ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
