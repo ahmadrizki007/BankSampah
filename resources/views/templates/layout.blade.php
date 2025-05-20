@@ -82,11 +82,44 @@
     @yield('scripts')
 
     <script>
-        // magic attribute alpine ($rupiah)
+        
         document.addEventListener('alpine:init', () => {
+
+            // Magic attribute alpine ($rupiah)
             Alpine.magic('rupiah', () => (value) => {
                 return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
             })
+
+            // Global alpine data reusable
+            Alpine.data('validationFormatter', () => ({
+                mode: null,
+                balance: '' , 
+                amount: '',
+                minimumWithdraw: 10000,
+
+                // Validation 
+               get numericAmount() {
+                    return Number(this.amount.replaceAll('.', '').replaceAll(',', '')) || 0;
+                },
+               get error() {
+                    return this.numericAmount > this.balance;
+                },
+               get errorMinimum(){
+                    if(!this.error && this.amount !== ''){
+                    return this.numericAmount < this.minimumWithdraw;
+                    }
+                },
+
+                // Formatter dynamic dot currency
+                formatter(event) {
+                    // remove non digit character
+                    this.amount = this.amount.replace(/[^\d]/g, '')
+
+                    // formatting input with dot format money
+                    this.amount = this.amount.replace(/\B(?=(\d{3})+(?!\d))/g, '.')
+                },  
+
+            }))
         })
     </script>
 

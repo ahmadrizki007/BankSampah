@@ -46,14 +46,13 @@
 
                             <div class="mt-3">
                                 <label for="harga" class="block mb-2 font-medium dark:text-white">Harga Produk</label>
-                                <div class="flex">
+                                <div x-data="formatter" class="flex">
                                     <span
                                         class="inline-flex items-center px-3 font-semibold text-sm text-gray-900 bg-gray-200 border rounded-e-0 border-gray-300 border-e-0 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
                                         Rp.
                                     </span>
-                                    <input x-mask:dynamic="$money($input, ',')" type="text" name="harga" id="harga"
-                                        value="{{ (old('harga')) ? old('harga') : $data->harga }}" pattern="^[0-9]*$"
-                                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')"
+                                    <input x-model="amount" @input="formatter" x-init="amount = $rupiah({{ (old('harga')) ? old('harga') : $data->harga }})" type="text" name="harga" id="harga"
+                                        value="{{ (old('harga')) ? old('harga') : $data->harga }}"
                                         class="px-4 py-2 w-full block flex-1 rounded-none rounded-e-lg text-sm bg-gray-50 border border-gray-300 text-gray-900 outline-none focus:ring-2 focus:ring-primary-300 focus:border-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-primary-300 dark:focus:border-primary-300">
                                 </div>
 
@@ -108,7 +107,7 @@
                     <div class="mt-6 flex justify-end">
                         <button type="submit"
                             class="block flex-none text-center py-2 px-10 rounded-md bg-primary-300 text-white font-semibold shadow hover:bg-primary-500 hover:shadow-lg hover:font-bold transition duration-200">
-                            Tambah
+                            Simpan
                         </button>
                     </div>
                 </form>

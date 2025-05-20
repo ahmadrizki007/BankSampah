@@ -101,7 +101,19 @@
             document.addEventListener('alpine:init', () => {
                 Alpine.magic('rupiah', () => (value) => {
                     return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
-                })
+                });
+
+                Alpine.data('formatter', () => ({
+                    amount: '',
+                    // Formatter dynamic dot currency
+                    formatter(event) {
+                        // remove non digit character
+                        this.amount = this.amount.replace(/[^\d]/g, '')
+
+                        // formatting input with dot format money
+                        this.amount = this.amount.replace(/\B(?=(\d{3})+(?!\d))/g, '.')
+                    },  
+                }));
             })
         </script>
 

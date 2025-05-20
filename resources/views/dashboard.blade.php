@@ -36,23 +36,9 @@
             <!-- Cards Container: Two cards side by side -->
             <div class="flex gap-6 lg:flex-row flex-col">
                 <!-- Card: Dompet Kamu (Balance) -->
-                <div x-data="{ mode: null,
-                            balance: {{ Auth::user()->balance }}, 
-                            amount: '',
-                            minimumWithdraw: 10000,
-                            get numericAmount() {
-                                return Number(this.amount.replaceAll('.', '').replaceAll(',', '')) || 0;
-                            },
-                            get error() {
-                                return this.numericAmount > this.balance;
-                            },
 
-                            get errorMinimum(){
-                                if(!this.error && this.amount !== ''){
-                                return this.numericAmount < this.minimumWithdraw;
-                                }
-                            }
-                            }" class="sm:p-6 h-full p-3 bg-white rounded-lg shadow-lg flex flex-col">
+                <!-- Validation rule using alpinejs -->
+                <div x-data="validationFormatter" x-init="balance = {{ Auth::user()->balance }}" class="sm:p-6 h-full p-3 bg-white rounded-lg shadow-lg flex flex-col">
                     <div class="sm:text-2xl text-lg text-gray-600 mb-4">Dompet Kamu</div>
                     <div class="sm:text-lg font-inter text-primary-gray">Saldo Tersedia</div>
                     <div class="sm:text-4xl text-3xl font-semibold mt-4 mb-4">
@@ -74,17 +60,17 @@
                     </div>
 
                     <!-- Tarik saldo -->
-                    <form x-show="mode === 'tarik'" x-transition action="{{ route('penarikan.tarikSaldo') }}" method="POST"
+                    <form  x-show="mode === 'tarik'" x-transition action="{{ route('penarikan.tarikSaldo') }}" method="POST"
                         class="pt-4 border-t-2 border-gray-500">
                         @csrf
 
                         <span class="text-black/60 italic text-sm">Nominal Penarikan</span>
-                        <div class="flex">
+                        <div class="flex" >
                             <span
                                 class="inline-flex items-center px-3 font-semibold text-sm text-gray-900 bg-gray-200 border rounded-e-0 border-gray-300 border-e-0 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
                                 Rp
                             </span>
-                            <input x-model="amount" x-mask:dynamic="$money($input, ',')"
+                            <input x-model="amount" @input="formatter"
                                 value="{{ (old('nominal')) ? old('nominal') : ''}}" type="text" name="nominal"
                                 class="px-4 py-2 w-full block flex-1 rounded-none rounded-e-lg text-sm bg-gray-50 border border-gray-300 text-gray-900 outline-none focus:ring-2 focus:ring-primary-300 focus:border-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-primary-300 dark:focus:border-primary-300"
                                 placeholder="0" required min="0" pattern="^[0-9,.]*$"
@@ -93,7 +79,7 @@
                         <p x-show="error" class="ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">Saldo tidak cukup
                         </p>
 
-                        <p x-show="errorMinimum" class="ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">Minimal
+                        <p x-show="errorMinimum" class="ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">Minimal penarikan Rp.
                             10.000
                         </p>
 
