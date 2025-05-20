@@ -23,7 +23,7 @@ ob_clean();
     return $sitemap->toResponse(request());
 });
 
-// ga perlu login
+// Tidak memerlukan login
 Route::get('/', function () {
     return view('beranda');
 })->name('/');

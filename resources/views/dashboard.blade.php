@@ -1,7 +1,7 @@
 @extends('templates.layout')
 
 @section('title')
-    <title>Profile</title>
+    <title>Dashboard</title>
 @endsection
 
 @section('scripts')
@@ -37,15 +37,22 @@
             <div class="flex gap-6 lg:flex-row flex-col">
                 <!-- Card: Dompet Kamu (Balance) -->
                 <div x-data="{ mode: null,
-                    balance: {{ Auth::user()->balance }}, 
-                    amount: '',
-                    get numericAmount() {
-                        return Number(this.amount.replaceAll('.', '').replaceAll(',', '')) || 0;
-                    },
-                    get error() {
-                        return this.numericAmount > this.balance;
-                    }
-                    }" class="sm:p-6 h-full p-3 bg-white rounded-lg shadow-lg flex flex-col">
+                            balance: {{ Auth::user()->balance }}, 
+                            amount: '',
+                            minimumWithdraw: 10000,
+                            get numericAmount() {
+                                return Number(this.amount.replaceAll('.', '').replaceAll(',', '')) || 0;
+                            },
+                            get error() {
+                                return this.numericAmount > this.balance;
+                            },
+
+                            get errorMinimum(){
+                                if(!this.error && this.amount !== ''){
+                                return this.numericAmount < this.minimumWithdraw;
+                                }
+                            }
+                            }" class="sm:p-6 h-full p-3 bg-white rounded-lg shadow-lg flex flex-col">
                     <div class="sm:text-2xl text-lg text-gray-600 mb-4">Dompet Kamu</div>
                     <div class="sm:text-lg font-inter text-primary-gray">Saldo Tersedia</div>
                     <div class="sm:text-4xl text-3xl font-semibold mt-4 mb-4">
@@ -86,11 +93,20 @@
                         <p x-show="error" class="ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">Saldo tidak cukup
                         </p>
 
+                        <p x-show="errorMinimum" class="ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">Minimal
+                            10.000
+                        </p>
+
+                        @error('saldo')
+                            <p class="ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">Saldo tidak cukup
+                            </p>
+                        @enderror
+
                         <button x-on:click="mode = null; amount = ''" type="button"
                             class="w-full mb-1 mt-8 rounded-lg shadow-md text-white bg-gray-400 hover:bg-gray-400/90 hover:shadow-xl">
                             Batal
                         </button>
-                        <button :disabled="error || numericAmount === 0" type="submit"
+                        <button :disabled="error || numericAmount === 0 || errorMinimum" type="submit"
                             class="w-full py-2 rounded-lg shadow-md text-white bg-primary-500 hover:bg-primary-500/90 hover:shadow-xl cursor-pointer">
                             Tarik
                             Saldo
