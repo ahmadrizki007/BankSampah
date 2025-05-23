@@ -164,12 +164,13 @@ class TransaksiController extends Controller
         $state = $request->input('state_not');
 
         $validator = Validator::make($request->all(), [
-            'nama' => ['required'],
+            'nama' => ['required','unique:App\Models\User,name'],
             'nomor_telepon' => ['required'],
             'berat' => ['required'],
             'jenis_sampah' => ['required'],
         ], [
             'nama.required' => 'Nama harus diisi',
+            'nama.unique' => 'Nama sudah terdaftar',
             'nomor_telepon.required' => 'Nomor telepon harus diisi',
             'berat.required' => 'Berat harus diisi',
             'jenis_sampah' => 'Jenis sampah harus diisi',
