@@ -17,15 +17,15 @@
                 <tbody>
                     <tr class="border-b-[3px] border-gray-200">
                         <td class="bg-gray-100 p-3 font-medium text-gray-700 w-1/2">Tanggal Penarikan</td>
-                        <td class="p-3 text-gray-900">23–04–2025</td>
+                        <td class="p-3 text-gray-900">{{ $tanggal }}</td>
                     </tr>
                     <tr class="border-b-[3px] border-gray-200">
                         <td class="bg-gray-100 p-3 font-medium text-gray-700 w-1/2">Total Penarikan</td>
-                        <td class="p-3 text-gray-900">23–04–2025</td>
+                        <td class="p-3 text-gray-900">Rp. {{ $jumlah }}</td>
                     </tr>
                     <tr class="border-b-[3px] border-gray-200">
                         <td class="bg-gray-100 p-3 font-medium text-gray-700 w-1/2">Alasan Penolakan</td>
-                        <td class="p-3 text-gray-900">23–04–2025</td>
+                        <td class="p-3 text-gray-900">{{ $catatan }}</td>
                     </tr>
                 </tbody>
             </table>
