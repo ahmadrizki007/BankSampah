@@ -49,7 +49,8 @@
                     <div class="sm:mb-4 mb-2">
                         <input type="text" name="age" placeholder="umur" value="{{ old('age') }}"
                             class="age w-full px-4 py-2 mt-2 border rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
-                            required>
+                            required oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+>
                         <ul>
                             @error('age')
                                 <li class="alert-age ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">{{ $message }}
