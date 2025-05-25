@@ -111,7 +111,7 @@ class PenarikanController extends Controller
 
             // Sending email when the withdraw is rejected
             Mail::send('admins.emails.reject', [
-                'tanggal' => $penarikan->created_at->format('d f y'),
+                'tanggal' => $penarikan->created_at->format('d F Y'),
                 'nama' => $user->name,
                 'jumlah' => $penarikan->jumlah_penarikan,
                 'catatan' => $request->input('note')
@@ -123,6 +123,8 @@ class PenarikanController extends Controller
         } catch (Exception $e) {
             DB::rollBack();
 
+
+            // dd($e);
             return redirect()->back()->withErrors([
                 'error' => [
                     'message' => 'Terjadi kesalahan server',

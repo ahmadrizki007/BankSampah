@@ -13,8 +13,8 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="font-sans text-gray-900 antialiased flex justify-center items-center">
-    <div class="w-full max-w-2xl">
+<body style="font-family: sans-serif; color: #1a202c; display: flex; justify-content: center; align-items: center;">
+    <div style="width: 100%; max-width: 768px;">
         {{ $slot }}
     </div>
 </body>

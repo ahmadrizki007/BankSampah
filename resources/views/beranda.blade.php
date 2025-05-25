@@ -243,8 +243,11 @@
 
                 <!-- Bagian Gambar -->
                 <div class="lg:max-w-400px md:max-w-350px max-w-72">
+                <a href="https://www.freepik.com/free-photo/top-view-hands-holding-elephant-figurine-animal-day_10101306.htm#fromView=keyword&page=1&position=0&uuid=95dcc0d1-9ead-4cbd-855b-16fc264a3e36&query=Elephant+Charities" target="_blank" title="Image courtesy of Freepik">
                     <img src={{ asset("asset/G6.png") }} alt="Bantu Bank Sampah Sahabat Gajah">
-                </div>
+                </a>
+            </div>
+
             </div>
         </section>
 

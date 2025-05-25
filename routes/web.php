@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\Tags\Url;
 
+
 // SEO
 Route::get('/sitemap.xml', function () {
     ob_clean();
