@@ -8,6 +8,7 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class PenarikanController extends Controller
@@ -100,9 +101,24 @@ class PenarikanController extends Controller
             $id = $request->input('id');
             DB::beginTransaction();
 
-            Penarikan::where('user_id', $user_id)->where('id', $id)->update(['state' => 'rejected']);
+            Penarikan::where('user_id', $user_id)->where('id', $id)->update(['state' => 'rejected', 'catatan' => $request->input('note')]);
 
             DB::commit();
+
+            // Getting user data
+            $user = User::find($user_id);
+            $penarikan = Penarikan::find($id);
+
+            // Sending email when the withdraw is rejected
+            Mail::send('admins.emails.reject', [
+                'tanggal' => $penarikan->created_at->format('d f y'),
+                'nama' => $user->name,
+                'jumlah' => $penarikan->jumlah_penarikan,
+                'catatan' => $request->input('note')
+            ], function ($message) use ($user) {
+                $message->to($user->email)
+                    ->subject('Penarikan Saldo Ditolak');
+            });
 
         } catch (Exception $e) {
             DB::rollBack();

@@ -12,6 +12,7 @@ class Penarikan extends Model
         'id',
         'jumlah_penarikan',
         'state',
+        'catatan',
         'user_id',
         'user_anonym_id'
     ];

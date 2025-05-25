@@ -159,12 +159,12 @@
                                                         class="inline-flex items-center px-3 font-semibold text-sm text-gray-900 bg-gray-200 border rounded-e-0 border-gray-300 border-e-0 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
                                                         Rp.
                                                     </span>
-                                                    <input x-model="amount" @input="formatter" x-init="amount = $rupiah({{ (old('harga_' . (string) $row->id)) ? old('harga_' . (string) $row->id) : $row->harga }})"
+                                                    <input x-model="amount" @input="formatter"
+                                                        x-init="amount = $rupiah({{ (old('harga_' . (string) $row->id)) ? old('harga_' . (string) $row->id) : $row->harga }})"
                                                         value="{{ (old('harga_' . (string) $row->id)) ? old('harga_' . (string) $row->id) : $row->harga }}"
                                                         type="text" id="harga-edit" name="harga_{{ $row->id }}"
                                                         class="px-4 py-2 w-full block flex-1 rounded-none rounded-e-lg text-sm bg-gray-50 border border-gray-300 text-gray-900 outline-none focus:ring-2 focus:ring-primary-300 focus:border-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-primary-300 dark:focus:border-primary-300"
-                                                        placeholder="Harga (rupiah)" required pattern="^[0-9,.]*$"
-                                                        oninput="this.value = this.value.replace(/[-]/g, '')">
+                                                        placeholder="Harga (rupiah)" required>
                                                 </div>
 
                                                 @if($errors->has('harga_' . (string) $row->id))
@@ -197,7 +197,6 @@
                 </table>
             </div>
         </div>
-
 
         <!-- Modal Tambah Data Sampah -->
         <div class="fixed inset-0 z-50 bg-black/50" x-show="open" x-cloak></div>

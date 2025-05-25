@@ -53,9 +53,9 @@
                     <!-- Nomor Telepon -->
                     <div>
                         <label for="phone" class="block font-medium text-primary-500">Nomor Telepon</label>
-                        <input type="tel" id="phone" name="nomor_telepon"
+                        <input type="text" id="phone" name="nomor_telepon" 
                             class="mt-1 w-full sm:p-4 p-2 border border-primary-gray rounded-lg"
-                            placeholder="Masukkan Nomor Telepon Anda" required>
+                            placeholder="Masukkan Nomor Telepon Anda" required oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                         @error('nomor_telepon')
                             <p class="alert-user_id ms-1 mt-1 italic text-sm text-red-600 dark:text-red-400">
                                 {{ $message }}
