@@ -56,7 +56,8 @@
         ],
         "dev": "npx concurrently -c \"#93c5fd,#c4b5fd,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1\" \"npm run dev\" --names='server,queue,vite'",
         "migrate-all": "php artisan migrate:fresh --seed",
-        "clear":"php artisan config:clear && php artisan cache:clear && php artisan view:clear"
+        "clear":"php artisan config:clear && php artisan cache:clear && php artisan view:clear",
+        "install-all":"composer install && npm install"
     },
     "extra": {
         "laravel": {

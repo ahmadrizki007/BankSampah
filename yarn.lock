@@ -12,11 +12,6 @@
   resolved "https://registry.npmjs.org/@alpinejs/mask/-/mask-3.14.9.tgz"
   integrity sha512-duuEo1tkrpxqBXISXWU6y4pnIdp22OzmgrQ0Q+W4R/mG2545rl360ihI3Dolbv2dS2E3C0sFsmS0pZcpFaGOZw==
 
-"@cesarfernandoig/alpine-responsive-plugin@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.npmjs.org/@cesarfernandoig/alpine-responsive-plugin/-/alpine-responsive-plugin-1.0.0.tgz"
-  integrity sha512-uEBJRDc09uZIGPfP7KfBV4h39zsx/oH0LYFi0wFX/Ao2SlWDzAUJc5Fse5Ho/n7Z2Xp6cjnOPzwgcK/KVMGFcA==
-
 "@esbuild/win32-x64@0.25.4":
   version "0.25.4"
   resolved "https://registry.npmjs.org/@esbuild/win32-x64/-/win32-x64-0.25.4.tgz"
